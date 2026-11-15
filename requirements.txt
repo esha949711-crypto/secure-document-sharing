@@ -1,0 +1,2 @@
+cryptography>=42
+streamlit>=1.30   # optional, only for the GUI
