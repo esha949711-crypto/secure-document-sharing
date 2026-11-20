@@ -1,1192 +1,390 @@
+
+/* ==========================================
+   PREMIUM SHOCKING PINK + DARK NAVY THEME
+   Streamlit Professional UI
+========================================== */
+
 :root {
+    --bg: #10152b;
+    --surface: #1b2340;
+    --surface-soft: #252e4e;
+    --border: #414568;
 
-    /* =================================================
-       PREMIUM MIDNIGHT + PINK THEME
-       ================================================= */
+    --pink: #ff1493;
+    --pink-light: #ff4db8;
+    --pink-dark: #d60075;
+    --pink-soft: #421c3b;
 
-    --bg: #0f1729;
-    --bg-soft: #151f36;
+    --text: #ffffff;
+    --muted: #e2dce8;
+    --success: #27d7a1;
 
-    --card: #18243d;
-    --card-light: #1d2b47;
-    --card-hover: #243453;
-
-    --primary: #d946ef;
-    --primary-dark: #b82fd0;
-    --primary-soft: rgba(217, 70, 239, 0.14);
-
-    --pink: #f472b6;
-    --pink-light: #f9a8d4;
-
-    --white: #ffffff;
-    --white-soft: #f8f5fa;
-    --text-light: #e9e4ee;
-
-    --muted: #b8b1c2;
-
-    --border: rgba(255, 255, 255, 0.10);
-    --border-pink: rgba(217, 70, 239, 0.35);
-
-    --success: #34d399;
-
-    --shadow:
-        0 15px 45px rgba(0, 0, 0, 0.28);
+    --shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
 }
 
-
-/* =================================================
-   GLOBAL APP
-   ================================================= */
-
+/* MAIN APP */
 .stApp {
-
     background:
-        radial-gradient(
-            circle at 10% 0%,
-            rgba(217, 70, 239, 0.16),
-            transparent 30%
-        ),
+        radial-gradient(circle at 10% 5%, #392044 0%, transparent 30%),
+        radial-gradient(circle at 90% 90%, #25204b 0%, transparent 35%),
+        var(--bg);
 
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(244, 114, 182, 0.10),
-            transparent 28%
-        ),
-
-        linear-gradient(
-            135deg,
-            #0f1729 0%,
-            #111b31 50%,
-            #0f1729 100%
-        ) !important;
-
-    color: var(--white) !important;
-
-    font-family:
-        "Segoe UI",
-        "Inter",
-        Arial,
-        sans-serif;
+    color: var(--text) !important;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
-
-html,
-body,
-[class*="css"] {
-
-    color: var(--white);
-
-    font-family:
-        "Segoe UI",
-        "Inter",
-        Arial,
-        sans-serif;
+/* GLOBAL TEXT */
+.stApp p,
+.stApp label,
+.stApp span,
+.stApp li,
+.stApp div {
+    color: inherit;
 }
 
-
-/* =================================================
-   MAIN CONTAINER
-   ================================================= */
-
-.block-container {
-
-    max-width: 1320px;
-
-    padding:
-        1.8rem 2rem 3rem;
+.stMarkdown,
+.stMarkdown p,
+.stMarkdown li,
+.stMarkdown h1,
+.stMarkdown h2,
+.stMarkdown h3 {
+    color: var(--text) !important;
 }
 
-
-/* =================================================
-   STREAMLIT HEADER
-   ================================================= */
-
-[data-testid="stHeader"] {
-
-    background:
-        transparent !important;
+h1, h2, h3, h4 {
+    color: #ffffff !important;
+    font-weight: 750 !important;
 }
 
-
-#MainMenu,
-footer {
-
-    visibility:
-        hidden;
+p, label {
+    color: var(--muted) !important;
 }
 
-
-/* =================================================
-   TOP NAVIGATION
-   ================================================= */
-
+/* TOP BAR */
 .topbar {
-
-    background:
-        rgba(24, 36, 61, 0.92);
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        16px;
-
-    box-shadow:
-        0 10px 35px rgba(0, 0, 0, 0.20);
-
-    backdrop-filter:
-        blur(16px);
+    background: linear-gradient(120deg, #202744, #321c3d);
+    border: 1px solid #51405d;
+    border-radius: 18px;
+    padding: 18px 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 25px;
 }
-
-
-/* =================================================
-   BRAND ICON
-   ================================================= */
-
-.brand-icon {
-
-    background:
-        linear-gradient(
-            135deg,
-            #b82fd0,
-            #f472b6
-        );
-
-    border:
-        1px solid rgba(255,255,255,0.18);
-
-    box-shadow:
-        0 8px 25px rgba(217,70,239,0.30);
-}
-
-
-/* =================================================
-   BRAND NAME
-   ================================================= */
 
 .brand-name {
-
-    color:
-        #ffffff !important;
-
-    font-size:
-        20px;
-
-    font-weight:
-        800;
-
-    letter-spacing:
-        -0.3px;
+    color: #ffffff !important;
+    font-size: 25px;
+    font-weight: 800;
 }
 
-
-.brand-subtitle {
-
-    color:
-        #c9c1d0 !important;
-
-    font-size:
-        12px;
+.brand-name span {
+    color: var(--pink-light) !important;
 }
 
-
-/* =================================================
-   ONLINE STATUS
-   ================================================= */
-
-.top-status {
-
-    background:
-        rgba(52, 211, 153, 0.12);
-
-    border:
-        1px solid rgba(52, 211, 153, 0.30);
-
-    color:
-        #6ee7b7 !important;
-
-    font-weight:
-        700;
-
-    border-radius:
-        999px;
-}
-
-
-/* =================================================
-   HERO SECTION
-   ================================================= */
-
+/* HERO SECTION */
 .hero {
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
-
     background:
+        radial-gradient(circle at 90% 10%, #702052 0%, transparent 35%),
+        linear-gradient(135deg, #202744, #321c3d);
 
-        radial-gradient(
-            circle at 85% 30%,
-            rgba(244, 114, 182, 0.22),
-            transparent 28%
-        ),
+    border: 1px solid #69415f;
+    border-radius: 24px;
+    padding: 42px 35px;
+    margin-bottom: 30px;
 
-        radial-gradient(
-            circle at 60% 100%,
-            rgba(217, 70, 239, 0.15),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            125deg,
-            #18243d 0%,
-            #211f42 55%,
-            #2b2145 100%
-        );
-
-    border:
-        1px solid rgba(217,70,239,0.25);
-
-    border-radius:
-        22px;
-
-    box-shadow:
-        0 20px 55px rgba(0,0,0,0.32);
+    box-shadow: 0 15px 45px rgba(255, 20, 147, 0.12);
 }
-
-
-/* =================================================
-   HERO LABEL
-   ================================================= */
-
-.hero-label {
-
-    color:
-        #f9a8d4 !important;
-
-    font-size:
-        12px;
-
-    font-weight:
-        800;
-
-    letter-spacing:
-        1.5px;
-
-    text-transform:
-        uppercase;
-}
-
-
-/* =================================================
-   HERO MAIN HEADING
-   ================================================= */
 
 .hero h1 {
-
-    color:
-        #ffffff !important;
-
-    font-size:
-        44px;
-
-    font-weight:
-        850;
-
-    line-height:
-        1.08;
-
-    letter-spacing:
-        -1px;
-
-    text-shadow:
-        0 3px 20px rgba(0,0,0,0.22);
+    color: #ffffff !important;
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 850;
+    line-height: 1.2;
 }
-
-
-/* Highlighted part */
 
 .hero h1 span {
-
-    color:
-        #f472b6 !important;
-
-    font-weight:
-        900;
+    color: var(--pink-light) !important;
 }
 
-
-/* =================================================
-   HERO DESCRIPTION
-   ================================================= */
-
-.hero .hero-copy {
-
-    color:
-        #eee8f1 !important;
-
-    font-size:
-        15px;
-
-    line-height:
-        1.8;
-
-    max-width:
-        720px;
+.hero-copy {
+    color: #f0e7f0 !important;
+    font-size: 16px;
+    line-height: 1.8;
 }
 
-
-/* =================================================
-   HERO TAGS
-   ================================================= */
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
 
 .hero-tags span {
-
-    background:
-        rgba(255,255,255,0.07);
-
-    border:
-        1px solid rgba(255,255,255,0.16);
-
-    color:
-        #ffffff !important;
-
-    border-radius:
-        999px;
-
-    padding:
-        7px 13px;
-
-    font-weight:
-        650;
+    background: #48203f;
+    color: #ffb5df !important;
+    border: 1px solid #a53d7c;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 13px;
 }
 
-
-/* =================================================
-   HERO VISUAL
-   ================================================= */
-
-.hero-visual {
-
-    filter:
-        drop-shadow(
-            0 0 35px rgba(244,114,182,0.28)
-        );
-}
-
-
-/* =================================================
-   TABS CONTAINER
-   ================================================= */
-
-.stTabs [data-baseweb="tab-list"],
-.stTabs [role="tablist"] {
-
-    background:
-        #18243d;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        13px;
-
-    padding:
-        6px;
-
-    gap:
-        6px;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.18);
-}
-
-
-/* =================================================
-   NORMAL TAB
-   ================================================= */
-
-.stTabs [data-baseweb="tab"],
-.stTabs [data-testid="stTab"] {
-
-    min-height:
-        44px;
-
-    padding:
-        10px 18px;
-
-    border-radius:
-        9px;
-
-    color:
-        #d7d0dc !important;
-
-    font-weight:
-        700;
-}
-
-
-/* Tab text */
-
-.stTabs [data-baseweb="tab"] p,
-.stTabs [data-testid="stTab"] p {
-
-    color:
-        #d7d0dc !important;
-
-    font-size:
-        13px;
-}
-
-
-/* Hover */
-
-.stTabs [data-baseweb="tab"]:not(
-    [aria-selected="true"]
-):hover {
-
-    background:
-        rgba(217,70,239,0.10) !important;
-
-    color:
-        #f9a8d4 !important;
-}
-
-
-/* =================================================
-   ACTIVE TAB
-   ================================================= */
-
-.stTabs [aria-selected="true"],
-.stTabs [data-testid="stTab"][data-selected="true"] {
-
-    background:
-        linear-gradient(
-            135deg,
-            #b82fd0,
-            #d946ef
-        ) !important;
-
-    color:
-        #ffffff !important;
-
-    box-shadow:
-        0 5px 20px rgba(217,70,239,0.28);
-}
-
-
-.stTabs [aria-selected="true"] *,
-.stTabs [data-testid="stTab"][data-selected="true"] * {
-
-    color:
-        #ffffff !important;
-}
-
-
-/* =================================================
-   WELCOME DARK BOX
-   ================================================= */
-
+/* CARDS */
+.feature-card,
+.info-panel,
 .welcome {
-
-    background:
-        linear-gradient(
-            145deg,
-            #18243d,
-            #202d4b
-        );
-
-    border:
-        1px solid rgba(255,255,255,0.10);
-
-    border-radius:
-        15px;
-
-    box-shadow:
-        var(--shadow);
+    background: linear-gradient(145deg, #222b49, #191f38);
+    border: 1px solid #424969;
+    border-radius: 19px;
+    padding: 24px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow);
+    transition: all 0.25s ease;
 }
 
-
-/* =================================================
-   WELCOME HEADING
-   ================================================= */
-
-.welcome h2,
-.welcome h3,
-.welcome h4 {
-
-    color:
-        #ffffff !important;
-
-    font-weight:
-        850;
+.feature-card:hover,
+.info-panel:hover {
+    transform: translateY(-4px);
+    border-color: var(--pink);
+    box-shadow: 0 12px 35px rgba(255, 20, 147, 0.13);
 }
-
-
-/* =================================================
-   WELCOME PARAGRAPH
-   ================================================= */
-
-.welcome p {
-
-    color:
-        #e7e0eb !important;
-
-    line-height:
-        1.75;
-}
-
-
-/* =================================================
-   WELCOME BADGE
-   ================================================= */
-
-.welcome-badge {
-
-    background:
-        rgba(217,70,239,0.12);
-
-    border:
-        1px solid rgba(244,114,182,0.30);
-
-    color:
-        #f9a8d4 !important;
-
-    font-weight:
-        750;
-
-    border-radius:
-        999px;
-}
-
-
-/* =================================================
-   FEATURE CARDS
-   ================================================= */
-
-.feature-card {
-
-    background:
-        linear-gradient(
-            145deg,
-            #18243d,
-            #202d4b
-        );
-
-    border:
-        1px solid rgba(255,255,255,0.09);
-
-    border-radius:
-        16px;
-
-    box-shadow:
-        0 12px 35px rgba(0,0,0,0.20);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
-}
-
-
-/* Hover */
-
-.feature-card:hover {
-
-    transform:
-        translateY(-4px);
-
-    border-color:
-        rgba(244,114,182,0.45);
-
-    box-shadow:
-        0 18px 42px rgba(0,0,0,0.28);
-}
-
-
-/* =================================================
-   FEATURE HEADING
-   ================================================= */
 
 .feature-card h3,
-.feature-card h4 {
-
-    color:
-        #ffffff !important;
-
-    font-weight:
-        800;
+.info-panel h3 {
+    color: #ffffff !important;
 }
 
-
-/* =================================================
-   FEATURE DESCRIPTION
-   ================================================= */
-
-.feature-card p {
-
-    color:
-        #ddd5e2 !important;
-
-    line-height:
-        1.7;
-}
-
-
-/* =================================================
-   FEATURE ICON
-   ================================================= */
-
-.feature-icon,
-.purple,
-.blue,
-.green {
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(217,70,239,0.18),
-            rgba(244,114,182,0.10)
-        );
-
-    border:
-        1px solid rgba(244,114,182,0.30);
-
-    color:
-        #f9a8d4 !important;
-}
-
-
-/* =================================================
-   FEATURE FOOTER
-   ================================================= */
-
-.feature-footer,
-.footer-brand {
-
-    color:
-        #f472b6 !important;
-
-    font-weight:
-        750;
-}
-
-
-/* =================================================
-   INFO PANEL
-   ================================================= */
-
-.info-panel {
-
-    background:
-        linear-gradient(
-            145deg,
-            #18243d,
-            #202d4b
-        );
-
-    border:
-        1px solid rgba(255,255,255,0.10);
-
-    border-radius:
-        15px;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.20);
-}
-
-
-.info-panel h4 {
-
-    color:
-        #ffffff !important;
-
-    font-weight:
-        800;
-}
-
-
+.feature-card p,
 .info-panel p {
-
-    color:
-        #ddd5e2 !important;
+    color: #e2dce8 !important;
 }
 
-
-/* =================================================
-   PAGE INTRO
-   ================================================= */
+/* PAGE INTRO */
+.page-intro {
+    background: #202744;
+    border-left: 5px solid var(--pink);
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 24px;
+}
 
 .page-intro h2 {
-
-    color:
-        #ffffff !important;
-
-    font-weight:
-        850;
+    color: #ffffff !important;
 }
-
 
 .page-intro p {
-
-    color:
-        #c8bfce !important;
+    color: #e8dfeb !important;
 }
-
-
-/* =================================================
-   PAGE ICON
-   ================================================= */
 
 .page-icon {
-
-    background:
-        linear-gradient(
-            135deg,
-            #b82fd0,
-            #f472b6
-        );
-
-    border:
-        1px solid rgba(255,255,255,0.15);
-
-    color:
-        #ffffff !important;
-
-    box-shadow:
-        0 7px 22px rgba(217,70,239,0.25);
+    color: var(--pink-light) !important;
+    font-size: 35px;
 }
 
-
-/* =================================================
-   NORMAL STREAMLIT CONTAINERS
-   ================================================= */
-
-div[data-testid="stVerticalBlockBorderWrapper"] {
-
-    background:
-        #18243d;
-
-    border:
-        1px solid rgba(255,255,255,0.09) !important;
-
-    border-radius:
-        15px;
-
-    box-shadow:
-        0 9px 28px rgba(0,0,0,0.18);
+/* TABS */
+.stTabs [data-baseweb="tab-list"] {
+    background: #1b2340;
+    border: 1px solid #414568;
+    border-radius: 14px;
+    padding: 7px;
+    gap: 8px;
 }
 
-
-/* =================================================
-   GENERAL MARKDOWN
-   ================================================= */
-
-[data-testid="stMarkdownContainer"] {
-
-    color:
-        #ffffff !important;
+.stTabs [data-baseweb="tab"] {
+    background: transparent;
+    color: #ffffff !important;
+    border-radius: 10px;
+    padding: 11px 20px;
+    font-weight: 650;
 }
 
-
-[data-testid="stMarkdownContainer"] p {
-
-    color:
-        #eee8f1 !important;
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, #ff1493, #d60075) !important;
+    color: #ffffff !important;
 }
 
-
-[data-testid="stMarkdownContainer"] h1,
-[data-testid="stMarkdownContainer"] h2,
-[data-testid="stMarkdownContainer"] h3,
-[data-testid="stMarkdownContainer"] h4,
-[data-testid="stMarkdownContainer"] h5 {
-
-    color:
-        #ffffff !important;
-
-    font-weight:
-        800;
+.stTabs [data-baseweb="tab-highlight"] {
+    background-color: var(--pink) !important;
 }
 
-
-/* =================================================
-   WIDGET LABELS
-   ================================================= */
-
-[data-testid="stWidgetLabel"],
-[data-testid="stWidgetLabel"] p {
-
-    color:
-        #ffffff !important;
-
-    font-weight:
-        700;
+/* INPUT FIELDS */
+.stTextInput input,
+.stTextArea textarea,
+.stNumberInput input,
+.stDateInput input {
+    background: #151d36 !important;
+    color: #ffffff !important;
+    border: 1px solid #555b7c !important;
+    border-radius: 12px !important;
+    padding: 12px !important;
 }
 
-
-/* =================================================
-   TEXT INPUT
-   ================================================= */
-
-.stTextInput label {
-
-    color:
-        #ffffff !important;
-
-    font-size:
-        13px;
-
-    font-weight:
-        700;
+.stTextInput input:focus,
+.stTextArea textarea:focus,
+.stNumberInput input:focus {
+    border-color: var(--pink) !important;
+    box-shadow: 0 0 0 2px rgba(255, 20, 147, 0.2) !important;
 }
 
-
-.stTextInput input {
-
-    background:
-        #ffffff !important;
-
-    border:
-        1px solid #66758d !important;
-
-    border-radius:
-        9px !important;
-
-    color:
-        #253b54 !important;
-
-    font-weight:
-        600;
+.stTextInput input::placeholder,
+.stTextArea textarea::placeholder {
+    color: #bcb3c8 !important;
 }
 
-
-.stTextInput input::placeholder {
-
-    color:
-        #7d899a !important;
+/* SELECT BOX */
+.stSelectbox [data-baseweb="select"] > div {
+    background: #151d36 !important;
+    color: #ffffff !important;
+    border: 1px solid #555b7c !important;
+    border-radius: 12px !important;
 }
 
-
-.stTextInput input:focus {
-
-    border-color:
-        #d946ef !important;
-
-    box-shadow:
-        0 0 0 2px rgba(217,70,239,0.20) !important;
+[data-baseweb="popover"],
+[data-baseweb="menu"] {
+    background: #222b49 !important;
 }
 
-
-/* =================================================
-   FILE UPLOADER
-   ================================================= */
-
-[data-testid="stFileUploader"] {
-
-    background:
-        #18243d !important;
-
-    border:
-        1px dashed rgba(244,114,182,0.45) !important;
-
-    border-radius:
-        13px;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.16);
+[data-baseweb="menu"] * {
+    color: #ffffff !important;
 }
 
-
-[data-testid="stFileUploader"] section {
-
-    background:
-        transparent !important;
-
-    border:
-        none !important;
-}
-
-
-[data-testid="stFileUploader"] label,
-[data-testid="stFileUploader"] small,
-[data-testid="stFileUploader"] span,
-[data-testid="stFileUploader"] p {
-
-    color:
-        #e9e2ed !important;
-}
-
-
-/* Upload button */
-
-[data-testid="stFileUploader"] button {
-
-    background:
-        linear-gradient(
-            135deg,
-            #b82fd0,
-            #d946ef
-        ) !important;
-
-    border:
-        none !important;
-
-    border-radius:
-        8px;
-
-    color:
-        #ffffff !important;
-
-    font-weight:
-        750;
-}
-
-
-[data-testid="stFileUploader"] button * {
-
-    color:
-        #ffffff !important;
-}
-
-
-/* =================================================
-   BUTTONS
-   ================================================= */
-
+/* BUTTONS */
 .stButton > button,
-.stDownloadButton > button {
-
-    background:
-        linear-gradient(
-            135deg,
-            #b82fd0 0%,
-            #d946ef 50%,
-            #f472b6 100%
-        ) !important;
-
-    border:
-        none !important;
-
-    border-radius:
-        10px;
-
-    min-height:
-        45px;
-
-    color:
-        #ffffff !important;
-
-    font-size:
-        13px;
-
-    font-weight:
-        800;
-
-    box-shadow:
-        0 8px 22px rgba(217,70,239,0.25);
-
-    transition:
-        all 0.18s ease;
+.stDownloadButton > button,
+.stFormSubmitButton > button {
+    background: linear-gradient(135deg, #ff1493, #d60075) !important;
+    color: #ffffff !important;
+    border: 1px solid #ff65bc !important;
+    border-radius: 12px !important;
+    padding: 11px 25px !important;
+    font-weight: 750 !important;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(255, 20, 147, 0.22);
 }
-
-
-/* Button text */
-
-.stButton > button *,
-.stDownloadButton > button * {
-
-    color:
-        #ffffff !important;
-}
-
-
-/* Hover */
 
 .stButton > button:hover,
-.stDownloadButton > button:hover {
-
-    background:
-        linear-gradient(
-            135deg,
-            #c238d8,
-            #e04ff0,
-            #f78abf
-        ) !important;
-
-    box-shadow:
-        0 12px 30px rgba(217,70,239,0.35);
-
-    transform:
-        translateY(-2px);
+.stDownloadButton > button:hover,
+.stFormSubmitButton > button:hover {
+    background: linear-gradient(135deg, #ff4db8, #e60083) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 9px 25px rgba(255, 20, 147, 0.35);
 }
 
-
-/* =================================================
-   CODE BOX
-   ================================================= */
-
-[data-testid="stCode"] {
-
-    background:
-        #142038;
-
-    border:
-        1px solid rgba(244,114,182,0.20);
-
-    border-radius:
-        11px;
+/* FILE UPLOADER */
+[data-testid="stFileUploader"] {
+    background: #202744;
+    border: 1px dashed #ff4db8;
+    border-radius: 16px;
+    padding: 18px;
 }
 
-
-[data-testid="stCode"] pre,
-[data-testid="stCode"] code {
-
-    color:
-        #f1eaf4 !important;
+[data-testid="stFileUploader"] * {
+    color: #ffffff !important;
 }
 
+/* CODE BOX */
+.stCode,
+.stCodeBlock {
+    background: #151d36 !important;
+    border: 1px solid #424969 !important;
+    border-radius: 13px !important;
+}
 
-/* =================================================
-   SUCCESS PANEL
-   ================================================= */
+/* SUCCESS / STATUS */
+[data-testid="stAlert"] {
+    background: #202744 !important;
+    border: 1px solid var(--pink) !important;
+    border-radius: 13px !important;
+    color: #ffffff !important;
+}
 
 .success-panel {
-
-    background:
-        rgba(52,211,153,0.10);
-
-    border:
-        1px solid rgba(52,211,153,0.28);
-
-    border-radius:
-        12px;
+    background: #173b3b;
+    border: 1px solid #27d7a1;
+    border-radius: 15px;
+    padding: 20px;
+    color: #ffffff !important;
 }
 
-
-.success-panel h3,
-.success-icon {
-
-    color:
-        #6ee7b7 !important;
+/* METRICS */
+[data-testid="stMetric"] {
+    background: #202744;
+    border: 1px solid #414568;
+    padding: 18px;
+    border-radius: 15px;
 }
 
-
-.success-panel p {
-
-    color:
-        #d8f4e8 !important;
+[data-testid="stMetricLabel"] {
+    color: #e2dce8 !important;
 }
 
-
-/* =================================================
-   FINGERPRINT
-   ================================================= */
-
-.fingerprint {
-
-    background:
-        rgba(217,70,239,0.09);
-
-    border:
-        1px solid rgba(244,114,182,0.25);
-
-    border-radius:
-        11px;
-
-    color:
-        #f9a8d4 !important;
+[data-testid="stMetricValue"] {
+    color: #ff4db8 !important;
 }
 
-
-.fingerprint strong {
-
-    color:
-        #ffffff !important;
+/* DATAFRAME */
+[data-testid="stDataFrame"] {
+    border: 1px solid #414568;
+    border-radius: 13px;
+    overflow: hidden;
 }
 
-
-/* =================================================
-   FOOTER
-   ================================================= */
-
-.footer p,
-.footer small {
-
-    color:
-        #aaa0b2 !important;
-}
-
-
-.footer-line {
-
-    background:
-        rgba(255,255,255,0.10);
-}
-
-
+/* DIVIDERS */
 hr {
-
-    border-color:
-        rgba(255,255,255,0.10) !important;
+    border-color: #4a3c59 !important;
 }
 
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 25px 10px;
+    color: #d8cddd !important;
+    border-top: 1px solid #414568;
+    margin-top: 35px;
+}
 
-/* =================================================
-   RESPONSIVE
-   ================================================= */
+.footer span {
+    color: var(--pink-light) !important;
+    font-weight: 750;
+}
 
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #151d36;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d60075;
+    border-radius: 10px;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
-
-    .block-container {
-        padding: 1rem;
-    }
-
     .hero {
-        padding: 30px 22px;
-    }
-
-    .hero-visual {
-        display: none;
+        padding: 28px 20px;
     }
 
     .hero h1 {
-        font-size: 33px;
+        font-size: 30px;
     }
 
-    .welcome {
-        align-items: flex-start;
-        flex-direction: column;
+    .feature-card,
+    .info-panel {
+        padding: 18px;
     }
 
-    .topbar {
-        padding: 12px;
-    }
-
-    .stTabs [data-baseweb="tab"],
-    .stTabs [data-testid="stTab"] {
-        font-size: 12px;
-        padding: 8px 10px;
+    .stTabs [data-baseweb="tab"] {
+        padding: 9px 12px;
     }
 }
 
-
-/* =================================================
-   ACCESSIBILITY / REDUCED MOTION
-   ================================================= */
-
 @media (prefers-reduced-motion: reduce) {
-
     *,
     *::before,
     *::after {
-
-        scroll-behavior:
-            auto !important;
-
-        transition-duration:
-            0.01ms !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
     }
 }
