@@ -1,52 +1,47 @@
-/* =========================================================
-   PROFESSIONAL DARK BOX + BLACK TEXT THEME
-   Streamlit UI
-   ========================================================= */
-
 :root {
-    /* ---------- MAIN COLORS ---------- */
-    --page-bg: #f3f5f7;
+    /* ==============================
+       PROFESSIONAL NAVY THEME
+       ============================== */
+
+    --bg: #eef4f8;
     --surface: #ffffff;
-    --surface-dark: #18212b;
-    --surface-dark-2: #202c38;
-    --surface-dark-3: #263544;
+    --surface-soft: #e4edf4;
 
-    /* ---------- TEXT ---------- */
-    --text: #111827;
-    --text-soft: #374151;
-    --muted: #6b7280;
+    --navy: #17324d;
+    --navy-dark: #10283f;
+    --navy-light: #244d6b;
+    --navy-soft: #dbe9f2;
 
-    /* ---------- ACCENT ---------- */
-    --accent: #18b6a4;
-    --accent-dark: #0f8f81;
-    --accent-soft: #dff7f3;
+    --teal: #20a99a;
+    --teal-dark: #168579;
+    --teal-soft: #dff4f1;
 
-    /* ---------- BORDERS ---------- */
-    --border: #d8dee6;
-    --border-dark: #334454;
+    --border: #cbd9e4;
 
-    /* ---------- STATUS ---------- */
-    --success: #20a77a;
-    --danger: #d9534f;
-    --warning: #d99a2b;
+    /* Normal page text - NOT black */
+    --text: #263f55;
+    --muted: #667d91;
 
-    /* ---------- SHADOW ---------- */
-    --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    /* Dark-box text */
+    --dark-text: #ffffff;
+    --dark-muted: #d6e4ee;
+
+    --success: #178564;
 }
 
 
-/* =========================================================
-   GLOBAL
-   ========================================================= */
+/* =========================================
+   MAIN APP
+   ========================================= */
 
 .stApp {
     background:
         radial-gradient(
             circle at 10% 0%,
-            rgba(24, 182, 164, 0.08),
+            rgba(32, 169, 154, 0.08),
             transparent 32rem
         ),
-        var(--page-bg) !important;
+        var(--bg) !important;
 
     color: var(--text) !important;
 
@@ -70,24 +65,19 @@ body,
 }
 
 
-/* Main content width */
-
 .block-container {
     max-width: 1320px;
     padding: 1.8rem 2rem 3rem;
 }
 
 
-/* =========================================================
+/* =========================================
    STREAMLIT HEADER
-   ========================================================= */
+   ========================================= */
 
 [data-testid="stHeader"] {
     background: transparent !important;
 }
-
-
-/* Hide Streamlit default menu/footer */
 
 #MainMenu,
 footer {
@@ -95,17 +85,17 @@ footer {
 }
 
 
-/* =========================================================
+/* =========================================
    TOP BAR
-   ========================================================= */
+   ========================================= */
 
 .topbar {
-    background: #ffffff;
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 14px;
 
     box-shadow:
-        0 8px 28px rgba(15, 23, 42, 0.07);
+        0 8px 26px rgba(38, 63, 85, 0.08);
 }
 
 
@@ -115,99 +105,92 @@ footer {
     background:
         linear-gradient(
             135deg,
-            #18212b,
-            #293b4b
+            var(--navy-dark),
+            var(--navy-light)
         );
 
-    border: 1px solid #34495a;
+    border: 1px solid #37617e;
 
     box-shadow:
-        0 7px 18px rgba(15, 23, 42, 0.18);
+        0 7px 18px rgba(23, 50, 77, 0.18);
 }
 
 
-/* Brand name */
+/* Brand */
 
 .brand-name {
-    color: #111827 !important;
+    color: var(--navy-dark) !important;
     font-weight: 750;
 }
 
-
-/* Subtitle */
-
 .brand-subtitle {
-    color: #64748b !important;
+    color: var(--muted) !important;
 }
 
 
 /* Status */
 
 .top-status {
-    background: #e7f8f2;
-    border: 1px solid #bce7d9;
-    color: #08785f !important;
+    background: var(--teal-soft);
+    border: 1px solid #b9e4dc;
+    color: var(--teal-dark) !important;
     font-weight: 650;
 }
 
 
-/* =========================================================
-   HERO SECTION
-   ========================================================= */
+/* =========================================
+   HERO
+   ========================================= */
 
 .hero {
     background:
+        radial-gradient(
+            circle at 85% 40%,
+            rgba(32, 169, 154, 0.22),
+            transparent 32%
+        ),
         linear-gradient(
             135deg,
-            #111a23 0%,
-            #182631 50%,
-            #202f3d 100%
+            #10283f 0%,
+            #17324d 55%,
+            #244d6b 100%
         );
 
-    border: 1px solid #334554;
+    border: 1px solid #315a76;
 
     border-radius: 20px;
 
     box-shadow:
-        0 18px 40px rgba(15, 23, 42, 0.20);
+        0 18px 38px rgba(23, 50, 77, 0.18);
 }
 
 
-/* Hero small label */
+/* Hero text */
 
 .hero-label {
-    color: #5fe0cf !important;
+    color: #69d9cc !important;
     font-weight: 700;
 }
-
-
-/* Hero title */
 
 .hero h1 {
     color: #ffffff !important;
 }
 
-
-/* Hero highlighted text */
-
 .hero h1 span {
-    color: #5fe0cf !important;
+    color: #69d9cc !important;
 }
 
-
-/* Hero paragraph */
-
 .hero .hero-copy {
-    color: #d8e1e8 !important;
+    color: #dceaf2 !important;
 }
 
 
 /* Hero tags */
 
 .hero-tags span {
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.09);
 
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.20);
 
     color: #ffffff !important;
 
@@ -215,23 +198,12 @@ footer {
 }
 
 
-/* Hero visual */
-
-.hero-visual {
-    filter:
-        drop-shadow(
-            0 0 25px rgba(24, 182, 164, 0.25)
-        );
-}
-
-
-/* =========================================================
+/* =========================================
    TABS
-   ========================================================= */
+   ========================================= */
 
 .stTabs [data-baseweb="tab-list"],
 .stTabs [role="tablist"] {
-    display: flex;
 
     gap: 6px;
 
@@ -244,11 +216,9 @@ footer {
     padding: 6px;
 
     box-shadow:
-        0 6px 18px rgba(15, 23, 42, 0.06);
+        0 5px 16px rgba(38, 63, 85, 0.06);
 }
 
-
-/* Individual tab */
 
 .stTabs [data-baseweb="tab"],
 .stTabs [data-testid="stTab"] {
@@ -257,7 +227,7 @@ footer {
 
     border-radius: 8px;
 
-    color: #111827 !important;
+    color: var(--text) !important;
 
     font-weight: 650;
 
@@ -272,12 +242,10 @@ footer {
 }
 
 
-/* Tab text */
-
 .stTabs [data-baseweb="tab"] p,
 .stTabs [data-testid="stTab"] p {
 
-    color: #111827 !important;
+    color: var(--text) !important;
 
     font-size: 13px;
 
@@ -297,13 +265,13 @@ footer {
     [data-selected="true"]
 ):hover {
 
-    background: #e9f5f3 !important;
+    background: var(--teal-soft) !important;
 
-    color: #0f6f66 !important;
+    color: var(--teal-dark) !important;
 }
 
 
-/* Active tab */
+/* ACTIVE TAB */
 
 .stTabs [aria-selected="true"],
 .stTabs [data-testid="stTab"][data-selected="true"] {
@@ -311,18 +279,16 @@ footer {
     background:
         linear-gradient(
             135deg,
-            #18212b,
-            #263544
+            var(--navy-dark),
+            var(--navy)
         ) !important;
 
     color: #ffffff !important;
 
     box-shadow:
-        0 5px 12px rgba(15, 23, 42, 0.18);
+        0 4px 12px rgba(23, 50, 77, 0.20);
 }
 
-
-/* Active tab text */
 
 .stTabs [aria-selected="true"] *,
 .stTabs [data-testid="stTab"][data-selected="true"] * {
@@ -331,52 +297,41 @@ footer {
 }
 
 
-/* Remove unnecessary accessibility element */
-
-.stTabs [role="tab"] > [data-rac] {
-    display: none;
-}
-
-
-/* Keyboard focus */
-
-.stTabs [data-baseweb="tab"]:focus-visible,
-.stTabs [data-testid="stTab"]:focus-visible {
-
-    outline: 2px solid var(--accent);
-
-    outline-offset: 2px;
-}
-
-
-/* =========================================================
-   WELCOME CARD
-   ========================================================= */
+/* =========================================
+   DARK WELCOME BOX
+   ========================================= */
 
 .welcome {
 
-    background: #18212b;
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--navy-light)
+        );
 
-    border: 1px solid #334454;
+    border: 1px solid #315a76;
 
     border-radius: 14px;
 
     box-shadow:
-        0 10px 28px rgba(15, 23, 42, 0.14);
+        0 10px 28px rgba(23, 50, 77, 0.15);
 }
 
 
-/* Welcome headings */
+/* WHITE TEXT */
 
-.welcome h2 {
+.welcome h2,
+.welcome h3,
+.welcome h4 {
+
     color: #ffffff !important;
 }
 
 
-/* Welcome paragraph */
-
 .welcome p {
-    color: #cbd5df !important;
+
+    color: var(--dark-muted) !important;
 }
 
 
@@ -384,35 +339,33 @@ footer {
 
 .welcome-badge {
 
-    background: #183a38;
+    background: rgba(32, 169, 154, 0.16);
 
-    border: 1px solid #276b63;
+    border: 1px solid rgba(105, 217, 204, 0.35);
 
-    color: #6ee7d8 !important;
-
-    border-radius: 999px;
+    color: #79e1d6 !important;
 }
 
 
-/* =========================================================
+/* =========================================
    FEATURE CARDS
-   ========================================================= */
+   ========================================= */
 
 .feature-card {
 
     background:
         linear-gradient(
             145deg,
-            #18212b,
-            #202c38
+            var(--navy),
+            var(--navy-light)
         );
 
-    border: 1px solid #334454;
+    border: 1px solid #315a76;
 
     border-radius: 14px;
 
     box-shadow:
-        0 10px 28px rgba(15, 23, 42, 0.13);
+        0 9px 25px rgba(23, 50, 77, 0.13);
 
     transition:
         transform 0.2s ease,
@@ -425,28 +378,27 @@ footer {
 
 .feature-card:hover {
 
-    border-color: #3d8f87;
+    border-color: #4aa99e;
 
     box-shadow:
-        0 15px 35px rgba(15, 23, 42, 0.18);
+        0 15px 32px rgba(23, 50, 77, 0.18);
 
     transform: translateY(-3px);
 }
 
 
-/* Feature heading */
+/* WHITE CARD TEXT */
 
-.feature-card h3 {
+.feature-card h3,
+.feature-card h4 {
 
     color: #ffffff !important;
 }
 
 
-/* Feature paragraph */
-
 .feature-card p {
 
-    color: #cbd5df !important;
+    color: #d6e4ee !important;
 }
 
 
@@ -458,44 +410,45 @@ footer {
 .green {
 
     background:
-        #213d43;
+        rgba(32, 169, 154, 0.15);
 
-    border: 1px solid #35665f;
+    border: 1px solid rgba(105, 217, 204, 0.30);
 
-    color: #6ee7d8 !important;
+    color: #6eddd2 !important;
 }
 
 
-/* Footer inside feature */
+/* Feature footer */
 
 .feature-footer,
 .footer-brand {
 
-    color: #5fe0cf !important;
+    color: #70dcd1 !important;
 
     font-weight: 650;
 }
 
 
-/* =========================================================
+/* =========================================
    INFO PANEL
-   ========================================================= */
+   ========================================= */
 
 .info-panel {
 
     background:
-        #202c38;
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--navy-light)
+        );
 
-    border: 1px solid #34495a;
+    border: 1px solid #315a76;
 
     border-radius: 13px;
-
-    box-shadow:
-        0 8px 22px rgba(15, 23, 42, 0.10);
 }
 
 
-/* Info heading */
+/* WHITE */
 
 .info-panel h4 {
 
@@ -503,52 +456,50 @@ footer {
 }
 
 
-/* Info paragraph */
-
 .info-panel p {
 
-    color: #cbd5df !important;
+    color: #d6e4ee !important;
 }
 
 
-/* =========================================================
+/* =========================================
    PAGE INTRO
-   ========================================================= */
+   ========================================= */
 
 .page-intro h2 {
 
-    color: #111827 !important;
+    color: var(--navy-dark) !important;
 }
 
-
-/* Page intro paragraph */
 
 .page-intro p {
 
-    color: #64748b !important;
+    color: var(--muted) !important;
 }
 
 
-/* Page icon */
+/* =========================================
+   PAGE ICON
+   ========================================= */
 
 .page-icon {
 
     background:
         linear-gradient(
             135deg,
-            #18212b,
-            #293b4b
+            var(--navy-dark),
+            var(--navy-light)
         );
 
-    border: 1px solid #334454;
+    border: 1px solid #315a76;
 
-    color: #6ee7d8 !important;
+    color: #ffffff !important;
 }
 
 
-/* =========================================================
+/* =========================================
    STREAMLIT CONTAINERS
-   ========================================================= */
+   ========================================= */
 
 div[data-testid="stVerticalBlockBorderWrapper"] {
 
@@ -559,21 +510,21 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
     border-radius: 14px;
 
     box-shadow:
-        0 8px 24px rgba(15, 23, 42, 0.05);
+        0 7px 22px rgba(38, 63, 85, 0.05);
 }
 
 
-/* =========================================================
-   GENERAL MARKDOWN
-   ========================================================= */
+/* =========================================
+   NORMAL TEXT
+   ========================================= */
 
 [data-testid="stMarkdownContainer"] {
-    color: #111827 !important;
+    color: var(--text) !important;
 }
 
 
 [data-testid="stMarkdownContainer"] p {
-    color: #111827 !important;
+    color: var(--text) !important;
 }
 
 
@@ -583,42 +534,42 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 [data-testid="stMarkdownContainer"] h4,
 [data-testid="stMarkdownContainer"] h5 {
 
-    color: #111827 !important;
+    color: var(--navy-dark) !important;
 }
 
 
-/* =========================================================
-   CAPTIONS
-   ========================================================= */
+/* =========================================
+   CAPTION
+   ========================================= */
 
 [data-testid="stCaptionContainer"],
 [data-testid="stCaptionContainer"] p,
 .stCaption {
 
-    color: #64748b !important;
+    color: var(--muted) !important;
 }
 
 
-/* =========================================================
+/* =========================================
    WIDGET LABELS
-   ========================================================= */
+   ========================================= */
 
 [data-testid="stWidgetLabel"],
 [data-testid="stWidgetLabel"] p {
 
-    color: #111827 !important;
+    color: var(--navy-dark) !important;
 
     font-weight: 650;
 }
 
 
-/* =========================================================
+/* =========================================
    TEXT INPUT
-   ========================================================= */
+   ========================================= */
 
 .stTextInput label {
 
-    color: #111827 !important;
+    color: var(--navy-dark) !important;
 
     font-size: 13px;
 
@@ -626,59 +577,49 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 }
 
 
-/* Input field */
-
 .stTextInput input {
 
     background: #ffffff !important;
 
-    border: 1px solid #cbd5df !important;
+    border: 1px solid #bdccd8 !important;
 
     border-radius: 9px !important;
 
-    color: #111827 !important;
-
-    caret-color: #111827 !important;
+    color: var(--navy-dark) !important;
 }
 
-
-/* Placeholder */
 
 .stTextInput input::placeholder {
 
-    color: #9ca3af !important;
+    color: #8497a8 !important;
 }
 
-
-/* Focus */
 
 .stTextInput input:focus {
 
-    border-color: var(--accent) !important;
+    border-color: var(--teal) !important;
 
     box-shadow:
-        0 0 0 2px rgba(24, 182, 164, 0.15) !important;
+        0 0 0 2px rgba(32, 169, 154, 0.14) !important;
 }
 
 
-/* =========================================================
+/* =========================================
    FILE UPLOADER
-   ========================================================= */
+   ========================================= */
 
 [data-testid="stFileUploader"] {
 
     background: #ffffff !important;
 
-    border: 1px dashed #9aaabd !important;
+    border: 1px dashed #9db1c1 !important;
 
     border-radius: 12px;
 
     box-shadow:
-        0 5px 16px rgba(15, 23, 42, 0.05);
+        0 4px 14px rgba(38, 63, 85, 0.05);
 }
 
-
-/* File uploader section */
 
 [data-testid="stFileUploader"] section {
 
@@ -688,14 +629,12 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 }
 
 
-/* File uploader text */
-
 [data-testid="stFileUploader"] label,
 [data-testid="stFileUploader"] small,
 [data-testid="stFileUploader"] span,
 [data-testid="stFileUploader"] p {
 
-    color: #374151 !important;
+    color: var(--text) !important;
 }
 
 
@@ -703,9 +642,10 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 
 [data-testid="stFileUploader"] button {
 
-    background: #18212b !important;
+    background:
+        var(--navy) !important;
 
-    border: 1px solid #18212b !important;
+    border: 1px solid var(--navy) !important;
 
     border-radius: 8px;
 
@@ -721,19 +661,19 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 }
 
 
-/* Upload button hover */
-
 [data-testid="stFileUploader"] button:hover {
 
-    background: #263544 !important;
+    background:
+        var(--navy-light) !important;
 
-    border-color: #263544 !important;
+    border-color:
+        var(--navy-light) !important;
 }
 
 
-/* =========================================================
+/* =========================================
    BUTTONS
-   ========================================================= */
+   ========================================= */
 
 .stButton > button,
 .stDownloadButton > button {
@@ -741,11 +681,11 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
     background:
         linear-gradient(
             135deg,
-            #18212b,
-            #263544
+            var(--navy-dark),
+            var(--navy)
         ) !important;
 
-    border: 1px solid #34495a !important;
+    border: 1px solid #315a76 !important;
 
     border-radius: 9px;
 
@@ -759,12 +699,9 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 
     transition:
         transform 0.15s ease,
-        box-shadow 0.15s ease,
-        background 0.15s ease;
+        box-shadow 0.15s ease;
 }
 
-
-/* Button text */
 
 .stButton > button *,
 .stDownloadButton > button * {
@@ -773,132 +710,101 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 }
 
 
-/* Button hover */
-
 .stButton > button:hover,
 .stDownloadButton > button:hover {
 
     background:
         linear-gradient(
             135deg,
-            #263544,
-            #314658
+            var(--navy),
+            var(--navy-light)
         ) !important;
 
-    border-color: #4d6578 !important;
+    border-color: #4b708a !important;
 
     box-shadow:
-        0 8px 20px rgba(15, 23, 42, 0.20);
-
-    color: #ffffff !important;
+        0 7px 18px rgba(23, 50, 77, 0.20);
 
     transform: translateY(-1px);
 }
 
 
-/* Button focus */
-
-.stButton > button:focus-visible,
-.stDownloadButton > button:focus-visible {
-
-    outline: 2px solid var(--accent);
-
-    outline-offset: 2px;
-
-    box-shadow:
-        0 0 0 4px rgba(24, 182, 164, 0.15);
-}
-
-
-/* =========================================================
-   FINGERPRINT / HASH BOX
-   ========================================================= */
+/* =========================================
+   FINGERPRINT
+   ========================================= */
 
 .fingerprint {
 
     background:
-        #eef4f4;
+        var(--teal-soft);
 
-    border: 1px solid #cbdedc;
+    border: 1px solid #b9ded9;
 
     border-radius: 11px;
 
-    color: #0f5f58;
+    color: var(--teal-dark);
 }
 
 
 .fingerprint strong {
 
-    color: #111827 !important;
+    color: var(--navy-dark) !important;
 }
 
 
-/* =========================================================
-   CODE BLOCK
-   ========================================================= */
+/* =========================================
+   CODE
+   ========================================= */
 
 [data-testid="stCode"] {
 
     background:
-        #111820;
+        #18334c;
 
-    border: 1px solid #2e3d4b;
+    border: 1px solid #315a76;
 
     border-radius: 11px;
 }
 
 
-/* Code text */
-
 [data-testid="stCode"] pre,
 [data-testid="stCode"] code {
 
-    color: #dbe7ee !important;
+    color: #dceaf2 !important;
 }
 
 
-/* =========================================================
+/* =========================================
    SUCCESS PANEL
-   ========================================================= */
+   ========================================= */
 
 .success-panel {
 
     background:
-        #eaf8f3;
+        #e9f7f2;
 
-    border: 1px solid #bfe4d5;
+    border: 1px solid #bde3d5;
 
     border-radius: 12px;
 }
 
 
-/* Success icon */
-
-.success-icon {
-
-    color: #11805f !important;
-}
-
-
-/* Success heading */
-
+.success-icon,
 .success-panel h3 {
 
-    color: #08785f !important;
+    color: var(--success) !important;
 }
 
-
-/* Success paragraph */
 
 .success-panel p {
 
-    color: #355d53 !important;
+    color: #3f665c !important;
 }
 
 
-/* =========================================================
-   ALERTS
-   ========================================================= */
+/* =========================================
+   ALERT
+   ========================================= */
 
 [data-testid="stAlert"] {
 
@@ -906,184 +812,78 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 }
 
 
-/* =========================================================
+/* =========================================
    FOOTER
-   ========================================================= */
+   ========================================= */
 
 .footer p,
 .footer small {
 
-    color: #64748b !important;
+    color: var(--muted) !important;
 }
 
-
-/* Footer divider */
 
 .footer-line {
 
-    background: #d8dee6;
+    background:
+        var(--border);
 }
 
-
-/* Horizontal line */
 
 hr {
 
-    border-color: #d8dee6 !important;
+    border-color:
+        var(--border) !important;
 }
 
 
-/* =========================================================
-   DARK BOX CUSTOM ELEMENTS
-   ========================================================= */
-
-.dark-box {
-
-    background:
-        linear-gradient(
-            145deg,
-            #18212b,
-            #202c38
-        );
-
-    border:
-        1px solid #334454;
-
-    border-radius:
-        14px;
-
-    padding:
-        22px;
-
-    color:
-        #ffffff;
-
-    box-shadow:
-        0 10px 28px rgba(15, 23, 42, 0.14);
-}
-
-
-.dark-box h3,
-.dark-box h4 {
-
-    color: #ffffff !important;
-
-    margin-top: 0;
-}
-
-
-.dark-box p {
-
-    color: #cbd5df !important;
-
-    line-height: 1.7;
-}
-
-
-/* =========================================================
-   ACCENT BOX
-   ========================================================= */
-
-.accent-box {
-
-    background:
-        #e8f7f5;
-
-    border-left:
-        4px solid var(--accent);
-
-    border-radius:
-        10px;
-
-    padding:
-        16px 18px;
-
-    color:
-        #111827;
-}
-
-
-.accent-box strong {
-
-    color:
-        #0f6f66;
-}
-
-
-/* =========================================================
-   MOBILE RESPONSIVE
-   ========================================================= */
+/* =========================================
+   RESPONSIVE
+   ========================================= */
 
 @media (max-width: 768px) {
 
     .block-container {
-
-        padding:
-            1rem;
+        padding: 1rem;
     }
-
 
     .hero {
-
-        padding:
-            30px 22px;
+        padding: 30px 22px;
     }
-
 
     .hero-visual {
-
-        display:
-            none;
+        display: none;
     }
-
 
     .hero h1 {
-
-        font-size:
-            33px;
+        font-size: 33px;
     }
-
 
     .welcome {
-
-        align-items:
-            flex-start;
-
-        flex-direction:
-            column;
+        align-items: flex-start;
+        flex-direction: column;
     }
-
 
     .topbar {
-
-        padding:
-            12px;
+        padding: 12px;
     }
-
 
     .stTabs [data-baseweb="tab"],
     .stTabs [data-testid="stTab"] {
-
-        font-size:
-            12px;
-
-        padding:
-            8px 10px;
+        font-size: 12px;
+        padding: 8px 10px;
     }
-
 
     .stTabs [data-baseweb="tab"] p,
     .stTabs [data-testid="stTab"] p {
-
-        font-size:
-            12px;
+        font-size: 12px;
     }
 }
 
 
-/* =========================================================
-   REDUCE MOTION
-   ========================================================= */
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1091,10 +891,8 @@ hr {
     *::before,
     *::after {
 
-        scroll-behavior:
-            auto !important;
+        scroll-behavior: auto !important;
 
-        transition-duration:
-            0.01ms !important;
+        transition-duration: 0.01ms !important;
     }
 }
