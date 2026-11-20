@@ -1,54 +1,66 @@
-/* =========================================================
-   PROFESSIONAL DARK BOX + BLACK TEXT THEME
-   Streamlit UI
-   ========================================================= */
-
 :root {
-    /* ---------- MAIN COLORS ---------- */
-    --page-bg: #f3f5f7;
-    --surface: #ffffff;
-    --surface-dark: #18212b;
-    --surface-dark-2: #202c38;
-    --surface-dark-3: #263544;
 
-    /* ---------- TEXT ---------- */
-    --text: #111827;
-    --text-soft: #374151;
-    --muted: #6b7280;
+    /* =================================================
+       PREMIUM MIDNIGHT + PINK THEME
+       ================================================= */
 
-    /* ---------- ACCENT ---------- */
-    --accent: #18b6a4;
-    --accent-dark: #0f8f81;
-    --accent-soft: #dff7f3;
+    --bg: #0f1729;
+    --bg-soft: #151f36;
 
-    /* ---------- BORDERS ---------- */
-    --border: #d8dee6;
-    --border-dark: #334454;
+    --card: #18243d;
+    --card-light: #1d2b47;
+    --card-hover: #243453;
 
-    /* ---------- STATUS ---------- */
-    --success: #20a77a;
-    --danger: #d9534f;
-    --warning: #d99a2b;
+    --primary: #d946ef;
+    --primary-dark: #b82fd0;
+    --primary-soft: rgba(217, 70, 239, 0.14);
 
-    /* ---------- SHADOW ---------- */
-    --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --pink: #f472b6;
+    --pink-light: #f9a8d4;
+
+    --white: #ffffff;
+    --white-soft: #f8f5fa;
+    --text-light: #e9e4ee;
+
+    --muted: #b8b1c2;
+
+    --border: rgba(255, 255, 255, 0.10);
+    --border-pink: rgba(217, 70, 239, 0.35);
+
+    --success: #34d399;
+
+    --shadow:
+        0 15px 45px rgba(0, 0, 0, 0.28);
 }
 
 
-/* =========================================================
-   GLOBAL
-   ========================================================= */
+/* =================================================
+   GLOBAL APP
+   ================================================= */
 
 .stApp {
+
     background:
         radial-gradient(
             circle at 10% 0%,
-            rgba(24, 182, 164, 0.08),
-            transparent 32rem
+            rgba(217, 70, 239, 0.16),
+            transparent 30%
         ),
-        var(--page-bg) !important;
 
-    color: var(--text) !important;
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(244, 114, 182, 0.10),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            #0f1729 0%,
+            #111b31 50%,
+            #0f1729 100%
+        ) !important;
+
+    color: var(--white) !important;
 
     font-family:
         "Segoe UI",
@@ -61,7 +73,9 @@
 html,
 body,
 [class*="css"] {
-    color: var(--text);
+
+    color: var(--white);
+
     font-family:
         "Segoe UI",
         "Inter",
@@ -70,205 +84,347 @@ body,
 }
 
 
-/* Main content width */
+/* =================================================
+   MAIN CONTAINER
+   ================================================= */
 
 .block-container {
+
     max-width: 1320px;
-    padding: 1.8rem 2rem 3rem;
+
+    padding:
+        1.8rem 2rem 3rem;
 }
 
 
-/* =========================================================
+/* =================================================
    STREAMLIT HEADER
-   ========================================================= */
+   ================================================= */
 
 [data-testid="stHeader"] {
-    background: transparent !important;
+
+    background:
+        transparent !important;
 }
 
-
-/* Hide Streamlit default menu/footer */
 
 #MainMenu,
 footer {
-    visibility: hidden;
+
+    visibility:
+        hidden;
 }
 
 
-/* =========================================================
-   TOP BAR
-   ========================================================= */
+/* =================================================
+   TOP NAVIGATION
+   ================================================= */
 
 .topbar {
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: 14px;
+
+    background:
+        rgba(24, 36, 61, 0.92);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        16px;
 
     box-shadow:
-        0 8px 28px rgba(15, 23, 42, 0.07);
+        0 10px 35px rgba(0, 0, 0, 0.20);
+
+    backdrop-filter:
+        blur(16px);
 }
 
 
-/* Brand icon */
+/* =================================================
+   BRAND ICON
+   ================================================= */
 
 .brand-icon {
+
     background:
         linear-gradient(
             135deg,
-            #18212b,
-            #293b4b
+            #b82fd0,
+            #f472b6
         );
 
-    border: 1px solid #34495a;
+    border:
+        1px solid rgba(255,255,255,0.18);
 
     box-shadow:
-        0 7px 18px rgba(15, 23, 42, 0.18);
+        0 8px 25px rgba(217,70,239,0.30);
 }
 
 
-/* Brand name */
+/* =================================================
+   BRAND NAME
+   ================================================= */
 
 .brand-name {
-    color: #111827 !important;
-    font-weight: 750;
+
+    color:
+        #ffffff !important;
+
+    font-size:
+        20px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        -0.3px;
 }
 
-
-/* Subtitle */
 
 .brand-subtitle {
-    color: #64748b !important;
+
+    color:
+        #c9c1d0 !important;
+
+    font-size:
+        12px;
 }
 
 
-/* Status */
+/* =================================================
+   ONLINE STATUS
+   ================================================= */
 
 .top-status {
-    background: #e7f8f2;
-    border: 1px solid #bce7d9;
-    color: #08785f !important;
-    font-weight: 650;
+
+    background:
+        rgba(52, 211, 153, 0.12);
+
+    border:
+        1px solid rgba(52, 211, 153, 0.30);
+
+    color:
+        #6ee7b7 !important;
+
+    font-weight:
+        700;
+
+    border-radius:
+        999px;
 }
 
 
-/* =========================================================
+/* =================================================
    HERO SECTION
-   ========================================================= */
+   ================================================= */
 
 .hero {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
     background:
+
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(244, 114, 182, 0.22),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 60% 100%,
+            rgba(217, 70, 239, 0.15),
+            transparent 35%
+        ),
+
         linear-gradient(
-            135deg,
-            #111a23 0%,
-            #182631 50%,
-            #202f3d 100%
+            125deg,
+            #18243d 0%,
+            #211f42 55%,
+            #2b2145 100%
         );
 
-    border: 1px solid #334554;
+    border:
+        1px solid rgba(217,70,239,0.25);
 
-    border-radius: 20px;
+    border-radius:
+        22px;
 
     box-shadow:
-        0 18px 40px rgba(15, 23, 42, 0.20);
+        0 20px 55px rgba(0,0,0,0.32);
 }
 
 
-/* Hero small label */
+/* =================================================
+   HERO LABEL
+   ================================================= */
 
 .hero-label {
-    color: #5fe0cf !important;
-    font-weight: 700;
+
+    color:
+        #f9a8d4 !important;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.5px;
+
+    text-transform:
+        uppercase;
 }
 
 
-/* Hero title */
+/* =================================================
+   HERO MAIN HEADING
+   ================================================= */
 
 .hero h1 {
-    color: #ffffff !important;
+
+    color:
+        #ffffff !important;
+
+    font-size:
+        44px;
+
+    font-weight:
+        850;
+
+    line-height:
+        1.08;
+
+    letter-spacing:
+        -1px;
+
+    text-shadow:
+        0 3px 20px rgba(0,0,0,0.22);
 }
 
 
-/* Hero highlighted text */
+/* Highlighted part */
 
 .hero h1 span {
-    color: #5fe0cf !important;
+
+    color:
+        #f472b6 !important;
+
+    font-weight:
+        900;
 }
 
 
-/* Hero paragraph */
+/* =================================================
+   HERO DESCRIPTION
+   ================================================= */
 
 .hero .hero-copy {
-    color: #d8e1e8 !important;
+
+    color:
+        #eee8f1 !important;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.8;
+
+    max-width:
+        720px;
 }
 
 
-/* Hero tags */
+/* =================================================
+   HERO TAGS
+   ================================================= */
 
 .hero-tags span {
-    background: rgba(255, 255, 255, 0.07);
 
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    background:
+        rgba(255,255,255,0.07);
 
-    color: #ffffff !important;
+    border:
+        1px solid rgba(255,255,255,0.16);
 
-    border-radius: 999px;
+    color:
+        #ffffff !important;
+
+    border-radius:
+        999px;
+
+    padding:
+        7px 13px;
+
+    font-weight:
+        650;
 }
 
 
-/* Hero visual */
+/* =================================================
+   HERO VISUAL
+   ================================================= */
 
 .hero-visual {
+
     filter:
         drop-shadow(
-            0 0 25px rgba(24, 182, 164, 0.25)
+            0 0 35px rgba(244,114,182,0.28)
         );
 }
 
 
-/* =========================================================
-   TABS
-   ========================================================= */
+/* =================================================
+   TABS CONTAINER
+   ================================================= */
 
 .stTabs [data-baseweb="tab-list"],
 .stTabs [role="tablist"] {
-    display: flex;
 
-    gap: 6px;
+    background:
+        #18243d;
 
-    background: #ffffff;
+    border:
+        1px solid var(--border);
 
-    border: 1px solid var(--border);
+    border-radius:
+        13px;
 
-    border-radius: 12px;
+    padding:
+        6px;
 
-    padding: 6px;
+    gap:
+        6px;
 
     box-shadow:
-        0 6px 18px rgba(15, 23, 42, 0.06);
+        0 8px 25px rgba(0,0,0,0.18);
 }
 
 
-/* Individual tab */
+/* =================================================
+   NORMAL TAB
+   ================================================= */
 
 .stTabs [data-baseweb="tab"],
 .stTabs [data-testid="stTab"] {
 
-    align-items: center;
+    min-height:
+        44px;
 
-    border-radius: 8px;
+    padding:
+        10px 18px;
 
-    color: #111827 !important;
+    border-radius:
+        9px;
 
-    font-weight: 650;
+    color:
+        #d7d0dc !important;
 
-    min-height: 44px;
-
-    padding: 10px 18px;
-
-    transition:
-        background-color 0.15s ease,
-        color 0.15s ease,
-        box-shadow 0.15s ease;
+    font-weight:
+        700;
 }
 
 
@@ -277,13 +433,11 @@ footer {
 .stTabs [data-baseweb="tab"] p,
 .stTabs [data-testid="stTab"] p {
 
-    color: #111827 !important;
+    color:
+        #d7d0dc !important;
 
-    font-size: 13px;
-
-    line-height: 1.3;
-
-    margin: 0;
+    font-size:
+        13px;
 }
 
 
@@ -291,19 +445,19 @@ footer {
 
 .stTabs [data-baseweb="tab"]:not(
     [aria-selected="true"]
-):hover,
-
-.stTabs [data-testid="stTab"]:not(
-    [data-selected="true"]
 ):hover {
 
-    background: #e9f5f3 !important;
+    background:
+        rgba(217,70,239,0.10) !important;
 
-    color: #0f6f66 !important;
+    color:
+        #f9a8d4 !important;
 }
 
 
-/* Active tab */
+/* =================================================
+   ACTIVE TAB
+   ================================================= */
 
 .stTabs [aria-selected="true"],
 .stTabs [data-testid="stTab"][data-selected="true"] {
@@ -311,108 +465,124 @@ footer {
     background:
         linear-gradient(
             135deg,
-            #18212b,
-            #263544
+            #b82fd0,
+            #d946ef
         ) !important;
 
-    color: #ffffff !important;
+    color:
+        #ffffff !important;
 
     box-shadow:
-        0 5px 12px rgba(15, 23, 42, 0.18);
+        0 5px 20px rgba(217,70,239,0.28);
 }
 
-
-/* Active tab text */
 
 .stTabs [aria-selected="true"] *,
 .stTabs [data-testid="stTab"][data-selected="true"] * {
 
-    color: #ffffff !important;
+    color:
+        #ffffff !important;
 }
 
 
-/* Remove unnecessary accessibility element */
-
-.stTabs [role="tab"] > [data-rac] {
-    display: none;
-}
-
-
-/* Keyboard focus */
-
-.stTabs [data-baseweb="tab"]:focus-visible,
-.stTabs [data-testid="stTab"]:focus-visible {
-
-    outline: 2px solid var(--accent);
-
-    outline-offset: 2px;
-}
-
-
-/* =========================================================
-   WELCOME CARD
-   ========================================================= */
+/* =================================================
+   WELCOME DARK BOX
+   ================================================= */
 
 .welcome {
 
-    background: #18212b;
+    background:
+        linear-gradient(
+            145deg,
+            #18243d,
+            #202d4b
+        );
 
-    border: 1px solid #334454;
+    border:
+        1px solid rgba(255,255,255,0.10);
 
-    border-radius: 14px;
+    border-radius:
+        15px;
 
     box-shadow:
-        0 10px 28px rgba(15, 23, 42, 0.14);
+        var(--shadow);
 }
 
 
-/* Welcome headings */
+/* =================================================
+   WELCOME HEADING
+   ================================================= */
 
-.welcome h2 {
-    color: #ffffff !important;
+.welcome h2,
+.welcome h3,
+.welcome h4 {
+
+    color:
+        #ffffff !important;
+
+    font-weight:
+        850;
 }
 
 
-/* Welcome paragraph */
+/* =================================================
+   WELCOME PARAGRAPH
+   ================================================= */
 
 .welcome p {
-    color: #cbd5df !important;
+
+    color:
+        #e7e0eb !important;
+
+    line-height:
+        1.75;
 }
 
 
-/* Badge */
+/* =================================================
+   WELCOME BADGE
+   ================================================= */
 
 .welcome-badge {
 
-    background: #183a38;
+    background:
+        rgba(217,70,239,0.12);
 
-    border: 1px solid #276b63;
+    border:
+        1px solid rgba(244,114,182,0.30);
 
-    color: #6ee7d8 !important;
+    color:
+        #f9a8d4 !important;
 
-    border-radius: 999px;
+    font-weight:
+        750;
+
+    border-radius:
+        999px;
 }
 
 
-/* =========================================================
+/* =================================================
    FEATURE CARDS
-   ========================================================= */
+   ================================================= */
 
 .feature-card {
 
     background:
         linear-gradient(
             145deg,
-            #18212b,
-            #202c38
+            #18243d,
+            #202d4b
         );
 
-    border: 1px solid #334454;
+    border:
+        1px solid rgba(255,255,255,0.09);
 
-    border-radius: 14px;
+    border-radius:
+        16px;
 
     box-shadow:
-        0 10px 28px rgba(15, 23, 42, 0.13);
+        0 12px 35px rgba(0,0,0,0.20);
 
     transition:
         transform 0.2s ease,
@@ -425,32 +595,49 @@ footer {
 
 .feature-card:hover {
 
-    border-color: #3d8f87;
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(244,114,182,0.45);
 
     box-shadow:
-        0 15px 35px rgba(15, 23, 42, 0.18);
-
-    transform: translateY(-3px);
+        0 18px 42px rgba(0,0,0,0.28);
 }
 
 
-/* Feature heading */
+/* =================================================
+   FEATURE HEADING
+   ================================================= */
 
-.feature-card h3 {
+.feature-card h3,
+.feature-card h4 {
 
-    color: #ffffff !important;
+    color:
+        #ffffff !important;
+
+    font-weight:
+        800;
 }
 
 
-/* Feature paragraph */
+/* =================================================
+   FEATURE DESCRIPTION
+   ================================================= */
 
 .feature-card p {
 
-    color: #cbd5df !important;
+    color:
+        #ddd5e2 !important;
+
+    line-height:
+        1.7;
 }
 
 
-/* Feature icons */
+/* =================================================
+   FEATURE ICON
+   ================================================= */
 
 .feature-icon,
 .purple,
@@ -458,122 +645,156 @@ footer {
 .green {
 
     background:
-        #213d43;
+        linear-gradient(
+            135deg,
+            rgba(217,70,239,0.18),
+            rgba(244,114,182,0.10)
+        );
 
-    border: 1px solid #35665f;
+    border:
+        1px solid rgba(244,114,182,0.30);
 
-    color: #6ee7d8 !important;
+    color:
+        #f9a8d4 !important;
 }
 
 
-/* Footer inside feature */
+/* =================================================
+   FEATURE FOOTER
+   ================================================= */
 
 .feature-footer,
 .footer-brand {
 
-    color: #5fe0cf !important;
+    color:
+        #f472b6 !important;
 
-    font-weight: 650;
+    font-weight:
+        750;
 }
 
 
-/* =========================================================
+/* =================================================
    INFO PANEL
-   ========================================================= */
+   ================================================= */
 
 .info-panel {
 
     background:
-        #202c38;
+        linear-gradient(
+            145deg,
+            #18243d,
+            #202d4b
+        );
 
-    border: 1px solid #34495a;
+    border:
+        1px solid rgba(255,255,255,0.10);
 
-    border-radius: 13px;
+    border-radius:
+        15px;
 
     box-shadow:
-        0 8px 22px rgba(15, 23, 42, 0.10);
+        0 10px 30px rgba(0,0,0,0.20);
 }
 
-
-/* Info heading */
 
 .info-panel h4 {
 
-    color: #ffffff !important;
+    color:
+        #ffffff !important;
+
+    font-weight:
+        800;
 }
 
-
-/* Info paragraph */
 
 .info-panel p {
 
-    color: #cbd5df !important;
+    color:
+        #ddd5e2 !important;
 }
 
 
-/* =========================================================
+/* =================================================
    PAGE INTRO
-   ========================================================= */
+   ================================================= */
 
 .page-intro h2 {
 
-    color: #111827 !important;
+    color:
+        #ffffff !important;
+
+    font-weight:
+        850;
 }
 
-
-/* Page intro paragraph */
 
 .page-intro p {
 
-    color: #64748b !important;
+    color:
+        #c8bfce !important;
 }
 
 
-/* Page icon */
+/* =================================================
+   PAGE ICON
+   ================================================= */
 
 .page-icon {
 
     background:
         linear-gradient(
             135deg,
-            #18212b,
-            #293b4b
+            #b82fd0,
+            #f472b6
         );
 
-    border: 1px solid #334454;
+    border:
+        1px solid rgba(255,255,255,0.15);
 
-    color: #6ee7d8 !important;
+    color:
+        #ffffff !important;
+
+    box-shadow:
+        0 7px 22px rgba(217,70,239,0.25);
 }
 
 
-/* =========================================================
-   STREAMLIT CONTAINERS
-   ========================================================= */
+/* =================================================
+   NORMAL STREAMLIT CONTAINERS
+   ================================================= */
 
 div[data-testid="stVerticalBlockBorderWrapper"] {
 
-    background: #ffffff;
+    background:
+        #18243d;
 
-    border: 1px solid var(--border) !important;
+    border:
+        1px solid rgba(255,255,255,0.09) !important;
 
-    border-radius: 14px;
+    border-radius:
+        15px;
 
     box-shadow:
-        0 8px 24px rgba(15, 23, 42, 0.05);
+        0 9px 28px rgba(0,0,0,0.18);
 }
 
 
-/* =========================================================
+/* =================================================
    GENERAL MARKDOWN
-   ========================================================= */
+   ================================================= */
 
 [data-testid="stMarkdownContainer"] {
-    color: #111827 !important;
+
+    color:
+        #ffffff !important;
 }
 
 
 [data-testid="stMarkdownContainer"] p {
-    color: #111827 !important;
+
+    color:
+        #eee8f1 !important;
 }
 
 
@@ -583,119 +804,119 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 [data-testid="stMarkdownContainer"] h4,
 [data-testid="stMarkdownContainer"] h5 {
 
-    color: #111827 !important;
+    color:
+        #ffffff !important;
+
+    font-weight:
+        800;
 }
 
 
-/* =========================================================
-   CAPTIONS
-   ========================================================= */
-
-[data-testid="stCaptionContainer"],
-[data-testid="stCaptionContainer"] p,
-.stCaption {
-
-    color: #64748b !important;
-}
-
-
-/* =========================================================
+/* =================================================
    WIDGET LABELS
-   ========================================================= */
+   ================================================= */
 
 [data-testid="stWidgetLabel"],
 [data-testid="stWidgetLabel"] p {
 
-    color: #111827 !important;
+    color:
+        #ffffff !important;
 
-    font-weight: 650;
+    font-weight:
+        700;
 }
 
 
-/* =========================================================
+/* =================================================
    TEXT INPUT
-   ========================================================= */
+   ================================================= */
 
 .stTextInput label {
 
-    color: #111827 !important;
+    color:
+        #ffffff !important;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    font-weight: 650;
+    font-weight:
+        700;
 }
 
-
-/* Input field */
 
 .stTextInput input {
 
-    background: #ffffff !important;
+    background:
+        #ffffff !important;
 
-    border: 1px solid #cbd5df !important;
+    border:
+        1px solid #66758d !important;
 
-    border-radius: 9px !important;
+    border-radius:
+        9px !important;
 
-    color: #111827 !important;
+    color:
+        #253b54 !important;
 
-    caret-color: #111827 !important;
+    font-weight:
+        600;
 }
 
-
-/* Placeholder */
 
 .stTextInput input::placeholder {
 
-    color: #9ca3af !important;
+    color:
+        #7d899a !important;
 }
 
-
-/* Focus */
 
 .stTextInput input:focus {
 
-    border-color: var(--accent) !important;
+    border-color:
+        #d946ef !important;
 
     box-shadow:
-        0 0 0 2px rgba(24, 182, 164, 0.15) !important;
+        0 0 0 2px rgba(217,70,239,0.20) !important;
 }
 
 
-/* =========================================================
+/* =================================================
    FILE UPLOADER
-   ========================================================= */
+   ================================================= */
 
 [data-testid="stFileUploader"] {
 
-    background: #ffffff !important;
+    background:
+        #18243d !important;
 
-    border: 1px dashed #9aaabd !important;
+    border:
+        1px dashed rgba(244,114,182,0.45) !important;
 
-    border-radius: 12px;
+    border-radius:
+        13px;
 
     box-shadow:
-        0 5px 16px rgba(15, 23, 42, 0.05);
+        0 8px 25px rgba(0,0,0,0.16);
 }
 
-
-/* File uploader section */
 
 [data-testid="stFileUploader"] section {
 
-    background: #ffffff !important;
+    background:
+        transparent !important;
 
-    border-color: transparent !important;
+    border:
+        none !important;
 }
 
-
-/* File uploader text */
 
 [data-testid="stFileUploader"] label,
 [data-testid="stFileUploader"] small,
 [data-testid="stFileUploader"] span,
 [data-testid="stFileUploader"] p {
 
-    color: #374151 !important;
+    color:
+        #e9e2ed !important;
 }
 
 
@@ -703,37 +924,37 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 
 [data-testid="stFileUploader"] button {
 
-    background: #18212b !important;
+    background:
+        linear-gradient(
+            135deg,
+            #b82fd0,
+            #d946ef
+        ) !important;
 
-    border: 1px solid #18212b !important;
+    border:
+        none !important;
 
-    border-radius: 8px;
+    border-radius:
+        8px;
 
-    color: #ffffff !important;
+    color:
+        #ffffff !important;
 
-    font-weight: 650;
+    font-weight:
+        750;
 }
 
 
 [data-testid="stFileUploader"] button * {
 
-    color: #ffffff !important;
+    color:
+        #ffffff !important;
 }
 
 
-/* Upload button hover */
-
-[data-testid="stFileUploader"] button:hover {
-
-    background: #263544 !important;
-
-    border-color: #263544 !important;
-}
-
-
-/* =========================================================
+/* =================================================
    BUTTONS
-   ========================================================= */
+   ================================================= */
 
 .stButton > button,
 .stDownloadButton > button {
@@ -741,26 +962,34 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
     background:
         linear-gradient(
             135deg,
-            #18212b,
-            #263544
+            #b82fd0 0%,
+            #d946ef 50%,
+            #f472b6 100%
         ) !important;
 
-    border: 1px solid #34495a !important;
+    border:
+        none !important;
 
-    border-radius: 9px;
+    border-radius:
+        10px;
 
-    color: #ffffff !important;
+    min-height:
+        45px;
 
-    font-size: 13px;
+    color:
+        #ffffff !important;
 
-    font-weight: 700;
+    font-size:
+        13px;
 
-    min-height: 44px;
+    font-weight:
+        800;
+
+    box-shadow:
+        0 8px 22px rgba(217,70,239,0.25);
 
     transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        background 0.15s ease;
+        all 0.18s ease;
 }
 
 
@@ -769,11 +998,12 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 .stButton > button *,
 .stDownloadButton > button * {
 
-    color: #ffffff !important;
+    color:
+        #ffffff !important;
 }
 
 
-/* Button hover */
+/* Hover */
 
 .stButton > button:hover,
 .stDownloadButton > button:hover {
@@ -781,309 +1011,171 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
     background:
         linear-gradient(
             135deg,
-            #263544,
-            #314658
+            #c238d8,
+            #e04ff0,
+            #f78abf
         ) !important;
 
-    border-color: #4d6578 !important;
-
     box-shadow:
-        0 8px 20px rgba(15, 23, 42, 0.20);
+        0 12px 30px rgba(217,70,239,0.35);
 
-    color: #ffffff !important;
-
-    transform: translateY(-1px);
+    transform:
+        translateY(-2px);
 }
 
 
-/* Button focus */
+/* =================================================
+   CODE BOX
+   ================================================= */
 
-.stButton > button:focus-visible,
-.stDownloadButton > button:focus-visible {
+[data-testid="stCode"] {
 
-    outline: 2px solid var(--accent);
+    background:
+        #142038;
 
-    outline-offset: 2px;
+    border:
+        1px solid rgba(244,114,182,0.20);
 
-    box-shadow:
-        0 0 0 4px rgba(24, 182, 164, 0.15);
+    border-radius:
+        11px;
 }
 
 
-/* =========================================================
-   FINGERPRINT / HASH BOX
-   ========================================================= */
+[data-testid="stCode"] pre,
+[data-testid="stCode"] code {
+
+    color:
+        #f1eaf4 !important;
+}
+
+
+/* =================================================
+   SUCCESS PANEL
+   ================================================= */
+
+.success-panel {
+
+    background:
+        rgba(52,211,153,0.10);
+
+    border:
+        1px solid rgba(52,211,153,0.28);
+
+    border-radius:
+        12px;
+}
+
+
+.success-panel h3,
+.success-icon {
+
+    color:
+        #6ee7b7 !important;
+}
+
+
+.success-panel p {
+
+    color:
+        #d8f4e8 !important;
+}
+
+
+/* =================================================
+   FINGERPRINT
+   ================================================= */
 
 .fingerprint {
 
     background:
-        #eef4f4;
+        rgba(217,70,239,0.09);
 
-    border: 1px solid #cbdedc;
+    border:
+        1px solid rgba(244,114,182,0.25);
 
-    border-radius: 11px;
+    border-radius:
+        11px;
 
-    color: #0f5f58;
+    color:
+        #f9a8d4 !important;
 }
 
 
 .fingerprint strong {
 
-    color: #111827 !important;
+    color:
+        #ffffff !important;
 }
 
 
-/* =========================================================
-   CODE BLOCK
-   ========================================================= */
-
-[data-testid="stCode"] {
-
-    background:
-        #111820;
-
-    border: 1px solid #2e3d4b;
-
-    border-radius: 11px;
-}
-
-
-/* Code text */
-
-[data-testid="stCode"] pre,
-[data-testid="stCode"] code {
-
-    color: #dbe7ee !important;
-}
-
-
-/* =========================================================
-   SUCCESS PANEL
-   ========================================================= */
-
-.success-panel {
-
-    background:
-        #eaf8f3;
-
-    border: 1px solid #bfe4d5;
-
-    border-radius: 12px;
-}
-
-
-/* Success icon */
-
-.success-icon {
-
-    color: #11805f !important;
-}
-
-
-/* Success heading */
-
-.success-panel h3 {
-
-    color: #08785f !important;
-}
-
-
-/* Success paragraph */
-
-.success-panel p {
-
-    color: #355d53 !important;
-}
-
-
-/* =========================================================
-   ALERTS
-   ========================================================= */
-
-[data-testid="stAlert"] {
-
-    border-radius: 11px;
-}
-
-
-/* =========================================================
+/* =================================================
    FOOTER
-   ========================================================= */
+   ================================================= */
 
 .footer p,
 .footer small {
 
-    color: #64748b !important;
+    color:
+        #aaa0b2 !important;
 }
 
-
-/* Footer divider */
 
 .footer-line {
 
-    background: #d8dee6;
+    background:
+        rgba(255,255,255,0.10);
 }
 
-
-/* Horizontal line */
 
 hr {
 
-    border-color: #d8dee6 !important;
+    border-color:
+        rgba(255,255,255,0.10) !important;
 }
 
 
-/* =========================================================
-   DARK BOX CUSTOM ELEMENTS
-   ========================================================= */
-
-.dark-box {
-
-    background:
-        linear-gradient(
-            145deg,
-            #18212b,
-            #202c38
-        );
-
-    border:
-        1px solid #334454;
-
-    border-radius:
-        14px;
-
-    padding:
-        22px;
-
-    color:
-        #ffffff;
-
-    box-shadow:
-        0 10px 28px rgba(15, 23, 42, 0.14);
-}
-
-
-.dark-box h3,
-.dark-box h4 {
-
-    color: #ffffff !important;
-
-    margin-top: 0;
-}
-
-
-.dark-box p {
-
-    color: #cbd5df !important;
-
-    line-height: 1.7;
-}
-
-
-/* =========================================================
-   ACCENT BOX
-   ========================================================= */
-
-.accent-box {
-
-    background:
-        #e8f7f5;
-
-    border-left:
-        4px solid var(--accent);
-
-    border-radius:
-        10px;
-
-    padding:
-        16px 18px;
-
-    color:
-        #111827;
-}
-
-
-.accent-box strong {
-
-    color:
-        #0f6f66;
-}
-
-
-/* =========================================================
-   MOBILE RESPONSIVE
-   ========================================================= */
+/* =================================================
+   RESPONSIVE
+   ================================================= */
 
 @media (max-width: 768px) {
 
     .block-container {
-
-        padding:
-            1rem;
+        padding: 1rem;
     }
-
 
     .hero {
-
-        padding:
-            30px 22px;
+        padding: 30px 22px;
     }
-
 
     .hero-visual {
-
-        display:
-            none;
+        display: none;
     }
-
 
     .hero h1 {
-
-        font-size:
-            33px;
+        font-size: 33px;
     }
-
 
     .welcome {
-
-        align-items:
-            flex-start;
-
-        flex-direction:
-            column;
+        align-items: flex-start;
+        flex-direction: column;
     }
-
 
     .topbar {
-
-        padding:
-            12px;
+        padding: 12px;
     }
-
 
     .stTabs [data-baseweb="tab"],
     .stTabs [data-testid="stTab"] {
-
-        font-size:
-            12px;
-
-        padding:
-            8px 10px;
-    }
-
-
-    .stTabs [data-baseweb="tab"] p,
-    .stTabs [data-testid="stTab"] p {
-
-        font-size:
-            12px;
+        font-size: 12px;
+        padding: 8px 10px;
     }
 }
 
 
-/* =========================================================
-   REDUCE MOTION
-   ========================================================= */
+/* =================================================
+   ACCESSIBILITY / REDUCED MOTION
+   ================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
