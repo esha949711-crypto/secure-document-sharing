@@ -1,95 +1,84 @@
-/* =========================================================
+/* ==========================================================
    SECUREVAULT
-   PROFESSIONAL CYBERSECURITY UI
-   Streamlit — Complete style.css
-========================================================= */
+   MIDNIGHT CYBER COMMAND
+   PREMIUM PROFESSIONAL STREAMLIT THEME
+========================================================== */
 
 
-/* =========================================================
-   01. DESIGN SYSTEM
-========================================================= */
+/* ==========================================================
+   01 — DESIGN TOKENS
+========================================================== */
 
 :root {
 
-    /* Main */
-    --bg: #070b16;
-    --bg-soft: #0b1220;
-    --bg-deep: #050914;
+    --app-bg: #080b12;
+    --app-bg-2: #0c111b;
 
-    /* Surfaces */
-    --surface: #101a2d;
-    --surface-2: #131f35;
-    --surface-3: #182741;
+    --surface: #111824;
+    --surface-hover: #151f2e;
+    --surface-raised: #172231;
 
-    /* Borders */
-    --border: #263957;
-    --border-soft: rgba(125, 150, 190, 0.20);
-    --border-strong: rgba(125, 145, 255, 0.38);
+    --border: rgba(148, 163, 184, 0.16);
+    --border-strong: rgba(129, 140, 248, 0.38);
 
-    /* Primary */
-    --primary: #7568f5;
-    --primary-light: #9b93ff;
-    --primary-dark: #5146c8;
+    --violet: #7c6cff;
+    --violet-light: #a69cff;
+    --violet-dark: #5b4ed1;
 
-    /* Secondary */
-    --cyan: #42c9e8;
-    --cyan-light: #7eeaff;
+    --cyan: #36c5df;
+    --cyan-light: #72e3f5;
 
-    /* Status */
-    --success: #35d6a2;
-    --warning: #f3bf61;
-    --danger: #ff667d;
+    --green: #38d39f;
+    --amber: #e8b85c;
+    --red: #ef6678;
 
-    /* Text */
-    --text: #f7f9ff;
-    --text-soft: #d5deee;
-    --text-muted: #9aa9c2;
-    --text-dim: #71819c;
+    --white: #f8fafc;
+    --text: #dce4ef;
+    --muted: #91a0b5;
+    --dim: #637188;
 
-    /* Radius */
+    --sidebar-width: 285px;
+
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
-    --radius-xl: 22px;
-
-    /* Sidebar */
-    --sidebar-width: 280px;
+    --radius-xl: 20px;
 }
 
 
-/* =========================================================
-   02. GLOBAL APP
-========================================================= */
+/* ==========================================================
+   02 — APPLICATION BACKGROUND
+========================================================== */
 
 .stApp {
 
-    color: var(--text);
-
     background:
+
         radial-gradient(
-            circle at 8% 0%,
-            rgba(94, 76, 218, 0.16),
-            transparent 32%
+            900px 500px at 5% -10%,
+            rgba(96, 80, 220, 0.10),
+            transparent 65%
         ),
+
         radial-gradient(
-            circle at 92% 8%,
-            rgba(39, 154, 204, 0.10),
-            transparent 28%
+            800px 500px at 100% 5%,
+            rgba(38, 157, 190, 0.07),
+            transparent 65%
         ),
+
         linear-gradient(
             135deg,
-            #070b16 0%,
-            #09111f 48%,
-            #060a14 100%
+            var(--app-bg),
+            var(--app-bg-2)
         );
 
-    min-height: 100vh;
+    color: var(--white);
 }
 
 
-/* =========================================================
-   03. GLOBAL TYPOGRAPHY
-========================================================= */
+/* ==========================================================
+   03 — TYPOGRAPHY
+========================================================== */
 
 html,
 body,
@@ -106,10 +95,9 @@ body,
 }
 
 
-/* Main normal text */
-
 p {
-    color: var(--text-soft);
+
+    color: var(--text);
 
     font-size: 14px;
 
@@ -117,43 +105,45 @@ p {
 }
 
 
-/* Headings */
-
 h1 {
-    color: var(--text) !important;
 
-    font-size: 38px !important;
+    color: var(--white) !important;
+
+    font-size: 40px !important;
 
     line-height: 1.15 !important;
 
     font-weight: 800 !important;
+
+    letter-spacing: -1px;
 }
 
 
 h2 {
-    color: var(--text) !important;
+
+    color: var(--white) !important;
 
     font-size: 28px !important;
 
     line-height: 1.25 !important;
 
-    font-weight: 800 !important;
-}
-
-
-h3 {
-    color: var(--text) !important;
-
-    font-size: 20px !important;
-
-    line-height: 1.35 !important;
-
     font-weight: 750 !important;
 }
 
 
+h3 {
+
+    color: var(--white) !important;
+
+    font-size: 20px !important;
+
+    font-weight: 700 !important;
+}
+
+
 h4 {
-    color: var(--text-soft) !important;
+
+    color: var(--text) !important;
 
     font-size: 16px !important;
 
@@ -161,62 +151,55 @@ h4 {
 }
 
 
-/* =========================================================
-   04. MAIN CONTAINER
-========================================================= */
+/* ==========================================================
+   04 — MAIN CONTAINER
+========================================================== */
 
 .block-container {
 
-    max-width: 1480px !important;
+    max-width: 1500px !important;
 
-    padding-top: 1.8rem !important;
+    padding-top: 2rem !important;
 
-    padding-left: 2.2rem !important;
+    padding-left: 2.5rem !important;
 
-    padding-right: 2.2rem !important;
+    padding-right: 2.5rem !important;
 
     padding-bottom: 5rem !important;
 }
 
 
-/* =========================================================
-   05. HIDE STREAMLIT DEFAULT UI
-========================================================= */
+/* ==========================================================
+   05 — HIDE DEFAULT STREAMLIT CHROME
+========================================================== */
 
 #MainMenu {
     visibility: hidden;
 }
 
-
 header {
     visibility: hidden;
 }
-
 
 footer {
     visibility: hidden;
 }
 
 
-/* =========================================================
-   06. PREMIUM SIDEBAR
-========================================================= */
+/* ==========================================================
+   06 — SIDEBAR
+========================================================== */
 
 [data-testid="stSidebar"] {
 
     background:
-        linear-gradient(
-            180deg,
-            #0b1324 0%,
-            #09111f 52%,
-            #060c17 100%
-        ) !important;
+        #090e17 !important;
 
     border-right:
-        1px solid rgba(104, 127, 174, 0.25) !important;
+        1px solid rgba(148, 163, 184, 0.13) !important;
 
     box-shadow:
-        12px 0 45px rgba(0, 0, 0, 0.25);
+        15px 0 45px rgba(0, 0, 0, 0.28);
 
     min-width:
         var(--sidebar-width);
@@ -226,15 +209,12 @@ footer {
 }
 
 
-/* Sidebar internal */
-
 [data-testid="stSidebar"] > div {
 
-    background: transparent !important;
+    background:
+        transparent !important;
 }
 
-
-/* Sidebar container */
 
 [data-testid="stSidebar"] .block-container {
 
@@ -243,147 +223,169 @@ footer {
 }
 
 
-/* =========================================================
-   07. SIDEBAR BRAND
-========================================================= */
+/* ==========================================================
+   07 — SIDEBAR BRAND
+========================================================== */
 
 [data-testid="stSidebar"] .sidebar-brand {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 13px;
+    gap:
+        13px;
 
     padding:
-        8px 8px 22px;
+        8px 9px 23px;
 
     margin-bottom:
-        18px;
+        22px;
 
     border-bottom:
-        1px solid rgba(119, 143, 181, 0.16);
+        1px solid rgba(148, 163, 184, 0.13);
 }
 
 
 [data-testid="stSidebar"] .sidebar-brand-icon {
 
-    width: 46px;
+    width:
+        45px;
 
-    height: 46px;
+    height:
+        45px;
 
-    min-width: 46px;
+    display:
+        flex;
 
-    display: flex;
+    align-items:
+        center;
 
-    align-items: center;
+    justify-content:
+        center;
 
-    justify-content: center;
-
-    border-radius: 13px;
+    border-radius:
+        12px;
 
     background:
         linear-gradient(
             135deg,
-            #7568f5 0%,
-            #438de9 100%
+            #7468ef,
+            #3b9dd3
         );
 
+    color:
+        white;
+
+    font-size:
+        21px;
+
     box-shadow:
-        0 10px 30px rgba(91, 103, 230, 0.30);
-
-    font-size: 22px;
-
-    color: white;
+        0 8px 28px rgba(91, 83, 215, 0.28);
 }
 
 
 [data-testid="stSidebar"] .sidebar-brand-name {
 
-    color: #ffffff;
+    color:
+        #ffffff;
 
-    font-size: 18px;
+    font-size:
+        18px;
 
-    font-weight: 850;
+    font-weight:
+        800;
 
-    letter-spacing: -0.4px;
-
-    line-height: 1.1;
+    letter-spacing:
+        -0.3px;
 }
 
 
 [data-testid="stSidebar"] .sidebar-brand-subtitle {
 
-    color: #7f90ad;
+    color:
+        #718198;
 
-    font-size: 9px;
+    font-size:
+        9px;
 
-    font-weight: 800;
+    font-weight:
+        700;
 
-    letter-spacing: 2px;
+    letter-spacing:
+        2px;
 
-    margin-top: 5px;
+    margin-top:
+        4px;
 }
 
 
-/* =========================================================
-   08. SIDEBAR SECTION LABELS
-========================================================= */
+/* ==========================================================
+   08 — SIDEBAR SECTION LABEL
+========================================================== */
 
 [data-testid="stSidebar"] .nav-section-title {
 
-    color: #687995;
+    color:
+        #65748b;
 
-    font-size: 10px;
+    font-size:
+        10px;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    letter-spacing: 1.7px;
+    letter-spacing:
+        1.6px;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
 
     margin:
-        20px 10px 9px;
+        0 11px 10px;
 }
 
 
-/* =========================================================
-   09. SIDEBAR NAVIGATION
-========================================================= */
+/* ==========================================================
+   09 — SIDEBAR NAVIGATION
+========================================================== */
 
-[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"] {
+[data-testid="stSidebar"]
+[data-testid="stPageLink-NavLink"] {
 
-    display: flex !important;
+    display:
+        flex !important;
 
-    align-items: center !important;
+    align-items:
+        center !important;
 
-    min-height: 48px;
+    min-height:
+        50px;
 
     padding:
-        11px 14px !important;
+        12px 14px !important;
 
     margin:
         5px 0 !important;
 
-    border-radius: 11px !important;
-
     border:
         1px solid transparent !important;
+
+    border-radius:
+        10px !important;
 
     background:
         transparent !important;
 
     color:
-        #9facbf !important;
+        #98a7bb !important;
 
     transition:
-        all 0.22s ease !important;
-
-    position: relative;
+        all 0.18s ease !important;
 }
 
-
-/* Navigation text */
 
 [data-testid="stSidebar"]
 [data-testid="stPageLink-NavLink"] p,
@@ -392,26 +394,21 @@ footer {
 [data-testid="stPageLink-NavLink"] span {
 
     color:
-        #aeb9cc !important;
+        #a4b0c1 !important;
 
     font-size:
         14px !important;
 
     font-weight:
         600 !important;
-
-    line-height:
-        1.2 !important;
 }
 
-
-/* Navigation icon */
 
 [data-testid="stSidebar"]
 [data-testid="stPageLink-NavLink"] svg {
 
     color:
-        #73839f !important;
+        #687991 !important;
 
     width:
         19px;
@@ -420,32 +417,25 @@ footer {
         19px;
 
     margin-right:
-        7px;
-
-    transition:
-        all 0.2s ease;
+        8px;
 }
 
 
-/* =========================================================
-   10. SIDEBAR HOVER
-========================================================= */
+/* ==========================================================
+   10 — SIDEBAR HOVER
+========================================================== */
 
 [data-testid="stSidebar"]
 [data-testid="stPageLink-NavLink"]:hover {
 
     background:
-        linear-gradient(
-            90deg,
-            rgba(117, 104, 245, 0.15),
-            rgba(56, 191, 225, 0.05)
-        ) !important;
+        rgba(124, 108, 255, 0.08) !important;
 
     border:
-        1px solid rgba(117, 104, 245, 0.25) !important;
+        1px solid rgba(124, 108, 255, 0.20) !important;
 
     transform:
-        translateX(3px);
+        translateX(2px);
 }
 
 
@@ -464,64 +454,66 @@ footer {
 [data-testid="stPageLink-NavLink"]:hover svg {
 
     color:
-        #9d96ff !important;
+        var(--violet-light) !important;
 }
 
 
-/* =========================================================
-   11. ACTIVE NAVIGATION
-========================================================= */
+/* ==========================================================
+   11 — ACTIVE NAVIGATION
+========================================================== */
 
 [data-testid="stSidebar"]
 [data-testid="stPageLink-NavLink"][aria-current="page"] {
 
     background:
         linear-gradient(
-            100deg,
-            rgba(117, 104, 245, 0.95),
-            rgba(65, 126, 220, 0.95)
+            90deg,
+            rgba(112, 98, 236, 0.88),
+            rgba(67, 121, 190, 0.82)
         ) !important;
 
     border:
-        1px solid rgba(166, 160, 255, 0.55) !important;
-
-    border-radius:
-        11px !important;
+        1px solid rgba(165, 156, 255, 0.40) !important;
 
     box-shadow:
-        0 10px 30px rgba(76, 87, 215, 0.24);
+        0 8px 25px rgba(73, 76, 170, 0.20);
 
-    position: relative;
+    position:
+        relative;
 }
 
-
-/* Active left indicator */
 
 [data-testid="stSidebar"]
 [data-testid="stPageLink-NavLink"][aria-current="page"]::before {
 
-    content: "";
+    content:
+        "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    left: -1px;
+    left:
+        0;
 
-    top: 10px;
+    top:
+        10px;
 
-    bottom: 10px;
+    bottom:
+        10px;
 
-    width: 3px;
+    width:
+        3px;
 
-    border-radius: 5px;
+    border-radius:
+        4px;
 
-    background: #ffffff;
+    background:
+        #ffffff;
 
     box-shadow:
         0 0 12px rgba(255, 255, 255, 0.7);
 }
 
-
-/* Active text */
 
 [data-testid="stSidebar"]
 [data-testid="stPageLink-NavLink"][aria-current="page"] p,
@@ -537,8 +529,6 @@ footer {
 }
 
 
-/* Active icon */
-
 [data-testid="stSidebar"]
 [data-testid="stPageLink-NavLink"][aria-current="page"] svg {
 
@@ -547,9 +537,9 @@ footer {
 }
 
 
-/* =========================================================
-   12. SIDEBAR DIVIDER
-========================================================= */
+/* ==========================================================
+   12 — SIDEBAR DIVIDER
+========================================================== */
 
 [data-testid="stSidebar"] hr {
 
@@ -559,155 +549,107 @@ footer {
     height:
         1px !important;
 
+    background:
+        rgba(148, 163, 184, 0.13) !important;
+
     margin:
         22px 0 !important;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(103, 126, 166, 0.35),
-            transparent
-        ) !important;
 }
 
 
-/* =========================================================
-   13. SIDEBAR NORMAL TEXT
-========================================================= */
-
-[data-testid="stSidebar"] p {
-
-    color:
-        #9eacc3 !important;
-
-    font-size:
-        13px;
-}
-
-
-[data-testid="stSidebar"] label {
-
-    color:
-        #aebbd0 !important;
-
-    font-size:
-        13px !important;
-}
-
-
-/* =========================================================
-   14. SIDEBAR SCROLLBAR
-========================================================= */
-
-[data-testid="stSidebar"] ::-webkit-scrollbar {
-
-    width:
-        5px;
-}
-
-
-[data-testid="stSidebar"] ::-webkit-scrollbar-track {
-
-    background:
-        #060c16;
-}
-
-
-[data-testid="stSidebar"] ::-webkit-scrollbar-thumb {
-
-    background:
-        #2c3d5c;
-
-    border-radius:
-        20px;
-}
-
-
-[data-testid="stSidebar"] ::-webkit-scrollbar-thumb:hover {
-
-    background:
-        #7167e5;
-}
-
-
-/* =========================================================
-   15. TOP HEADER
-========================================================= */
+/* ==========================================================
+   13 — TOP APPLICATION HEADER
+========================================================== */
 
 .topbar {
 
-    position: relative;
+    display:
+        flex;
 
-    display: flex;
+    align-items:
+        center;
 
-    align-items: center;
+    justify-content:
+        space-between;
 
-    justify-content: space-between;
-
-    min-height: 76px;
+    min-height:
+        74px;
 
     padding:
         14px 20px;
 
     margin-bottom:
-        26px;
+        27px;
+
+    border:
+        1px solid var(--border);
 
     border-radius:
         var(--radius-lg);
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(16, 27, 48, 0.96),
-            rgba(9, 17, 32, 0.96)
-        );
+        rgba(13, 20, 33, 0.92);
 
-    border:
-        1px solid var(--border-soft);
+    backdrop-filter:
+        blur(18px);
 
     box-shadow:
-        0 18px 50px rgba(0, 0, 0, 0.18);
+        0 18px 55px rgba(0, 0, 0, 0.18);
 }
 
 
-/* Top brand */
+/* ==========================================================
+   14 — BRAND
+========================================================== */
 
 .brand {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 13px;
+    gap:
+        13px;
 }
 
 
 .brand-icon {
 
-    width: 46px;
+    width:
+        45px;
 
-    height: 46px;
+    height:
+        45px;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    border-radius: 12px;
+    border-radius:
+        12px;
 
     background:
         linear-gradient(
             135deg,
             #7568f5,
-            #438de9
+            #3b9dd3
         );
 
-    box-shadow:
-        0 10px 30px rgba(95, 104, 236, 0.28);
+    color:
+        white;
 
-    font-size: 22px;
+    font-size:
+        21px;
+
+    box-shadow:
+        0 9px 28px rgba(92, 87, 220, 0.25);
 }
 
 
@@ -720,20 +662,181 @@ footer {
         21px;
 
     font-weight:
-        850;
+        800;
 
     letter-spacing:
-        -0.5px;
+        -0.4px;
 }
 
 
 .brand-subtitle {
 
     color:
-        #8190ab;
+        #73829a;
 
     font-size:
         9px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2px;
+
+    margin-top:
+        3px;
+}
+
+
+/* ==========================================================
+   15 — SECURITY STATUS
+========================================================== */
+
+.top-status {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    padding:
+        9px 15px;
+
+    border:
+        1px solid rgba(56, 211, 159, 0.25);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(56, 211, 159, 0.07);
+
+    color:
+        #5de1b3;
+
+    font-size:
+        10px;
+
+    font-weight:
+        750;
+
+    letter-spacing:
+        0.7px;
+}
+
+
+/* ==========================================================
+   16 — HERO
+========================================================== */
+
+.hero {
+
+    position:
+        relative;
+
+    min-height:
+        350px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        48px 52px;
+
+    margin-bottom:
+        32px;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid rgba(129, 140, 248, 0.22);
+
+    border-radius:
+        20px;
+
+    background:
+
+        radial-gradient(
+            circle at 82% 48%,
+            rgba(124, 108, 255, 0.16),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 68% 100%,
+            rgba(54, 197, 223, 0.08),
+            transparent 32%
+        ),
+
+        #101827;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.22);
+}
+
+
+.hero::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        100%;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(124, 108, 255, 0.8),
+            rgba(54, 197, 223, 0.7),
+            transparent
+        );
+}
+
+
+.hero-content {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    max-width:
+        760px;
+}
+
+
+.hero-label {
+
+    color:
+        #a59dff;
+
+    font-size:
+        11px;
 
     font-weight:
         800;
@@ -741,192 +844,8 @@ footer {
     letter-spacing:
         2px;
 
-    margin-top:
-        4px;
-}
-
-
-/* Security status */
-
-.top-status {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    color:
-        #61e2b7;
-
-    background:
-        rgba(53, 214, 162, 0.09);
-
-    border:
-        1px solid rgba(53, 214, 162, 0.25);
-
-    border-radius:
-        999px;
-
-    padding:
-        9px 15px;
-
-    font-size:
-        10px;
-
-    font-weight:
-        800;
-
-    letter-spacing:
-        0.7px;
-}
-
-
-/* =========================================================
-   16. HERO
-========================================================= */
-
-.hero {
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    min-height: 370px;
-
-    padding:
-        50px 55px;
-
     margin-bottom:
-        32px;
-
-    border-radius:
-        var(--radius-xl);
-
-    border:
-        1px solid rgba(121, 139, 211, 0.28);
-
-    background:
-
-        radial-gradient(
-            circle at 82% 50%,
-            rgba(112, 95, 255, 0.23),
-            transparent 32%
-        ),
-
-        radial-gradient(
-            circle at 65% 100%,
-            rgba(48, 165, 218, 0.13),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            115deg,
-            #111b34,
-            #151f3f 50%,
-            #0e1931
-        );
-
-    overflow:
-        hidden;
-
-    box-shadow:
-        0 30px 90px rgba(0, 0, 0, 0.20);
-}
-
-
-/* Top glow */
-
-.hero::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    height: 2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #8178ff,
-            #4ac9e9,
-            transparent
-        );
-
-    opacity:
-        0.85;
-}
-
-
-/* Decorative grid */
-
-.hero::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 450px;
-
-    height: 450px;
-
-    right: -220px;
-
-    top: -180px;
-
-    border-radius: 50%;
-
-    border:
-        1px solid rgba(131, 142, 255, 0.08);
-
-    box-shadow:
-        0 0 0 40px rgba(117, 104, 245, 0.025),
-        0 0 0 80px rgba(117, 104, 245, 0.018);
-}
-
-
-/* Hero content */
-
-.hero-content {
-
-    max-width:
-        780px;
-
-    position:
-        relative;
-
-    z-index:
-        2;
-}
-
-
-.hero-label {
-
-    color:
-        #a9a2ff;
-
-    font-size:
-        11px;
-
-    font-weight:
-        850;
-
-    letter-spacing:
-        2.4px;
-
-    margin-bottom:
-        17px;
+        16px;
 
     text-transform:
         uppercase;
@@ -936,22 +855,19 @@ footer {
 .hero h1 {
 
     color:
-        #ffffff;
+        #ffffff !important;
 
     font-size:
-        clamp(38px, 4.5vw, 58px) !important;
+        clamp(38px, 4.3vw, 56px) !important;
 
     line-height:
         1.08 !important;
 
-    font-weight:
-        850 !important;
-
-    letter-spacing:
-        -1.8px;
-
     margin:
         0 0 19px;
+
+    letter-spacing:
+        -1.7px;
 }
 
 
@@ -960,8 +876,8 @@ footer {
     background:
         linear-gradient(
             90deg,
-            #aaa3ff,
-            #77c8ff
+            #a89fff,
+            #6ed7ee
         );
 
     -webkit-background-clip:
@@ -978,10 +894,10 @@ footer {
 .hero-copy {
 
     max-width:
-        700px;
+        690px;
 
     color:
-        #b5c0d5;
+        #aebbd0;
 
     font-size:
         15px;
@@ -990,7 +906,7 @@ footer {
         1.85;
 
     margin-bottom:
-        24px;
+        23px;
 }
 
 
@@ -1003,41 +919,42 @@ footer {
         wrap;
 
     gap:
-        9px;
+        8px;
 }
 
 
 .hero-tags span {
 
+    padding:
+        8px 12px;
+
     color:
-        #d5ddef;
+        #cbd6e8;
 
     background:
-        rgba(255, 255, 255, 0.045);
+        rgba(255, 255, 255, 0.035);
 
     border:
-        1px solid rgba(125, 145, 200, 0.23);
+        1px solid rgba(148, 163, 184, 0.17);
 
     border-radius:
-        8px;
-
-    padding:
-        9px 13px;
+        7px;
 
     font-size:
         10px;
 
     font-weight:
-        750;
-
-    letter-spacing:
-        0.4px;
+        650;
 }
 
 
-/* Hero security icon */
-
 .hero-visual {
+
+    width:
+        220px;
+
+    height:
+        220px;
 
     display:
         flex;
@@ -1048,105 +965,99 @@ footer {
     justify-content:
         center;
 
-    width:
-        220px;
-
-    height:
-        220px;
-
     margin-right:
-        25px;
-
-    font-size:
-        100px;
-
-    filter:
-        drop-shadow(
-            0 0 40px rgba(127, 112, 255, 0.46)
-        );
+        20px;
 
     position:
         relative;
 
     z-index:
         2;
+
+    font-size:
+        96px;
+
+    filter:
+        drop-shadow(
+            0 0 35px rgba(124, 108, 255, 0.32)
+        );
 }
 
 
-/* =========================================================
-   17. SECTION HEADINGS
-========================================================= */
+/* ==========================================================
+   17 — SECTION LABEL
+========================================================== */
 
 .section-heading {
 
     color:
-        #8190aa;
+        #728198;
 
     font-size:
         11px;
 
     font-weight:
-        850;
+        800;
 
     letter-spacing:
-        2px;
-
-    margin:
-        8px 0 14px 3px;
+        1.8px;
 
     text-transform:
         uppercase;
+
+    margin:
+        8px 0 14px;
 }
 
 
-/* =========================================================
-   18. STREAMLIT TABS
-========================================================= */
+/* ==========================================================
+   18 — TABS
+========================================================== */
 
 .stTabs [data-baseweb="tab-list"] {
+
+    display:
+        flex;
 
     gap:
         5px;
 
     padding:
-        7px;
+        6px;
 
     background:
-        rgba(8, 15, 29, 0.95);
+        #0a101b;
 
     border:
         1px solid var(--border);
 
     border-radius:
-        14px;
+        13px;
 }
 
 
 .stTabs [data-baseweb="tab"] {
 
     min-height:
-        46px;
+        45px;
 
     padding:
-        11px 20px;
+        10px 19px;
 
     border-radius:
-        10px;
+        9px;
 
     color:
-        #9aa8bf;
+        #8f9db2;
 
     font-size:
         13px;
 
     font-weight:
-        700;
-
-    border:
-        none;
+        650;
 
     transition:
-        all 0.2s ease;
+        all 0.18s ease;
 }
 
 
@@ -1167,13 +1078,13 @@ footer {
 
     background:
         linear-gradient(
-            110deg,
-            #6559d8,
-            #477bd7
+            100deg,
+            #675be0,
+            #397bc0
         ) !important;
 
     box-shadow:
-        0 8px 25px rgba(78, 89, 211, 0.25);
+        0 8px 24px rgba(77, 78, 173, 0.20);
 }
 
 
@@ -1184,9 +1095,9 @@ footer {
 }
 
 
-/* =========================================================
-   19. WELCOME PANEL
-========================================================= */
+/* ==========================================================
+   19 — WELCOME PANEL
+========================================================== */
 
 .welcome {
 
@@ -1200,26 +1111,19 @@ footer {
         space-between;
 
     padding:
-        25px 27px;
+        24px 26px;
 
     margin:
-        27px 0 21px;
+        27px 0 20px;
+
+    border:
+        1px solid var(--border);
 
     border-radius:
         15px;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(18, 31, 54, 0.96),
-            rgba(10, 20, 37, 0.96)
-        );
-
-    border:
-        1px solid var(--border-soft);
-
-    box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.10);
+        #101824;
 }
 
 
@@ -1229,20 +1133,17 @@ footer {
         #ffffff;
 
     font-size:
-        24px !important;
-
-    font-weight:
-        800;
+        23px !important;
 
     margin:
-        0 0 7px;
+        0 0 6px;
 }
 
 
 .welcome p {
 
     color:
-        #9aa8bf;
+        #91a0b6;
 
     font-size:
         14px;
@@ -1254,87 +1155,83 @@ footer {
 
 .welcome-badge {
 
-    color:
-        #b1aaff;
-
-    background:
-        rgba(116, 104, 245, 0.08);
+    padding:
+        9px 13px;
 
     border:
-        1px solid rgba(116, 104, 245, 0.27);
+        1px solid rgba(124, 108, 255, 0.25);
 
     border-radius:
         8px;
 
-    padding:
-        9px 13px;
+    background:
+        rgba(124, 108, 255, 0.06);
+
+    color:
+        #a9a1ff;
 
     font-size:
         10px;
 
     font-weight:
-        850;
+        800;
 
     letter-spacing:
         1px;
 }
 
 
-/* =========================================================
-   20. FEATURE CARDS
-========================================================= */
+/* ==========================================================
+   20 — FEATURE CARDS
+========================================================== */
 
 .feature-card {
 
     min-height:
-        230px;
+        225px;
 
     padding:
-        26px 24px;
-
-    border-radius:
-        16px;
+        25px;
 
     border:
-        1px solid var(--border-soft);
+        1px solid var(--border);
+
+    border-radius:
+        15px;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(18, 30, 53, 0.97),
-            rgba(9, 18, 34, 0.97)
-        );
+        #101824;
 
     box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.14);
+        0 15px 45px rgba(0, 0, 0, 0.12);
 
     transition:
-        transform 0.22s ease,
-        border-color 0.22s ease,
-        box-shadow 0.22s ease;
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
 }
 
 
 .feature-card:hover {
 
     transform:
-        translateY(-5px);
+        translateY(-4px);
 
     border-color:
-        rgba(117, 104, 245, 0.45);
+        rgba(124, 108, 255, 0.32);
 
-    box-shadow:
-        0 25px 60px rgba(0, 0, 0, 0.24);
+    background:
+        #131d2b;
 }
 
 
 .feature-icon {
 
     width:
-        52px;
+        51px;
 
     height:
-        52px;
+        51px;
 
     display:
         flex;
@@ -1345,67 +1242,67 @@ footer {
     justify-content:
         center;
 
+    margin-bottom:
+        17px;
+
     border-radius:
-        13px;
+        12px;
 
     font-size:
-        23px;
-
-    margin-bottom:
-        18px;
+        22px;
 }
 
 
 .purple {
 
     background:
-        rgba(117, 104, 245, 0.15);
+        rgba(124, 108, 255, 0.12);
 
     border:
-        1px solid rgba(117, 104, 245, 0.16);
+        1px solid rgba(124, 108, 255, 0.16);
 }
 
 
 .blue {
 
     background:
-        rgba(66, 145, 232, 0.14);
+        rgba(54, 160, 220, 0.11);
 
     border:
-        1px solid rgba(66, 145, 232, 0.15);
+        1px solid rgba(54, 160, 220, 0.15);
 }
 
 
 .green {
 
     background:
-        rgba(47, 191, 145, 0.13);
+        rgba(56, 211, 159, 0.10);
 
     border:
-        1px solid rgba(47, 191, 145, 0.15);
+        1px solid rgba(56, 211, 159, 0.14);
 }
 
 
 .feature-card h3 {
 
     color:
-        #f5f7ff;
+        #f5f7fb;
 
     font-size:
         18px;
 
     font-weight:
-        800;
+        750;
 
     margin:
-        0 0 9px;
+        0 0 8px;
 }
 
 
 .feature-card p {
 
     color:
-        #9aa8bf;
+        #98a6ba;
 
     font-size:
         13px;
@@ -1421,25 +1318,25 @@ footer {
 .feature-footer {
 
     color:
-        #a49cf8;
+        #9e96f5;
 
     font-size:
         9px;
 
     font-weight:
-        850;
+        800;
 
     letter-spacing:
-        1.3px;
+        1.2px;
 
     margin-top:
-        19px;
+        17px;
 }
 
 
-/* =========================================================
-   21. INFO PANEL
-========================================================= */
+/* ==========================================================
+   21 — INFORMATION PANEL
+========================================================== */
 
 .info-panel {
 
@@ -1447,53 +1344,49 @@ footer {
         flex;
 
     gap:
-        16px;
-
-    margin-top:
-        23px;
+        15px;
 
     padding:
+        21px;
+
+    margin-top:
         22px;
 
+    border:
+        1px solid rgba(54, 160, 220, 0.18);
+
     border-radius:
-        14px;
+        13px;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(17, 40, 67, 0.80),
-            rgba(10, 25, 46, 0.80)
-        );
-
-    border:
-        1px solid rgba(67, 116, 177, 0.28);
+        rgba(16, 35, 54, 0.72);
 }
 
 
 .info-icon {
 
     font-size:
-        26px;
+        24px;
 }
 
 
 .info-panel h4 {
 
     color:
-        #eef3ff;
+        #edf3fb;
 
     font-size:
         15px;
 
     margin:
-        0 0 7px;
+        0 0 6px;
 }
 
 
 .info-panel p {
 
     color:
-        #a0afc5;
+        #98a9bf;
 
     font-size:
         13px;
@@ -1506,9 +1399,9 @@ footer {
 }
 
 
-/* =========================================================
-   22. PAGE INTRO
-========================================================= */
+/* ==========================================================
+   22 — PAGE INTRO
+========================================================== */
 
 .page-intro {
 
@@ -1519,7 +1412,7 @@ footer {
         center;
 
     gap:
-        16px;
+        15px;
 
     margin:
         30px 0 23px;
@@ -1529,10 +1422,10 @@ footer {
 .page-icon {
 
     width:
-        57px;
+        56px;
 
     height:
-        57px;
+        56px;
 
     display:
         flex;
@@ -1543,21 +1436,17 @@ footer {
     justify-content:
         center;
 
+    border:
+        1px solid rgba(124, 108, 255, 0.25);
+
     border-radius:
-        14px;
+        13px;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(105, 92, 226, 0.24),
-            rgba(57, 104, 177, 0.16)
-        );
-
-    border:
-        1px solid rgba(126, 145, 255, 0.25);
+        rgba(124, 108, 255, 0.09);
 
     font-size:
-        25px;
+        24px;
 }
 
 
@@ -1569,18 +1458,15 @@ footer {
     font-size:
         27px !important;
 
-    font-weight:
-        800;
-
     margin:
-        0 0 5px;
+        0 0 4px;
 }
 
 
 .page-intro p {
 
     color:
-        #8f9db6;
+        #8797ad;
 
     font-size:
         14px;
@@ -1590,24 +1476,20 @@ footer {
 }
 
 
-/* =========================================================
-   23. CONTAINERS
-========================================================= */
+/* ==========================================================
+   23 — STREAMLIT CONTAINERS
+========================================================== */
 
 div[data-testid="stVerticalBlockBorderWrapper"] {
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(16, 28, 49, 0.96),
-            rgba(9, 18, 34, 0.96)
-        ) !important;
+        #101824 !important;
 
     border:
-        1px solid var(--border-soft) !important;
+        1px solid var(--border) !important;
 
     border-radius:
-        16px !important;
+        15px !important;
 
     padding:
         21px !important;
@@ -1617,21 +1499,21 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 }
 
 
-/* =========================================================
-   24. TEXT INPUT
-========================================================= */
+/* ==========================================================
+   24 — INPUTS
+========================================================== */
 
 .stTextInput label,
 .stFileUploader label {
 
     color:
-        #dce5f5 !important;
+        #dbe4ef !important;
 
     font-size:
         13px !important;
 
     font-weight:
-        700 !important;
+        650 !important;
 }
 
 
@@ -1640,20 +1522,20 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
     min-height:
         47px;
 
-    background:
-        #091425 !important;
+    padding:
+        11px 14px !important;
 
     color:
         #ffffff !important;
 
+    background:
+        #0a111d !important;
+
     border:
-        1px solid #304362 !important;
+        1px solid #2b3b53 !important;
 
     border-radius:
-        10px !important;
-
-    padding:
-        11px 14px !important;
+        9px !important;
 
     font-size:
         14px !important;
@@ -1663,50 +1545,50 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 .stTextInput input::placeholder {
 
     color:
-        #687993 !important;
+        #68778e !important;
 }
 
 
 .stTextInput input:focus {
 
     border-color:
-        #7468ef !important;
+        var(--violet) !important;
 
     box-shadow:
-        0 0 0 2px rgba(116, 104, 239, 0.15) !important;
+        0 0 0 2px rgba(124, 108, 255, 0.12) !important;
 }
 
 
-/* =========================================================
-   25. FILE UPLOADER
-========================================================= */
+/* ==========================================================
+   25 — FILE UPLOADER
+========================================================== */
 
 [data-testid="stFileUploader"] {
 
     background:
-        #0b1729;
+        #0b1320;
 
     border:
-        1px dashed #3e5271;
+        1px dashed #364963;
 
     border-radius:
-        12px;
+        11px;
 
     padding:
-        15px;
+        14px;
 
     transition:
-        all 0.22s ease;
+        all 0.2s ease;
 }
 
 
 [data-testid="stFileUploader"]:hover {
 
     border-color:
-        #7668f5;
+        rgba(124, 108, 255, 0.75);
 
     background:
-        #0d1a2f;
+        #0d1725;
 }
 
 
@@ -1723,63 +1605,53 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 [data-testid="stFileUploader"] button {
 
     background:
-        #17263f !important;
+        #162337 !important;
 
     color:
-        #dce6f8 !important;
+        #dce5f1 !important;
 
     border:
-        1px solid #3b4f6d !important;
+        1px solid #344963 !important;
 
     border-radius:
-        9px !important;
+        8px !important;
 
     font-size:
         12px !important;
 
     font-weight:
-        700 !important;
+        650 !important;
 }
 
 
-[data-testid="stFileUploader"] button:hover {
-
-    border-color:
-        #7668f5 !important;
-
-    color:
-        #ffffff !important;
-}
-
-
-/* =========================================================
-   26. BUTTONS
-========================================================= */
+/* ==========================================================
+   26 — BUTTONS
+========================================================== */
 
 .stButton > button,
 .stDownloadButton > button {
 
     min-height:
-        47px;
+        46px;
 
     padding:
         10px 20px !important;
-
-    border-radius:
-        10px !important;
 
     color:
         #ffffff !important;
 
     background:
         linear-gradient(
-            110deg,
-            #6659d9,
-            #427bd7
+            105deg,
+            #6b5fe2,
+            #3e7fbe
         ) !important;
 
     border:
-        1px solid rgba(145, 137, 255, 0.38) !important;
+        1px solid rgba(159, 150, 255, 0.30) !important;
+
+    border-radius:
+        9px !important;
 
     font-size:
         13px !important;
@@ -1788,7 +1660,7 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
         750 !important;
 
     transition:
-        all 0.20s ease;
+        all 0.18s ease;
 }
 
 
@@ -1798,124 +1670,43 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
     transform:
         translateY(-2px);
 
-    border-color:
-        rgba(171, 163, 255, 0.80) !important;
-
     box-shadow:
-        0 14px 32px rgba(76, 90, 215, 0.25);
+        0 12px 30px rgba(82, 83, 181, 0.22);
+
+    border-color:
+        rgba(174, 166, 255, 0.60) !important;
 }
 
 
-.stButton > button:active,
-.stDownloadButton > button:active {
-
-    transform:
-        translateY(0);
-}
-
-
-/* =========================================================
-   27. CHECKBOX / RADIO
-========================================================= */
+/* ==========================================================
+   27 — CHECKBOX / RADIO
+========================================================== */
 
 .stCheckbox label,
 .stRadio label {
 
     color:
-        #cdd8eb !important;
+        #ccd7e7 !important;
 
     font-size:
         13px !important;
 }
 
 
-/* =========================================================
-   28. SELECTBOX
-========================================================= */
+/* ==========================================================
+   28 — CODE BLOCK
+========================================================== */
 
-div[data-baseweb="select"] > div {
-
-    background:
-        #0b1628 !important;
+.stCodeBlock {
 
     border:
-        1px solid #304362 !important;
+        1px solid #263a57 !important;
 
     border-radius:
         10px !important;
 
-    color:
-        #ffffff !important;
-
-    min-height:
-        46px;
-}
-
-
-/* =========================================================
-   29. FINGERPRINT
-========================================================= */
-
-.fingerprint {
-
     background:
-        #0a1528;
-
-    border:
-        1px solid rgba(116, 104, 245, 0.30);
-
-    border-radius:
-        12px;
-
-    padding:
-        17px 19px;
-
-    margin:
-        19px 0;
-
-    color:
-        #aaa2ff;
-
-    font-size:
-        12px;
-
-    line-height:
-        1.9;
-
-    overflow-wrap:
-        anywhere;
-}
-
-
-.fingerprint strong {
-
-    color:
-        #f0f2ff;
-
-    font-size:
-        13px;
-
-    font-family:
-        "Consolas",
-        "JetBrains Mono",
-        monospace;
-}
-
-
-/* =========================================================
-   30. CODE
-========================================================= */
-
-.stCodeBlock {
-
-    border-radius:
-        11px !important;
-
-    border:
-        1px solid #293c5d !important;
-
-    background:
-        #080f1e !important;
+        #070d17 !important;
 }
 
 
@@ -1929,14 +1720,64 @@ div[data-baseweb="select"] > div {
 }
 
 
-/* =========================================================
-   31. ALERTS
-========================================================= */
+/* ==========================================================
+   29 — FINGERPRINT
+========================================================== */
+
+.fingerprint {
+
+    padding:
+        17px 18px;
+
+    margin:
+        18px 0;
+
+    color:
+        #aaa2ff;
+
+    background:
+        #090f1b;
+
+    border:
+        1px solid rgba(124, 108, 255, 0.25);
+
+    border-radius:
+        11px;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.8;
+
+    overflow-wrap:
+        anywhere;
+}
+
+
+.fingerprint strong {
+
+    color:
+        #f1f4fa;
+
+    font-size:
+        13px;
+
+    font-family:
+        Consolas,
+        "JetBrains Mono",
+        monospace;
+}
+
+
+/* ==========================================================
+   30 — ALERTS
+========================================================== */
 
 [data-testid="stAlert"] {
 
     border-radius:
-        11px !important;
+        10px !important;
 
     font-size:
         13px !important;
@@ -1949,13 +1790,13 @@ div[data-baseweb="select"] > div {
         13px !important;
 
     line-height:
-        1.6 !important;
+        1.65 !important;
 }
 
 
-/* =========================================================
-   32. SUCCESS PANEL
-========================================================= */
+/* ==========================================================
+   31 — SUCCESS PANEL
+========================================================== */
 
 .success-panel {
 
@@ -1966,7 +1807,7 @@ div[data-baseweb="select"] > div {
         center;
 
     gap:
-        16px;
+        15px;
 
     padding:
         20px;
@@ -1974,24 +1815,24 @@ div[data-baseweb="select"] > div {
     margin:
         18px 0;
 
+    border:
+        1px solid rgba(56, 211, 159, 0.24);
+
     border-radius:
-        13px;
+        12px;
 
     background:
-        rgba(25, 94, 73, 0.17);
-
-    border:
-        1px solid rgba(53, 214, 162, 0.27);
+        rgba(30, 104, 80, 0.13);
 }
 
 
 .success-icon {
 
     width:
-        39px;
+        40px;
 
     height:
-        39px;
+        40px;
 
     display:
         flex;
@@ -2005,11 +1846,11 @@ div[data-baseweb="select"] > div {
     border-radius:
         50%;
 
-    color:
-        #5ce4b4;
-
     background:
-        rgba(53, 214, 162, 0.11);
+        rgba(56, 211, 159, 0.10);
+
+    color:
+        #62e3b7;
 
     font-size:
         18px;
@@ -2019,13 +1860,13 @@ div[data-baseweb="select"] > div {
 .success-panel h3 {
 
     color:
-        #6ee9bf;
+        #6de7bc;
 
     font-size:
         16px;
 
     margin:
-        0 0 5px;
+        0 0 4px;
 }
 
 
@@ -2042,9 +1883,9 @@ div[data-baseweb="select"] > div {
 }
 
 
-/* =========================================================
-   33. DIVIDERS
-========================================================= */
+/* ==========================================================
+   32 — DIVIDER
+========================================================== */
 
 hr {
 
@@ -2054,44 +1895,33 @@ hr {
     height:
         1px !important;
 
+    margin:
+        28px 0 !important;
+
     background:
         linear-gradient(
             90deg,
             transparent,
-            #293953,
+            rgba(148, 163, 184, 0.20),
             transparent
         ) !important;
-
-    margin:
-        28px 0 !important;
 }
 
 
-/* =========================================================
-   34. DOWNLOAD AREA
-========================================================= */
-
-.stDownloadButton {
-
-    margin-top:
-        8px;
-}
-
-
-/* =========================================================
-   35. FOOTER
-========================================================= */
+/* ==========================================================
+   33 — FOOTER
+========================================================== */
 
 .footer {
 
     text-align:
         center;
 
-    padding:
-        50px 15px 15px;
-
     margin-top:
-        60px;
+        65px;
+
+    padding:
+        42px 15px 15px;
 }
 
 
@@ -2104,14 +1934,14 @@ hr {
         20px;
 
     font-weight:
-        850;
+        800;
 }
 
 
 .footer p {
 
     color:
-        #7d8ca6;
+        #73829a;
 
     font-size:
         12px;
@@ -2124,7 +1954,7 @@ hr {
 .footer small {
 
     color:
-        #5e6d86;
+        #56667f;
 
     font-size:
         10px;
@@ -2133,28 +1963,28 @@ hr {
 
 .footer-line {
 
-    height:
-        1px;
-
     max-width:
         620px;
 
+    height:
+        1px;
+
     margin:
-        21px auto 16px;
+        20px auto 15px;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            #293953,
+            rgba(148, 163, 184, 0.20),
             transparent
         );
 }
 
 
-/* =========================================================
-   36. SCROLLBAR
-========================================================= */
+/* ==========================================================
+   34 — SCROLLBAR
+========================================================== */
 
 ::-webkit-scrollbar {
 
@@ -2169,14 +1999,14 @@ hr {
 ::-webkit-scrollbar-track {
 
     background:
-        #070b16;
+        #070b12;
 }
 
 
 ::-webkit-scrollbar-thumb {
 
     background:
-        #2d3d5c;
+        #2b3b55;
 
     border-radius:
         20px;
@@ -2186,15 +2016,15 @@ hr {
 ::-webkit-scrollbar-thumb:hover {
 
     background:
-        #596b92;
+        #566987;
 }
 
 
-/* =========================================================
-   37. RESPONSIVE — TABLET
-========================================================= */
+/* ==========================================================
+   35 — RESPONSIVE
+========================================================== */
 
-@media (max-width: 1100px) {
+@media (max-width: 1000px) {
 
     .block-container {
 
@@ -2209,27 +2039,23 @@ hr {
     .hero {
 
         padding:
-            40px 38px;
+            40px;
     }
 
 
     .hero-visual {
 
         width:
-            180px;
+            170px;
 
         height:
-            180px;
+            170px;
 
         font-size:
-            82px;
+            75px;
     }
 }
 
-
-/* =========================================================
-   38. RESPONSIVE — MOBILE
-========================================================= */
 
 @media (max-width: 768px) {
 
@@ -2254,33 +2080,10 @@ hr {
     }
 
 
-    h3 {
-
-        font-size:
-            18px !important;
-    }
-
-
     .topbar {
-
-        min-height:
-            65px;
 
         padding:
             11px 14px;
-    }
-
-
-    .brand-icon {
-
-        width:
-            40px;
-
-        height:
-            40px;
-
-        font-size:
-            18px;
     }
 
 
@@ -2288,13 +2091,6 @@ hr {
 
         font-size:
             18px;
-    }
-
-
-    .brand-subtitle {
-
-        font-size:
-            7px;
     }
 
 
@@ -2311,13 +2107,10 @@ hr {
     .hero {
 
         min-height:
-            0;
+            auto;
 
         padding:
             32px 24px;
-
-        border-radius:
-            17px;
     }
 
 
@@ -2332,9 +2125,6 @@ hr {
 
         font-size:
             13px;
-
-        line-height:
-            1.75;
     }
 
 
@@ -2354,14 +2144,7 @@ hr {
             flex-start;
 
         gap:
-            15px;
-    }
-
-
-    .welcome h2 {
-
-        font-size:
-            21px !important;
+            14px;
     }
 
 
@@ -2376,13 +2159,6 @@ hr {
 
         font-size:
             23px !important;
-    }
-
-
-    .page-intro p {
-
-        font-size:
-            13px;
     }
 
 
@@ -2404,23 +2180,12 @@ hr {
         font-size:
             11px;
     }
-
-
-    .stButton > button,
-    .stDownloadButton > button {
-
-        min-height:
-            45px;
-
-        font-size:
-            12px !important;
-    }
 }
 
 
-/* =========================================================
-   39. REDUCED MOTION
-========================================================= */
+/* ==========================================================
+   36 — ACCESSIBILITY / REDUCED MOTION
+========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -2428,10 +2193,10 @@ hr {
     *::before,
     *::after {
 
-        transition:
+        animation:
             none !important;
 
-        animation:
+        transition:
             none !important;
     }
 }
