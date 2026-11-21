@@ -1,183 +1,104 @@
-/* ==========================================================
-   SECUREVAULT
-   MIDNIGHT CYBER COMMAND
-   PREMIUM PROFESSIONAL STREAMLIT THEME
-========================================================== */
+/* =========================================================
+   SECUREVAULT — PROFESSIONAL WHITE + NAVY BLUE THEME
+   Clean Enterprise Cybersecurity Interface
+========================================================= */
 
-
-/* ==========================================================
-   01 — DESIGN TOKENS
-========================================================== */
+/* =========================================================
+   1. COLOR SYSTEM
+========================================================= */
 
 :root {
+    --navy-950: #071426;
+    --navy-900: #0b1f3a;
+    --navy-850: #102b4d;
+    --navy-800: #12345a;
+    --navy-700: #174a78;
 
-    --app-bg: #080b12;
-    --app-bg-2: #0c111b;
+    --blue: #2563eb;
+    --blue-light: #3b82f6;
+    --blue-soft: #eaf2ff;
 
-    --surface: #111824;
-    --surface-hover: #151f2e;
-    --surface-raised: #172231;
+    --white: #ffffff;
+    --page-bg: #f4f7fb;
+    --surface: #ffffff;
+    --surface-soft: #f8fafd;
 
-    --border: rgba(148, 163, 184, 0.16);
-    --border-strong: rgba(129, 140, 248, 0.38);
+    --text: #17243a;
+    --text-dark: #0d1b2f;
+    --muted: #64748b;
+    --muted-light: #94a3b8;
 
-    --violet: #7c6cff;
-    --violet-light: #a69cff;
-    --violet-dark: #5b4ed1;
+    --border: #dbe3ee;
+    --border-light: #e8eef5;
 
-    --cyan: #36c5df;
-    --cyan-light: #72e3f5;
+    --success: #15803d;
+    --success-bg: #ecfdf3;
 
-    --green: #38d39f;
-    --amber: #e8b85c;
-    --red: #ef6678;
+    --warning: #b45309;
+    --warning-bg: #fff7ed;
 
-    --white: #f8fafc;
-    --text: #dce4ef;
-    --muted: #91a0b5;
-    --dim: #637188;
+    --danger: #dc2626;
+    --danger-bg: #fef2f2;
 
-    --sidebar-width: 285px;
+    --info: #1d4ed8;
+    --info-bg: #eff6ff;
 
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --radius-xl: 20px;
+    --sidebar-width: 280px;
+
+    --radius-sm: 7px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 18px;
+
+    --shadow-sm: 0 1px 3px rgba(15, 35, 60, 0.07);
+    --shadow-md: 0 8px 25px rgba(15, 35, 60, 0.08);
+    --shadow-lg: 0 15px 45px rgba(15, 35, 60, 0.10);
 }
 
 
-/* ==========================================================
-   02 — APPLICATION BACKGROUND
-========================================================== */
-
-.stApp {
-
-    background:
-
-        radial-gradient(
-            900px 500px at 5% -10%,
-            rgba(96, 80, 220, 0.10),
-            transparent 65%
-        ),
-
-        radial-gradient(
-            800px 500px at 100% 5%,
-            rgba(38, 157, 190, 0.07),
-            transparent 65%
-        ),
-
-        linear-gradient(
-            135deg,
-            var(--app-bg),
-            var(--app-bg-2)
-        );
-
-    color: var(--white);
-}
-
-
-/* ==========================================================
-   03 — TYPOGRAPHY
-========================================================== */
+/* =========================================================
+   2. GLOBAL APP
+========================================================= */
 
 html,
 body,
 [class*="css"] {
-
     font-family:
         Inter,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         Roboto,
+        Helvetica,
         Arial,
         sans-serif;
 }
 
-
-p {
-
+.stApp {
+    background:
+        linear-gradient(
+            180deg,
+            #f7f9fc 0%,
+            #f4f7fb 100%
+        );
     color: var(--text);
-
-    font-size: 14px;
-
-    line-height: 1.7;
 }
 
 
-h1 {
+/* Main content area */
 
-    color: var(--white) !important;
-
-    font-size: 40px !important;
-
-    line-height: 1.15 !important;
-
-    font-weight: 800 !important;
-
-    letter-spacing: -1px;
+.main .block-container {
+    max-width: 1500px;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    padding-left: 2.2rem;
+    padding-right: 2.2rem;
 }
 
 
-h2 {
-
-    color: var(--white) !important;
-
-    font-size: 28px !important;
-
-    line-height: 1.25 !important;
-
-    font-weight: 750 !important;
-}
-
-
-h3 {
-
-    color: var(--white) !important;
-
-    font-size: 20px !important;
-
-    font-weight: 700 !important;
-}
-
-
-h4 {
-
-    color: var(--text) !important;
-
-    font-size: 16px !important;
-
-    font-weight: 700 !important;
-}
-
-
-/* ==========================================================
-   04 — MAIN CONTAINER
-========================================================== */
-
-.block-container {
-
-    max-width: 1500px !important;
-
-    padding-top: 2rem !important;
-
-    padding-left: 2.5rem !important;
-
-    padding-right: 2.5rem !important;
-
-    padding-bottom: 5rem !important;
-}
-
-
-/* ==========================================================
-   05 — HIDE DEFAULT STREAMLIT CHROME
-========================================================== */
+/* Remove Streamlit default decoration */
 
 #MainMenu {
-    visibility: hidden;
-}
-
-header {
     visibility: hidden;
 }
 
@@ -185,2018 +106,1506 @@ footer {
     visibility: hidden;
 }
 
+header {
+    background: transparent !important;
+}
 
-/* ==========================================================
-   06 — SIDEBAR
-========================================================== */
 
-[data-testid="stSidebar"] {
+/* =========================================================
+   3. SIDEBAR / NAVIGATION
+========================================================= */
 
+section[data-testid="stSidebar"] {
+    background: var(--navy-950);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
+}
+
+section[data-testid="stSidebar"] > div {
     background:
-        #090e17 !important;
-
-    border-right:
-        1px solid rgba(148, 163, 184, 0.13) !important;
-
-    box-shadow:
-        15px 0 45px rgba(0, 0, 0, 0.28);
-
-    min-width:
-        var(--sidebar-width);
-
-    max-width:
-        var(--sidebar-width);
+        linear-gradient(
+            180deg,
+            #071426 0%,
+            #0b1f3a 55%,
+            #0a1b32 100%
+        );
 }
 
 
-[data-testid="stSidebar"] > div {
+/* Sidebar inner spacing */
 
-    background:
-        transparent !important;
-}
-
-
-[data-testid="stSidebar"] .block-container {
-
+section[data-testid="stSidebar"] .block-container {
     padding:
-        1.5rem 1rem !important;
+        1.4rem
+        1.1rem
+        2rem
+        1.1rem;
 }
 
 
-/* ==========================================================
-   07 — SIDEBAR BRAND
-========================================================== */
+/* =========================================================
+   4. SIDEBAR BRAND
+========================================================= */
 
-[data-testid="stSidebar"] .sidebar-brand {
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        13px;
-
-    padding:
-        8px 9px 23px;
-
-    margin-bottom:
-        22px;
+    padding: 8px 8px 24px 8px;
 
     border-bottom:
-        1px solid rgba(148, 163, 184, 0.13);
+        1px solid rgba(255, 255, 255, 0.10);
+
+    margin-bottom: 24px;
 }
 
+.sidebar-brand-icon {
+    width: 42px;
+    height: 42px;
 
-[data-testid="stSidebar"] .sidebar-brand-icon {
+    border-radius: 10px;
 
-    width:
-        45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    height:
-        45px;
+    background: #ffffff;
 
-    display:
-        flex;
+    color: var(--navy-900);
 
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border-radius:
-        12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #7468ef,
-            #3b9dd3
-        );
-
-    color:
-        white;
-
-    font-size:
-        21px;
+    font-size: 20px;
+    font-weight: 800;
 
     box-shadow:
-        0 8px 28px rgba(91, 83, 215, 0.28);
+        0 6px 20px rgba(0, 0, 0, 0.20);
+}
+
+.sidebar-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-brand-name {
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 750;
+
+    letter-spacing: -0.3px;
+
+    line-height: 1.2;
+}
+
+.sidebar-brand-subtitle {
+    color: #91a5bd;
+
+    font-size: 11px;
+
+    margin-top: 4px;
+
+    letter-spacing: 0.4px;
 }
 
 
-[data-testid="stSidebar"] .sidebar-brand-name {
+/* =========================================================
+   5. NAVIGATION SECTION TITLES
+========================================================= */
 
-    color:
-        #ffffff;
+.nav-section-title {
+    color: #6f88a5;
 
-    font-size:
-        18px;
+    font-size: 10px;
+    font-weight: 800;
 
-    font-weight:
-        800;
+    text-transform: uppercase;
 
-    letter-spacing:
-        -0.3px;
-}
-
-
-[data-testid="stSidebar"] .sidebar-brand-subtitle {
-
-    color:
-        #718198;
-
-    font-size:
-        9px;
-
-    font-weight:
-        700;
-
-    letter-spacing:
-        2px;
-
-    margin-top:
-        4px;
-}
-
-
-/* ==========================================================
-   08 — SIDEBAR SECTION LABEL
-========================================================== */
-
-[data-testid="stSidebar"] .nav-section-title {
-
-    color:
-        #65748b;
-
-    font-size:
-        10px;
-
-    font-weight:
-        800;
-
-    letter-spacing:
-        1.6px;
-
-    text-transform:
-        uppercase;
-
-    margin:
-        0 11px 10px;
-}
-
-
-/* ==========================================================
-   09 — SIDEBAR NAVIGATION
-========================================================== */
-
-[data-testid="stSidebar"]
-[data-testid="stPageLink-NavLink"] {
-
-    display:
-        flex !important;
-
-    align-items:
-        center !important;
-
-    min-height:
-        50px;
+    letter-spacing: 1.2px;
 
     padding:
-        12px 14px !important;
+        0 12px
+        9px 12px;
+
+    margin-top: 12px;
+}
+
+
+/* =========================================================
+   6. STREAMLIT NAVIGATION LINKS
+========================================================= */
+
+section[data-testid="stSidebar"] a {
+    text-decoration: none !important;
+}
+
+
+/* Generic navigation link */
+
+section[data-testid="stSidebar"] [data-testid="stSidebarNav"] a {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 46px;
+
+    padding:
+        0 13px;
 
     margin:
-        5px 0 !important;
+        4px 0;
 
-    border:
-        1px solid transparent !important;
+    border-radius: 8px;
 
-    border-radius:
-        10px !important;
+    color: #c8d4e3 !important;
 
-    background:
-        transparent !important;
+    font-size: 13.5px !important;
 
-    color:
-        #98a7bb !important;
+    font-weight: 550;
 
     transition:
-        all 0.18s ease !important;
+        background 0.18s ease,
+        color 0.18s ease,
+        transform 0.18s ease;
 }
 
 
-[data-testid="stSidebar"]
-[data-testid="stPageLink-NavLink"] p,
+/* Navigation hover */
 
-[data-testid="stSidebar"]
-[data-testid="stPageLink-NavLink"] span {
-
-    color:
-        #a4b0c1 !important;
-
-    font-size:
-        14px !important;
-
-    font-weight:
-        600 !important;
-}
-
-
-[data-testid="stSidebar"]
-[data-testid="stPageLink-NavLink"] svg {
-
-    color:
-        #687991 !important;
-
-    width:
-        19px;
-
-    height:
-        19px;
-
-    margin-right:
-        8px;
-}
-
-
-/* ==========================================================
-   10 — SIDEBAR HOVER
-========================================================== */
-
-[data-testid="stSidebar"]
-[data-testid="stPageLink-NavLink"]:hover {
-
+section[data-testid="stSidebar"]
+[data-testid="stSidebarNav"]
+a:hover {
     background:
-        rgba(124, 108, 255, 0.08) !important;
+        rgba(255, 255, 255, 0.07);
 
-    border:
-        1px solid rgba(124, 108, 255, 0.20) !important;
+    color: #ffffff !important;
 
-    transform:
-        translateX(2px);
+    transform: translateX(2px);
 }
 
 
-[data-testid="stSidebar"]
-[data-testid="stPageLink-NavLink"]:hover p,
+/* Active navigation */
 
-[data-testid="stSidebar"]
-[data-testid="stPageLink-NavLink"]:hover span {
-
-    color:
-        #ffffff !important;
-}
-
-
-[data-testid="stSidebar"]
-[data-testid="stPageLink-NavLink"]:hover svg {
-
-    color:
-        var(--violet-light) !important;
-}
-
-
-/* ==========================================================
-   11 — ACTIVE NAVIGATION
-========================================================== */
-
-[data-testid="stSidebar"]
-[data-testid="stPageLink-NavLink"][aria-current="page"] {
-
+section[data-testid="stSidebar"]
+[data-testid="stSidebarNav"]
+a[aria-current="page"] {
     background:
         linear-gradient(
             90deg,
-            rgba(112, 98, 236, 0.88),
-            rgba(67, 121, 190, 0.82)
+            #163d68 0%,
+            #12345a 100%
         ) !important;
 
-    border:
-        1px solid rgba(165, 156, 255, 0.40) !important;
+    color: #ffffff !important;
+
+    font-weight: 700;
 
     box-shadow:
-        0 8px 25px rgba(73, 76, 170, 0.20);
-
-    position:
-        relative;
+        inset 3px 0 0 #4f8ff7,
+        0 5px 18px rgba(0, 0, 0, 0.12);
 }
 
 
-[data-testid="stSidebar"]
-[data-testid="stPageLink-NavLink"][aria-current="page"]::before {
+/* Active navigation icon/text */
 
-    content:
-        "";
+section[data-testid="stSidebar"]
+[data-testid="stSidebarNav"]
+a[aria-current="page"] span {
+    color: #ffffff !important;
+}
 
-    position:
-        absolute;
 
-    left:
-        0;
+/* =========================================================
+   7. SIDEBAR STATUS CARD
+========================================================= */
 
-    top:
-        10px;
+.sidebar-status {
+    margin-top: 28px;
 
-    bottom:
-        10px;
-
-    width:
-        3px;
-
-    border-radius:
-        4px;
+    padding: 15px;
 
     background:
-        #ffffff;
-
-    box-shadow:
-        0 0 12px rgba(255, 255, 255, 0.7);
-}
-
-
-[data-testid="stSidebar"]
-[data-testid="stPageLink-NavLink"][aria-current="page"] p,
-
-[data-testid="stSidebar"]
-[data-testid="stPageLink-NavLink"][aria-current="page"] span {
-
-    color:
-        #ffffff !important;
-
-    font-weight:
-        750 !important;
-}
-
-
-[data-testid="stSidebar"]
-[data-testid="stPageLink-NavLink"][aria-current="page"] svg {
-
-    color:
-        #ffffff !important;
-}
-
-
-/* ==========================================================
-   12 — SIDEBAR DIVIDER
-========================================================== */
-
-[data-testid="stSidebar"] hr {
+        rgba(255, 255, 255, 0.045);
 
     border:
-        none !important;
+        1px solid rgba(255, 255, 255, 0.09);
 
-    height:
-        1px !important;
+    border-radius: 10px;
+}
 
-    background:
-        rgba(148, 163, 184, 0.13) !important;
+.sidebar-status-title {
+    color: #ffffff;
 
-    margin:
-        22px 0 !important;
+    font-size: 12px;
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.sidebar-status-text {
+    color: #8ea3bc;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+.sidebar-status-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-top: 10px;
+}
+
+.sidebar-status-dot {
+    width: 7px;
+    height: 7px;
+
+    background: #22c55e;
+
+    border-radius: 50%;
+}
+
+.sidebar-status-online {
+    color: #9de5b5;
+
+    font-size: 11px;
+    font-weight: 650;
 }
 
 
-/* ==========================================================
-   13 — TOP APPLICATION HEADER
-========================================================== */
+/* =========================================================
+   8. TOP BAR
+========================================================= */
 
 .topbar {
+    width: 100%;
 
-    display:
-        flex;
+    min-height: 66px;
 
-    align-items:
-        center;
+    display: flex;
 
-    justify-content:
-        space-between;
+    align-items: center;
 
-    min-height:
-        74px;
+    justify-content: space-between;
 
-    padding:
-        14px 20px;
-
-    margin-bottom:
-        27px;
+    background: #ffffff;
 
     border:
         1px solid var(--border);
 
-    border-radius:
-        var(--radius-lg);
+    border-radius: 12px;
 
-    background:
-        rgba(13, 20, 33, 0.92);
+    padding:
+        0 20px;
 
-    backdrop-filter:
-        blur(18px);
+    margin-bottom: 24px;
 
-    box-shadow:
-        0 18px 55px rgba(0, 0, 0, 0.18);
+    box-shadow: var(--shadow-sm);
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.topbar-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: var(--blue-soft);
+
+    color: var(--navy-800);
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.topbar-title {
+    color: var(--navy-900);
+
+    font-size: 16px;
+    font-weight: 750;
+
+    line-height: 1.2;
+}
+
+.topbar-subtitle {
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-top: 3px;
 }
 
 
-/* ==========================================================
-   14 — BRAND
-========================================================== */
+/* =========================================================
+   9. SECURITY STATUS
+========================================================= */
 
-.brand {
+.top-status {
+    display: inline-flex;
 
-    display:
-        flex;
+    align-items: center;
 
-    align-items:
-        center;
+    gap: 8px;
 
-    gap:
-        13px;
+    padding:
+        7px 12px;
+
+    background: #f0fdf4;
+
+    border:
+        1px solid #bbf7d0;
+
+    border-radius: 999px;
+
+    color: #166534;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.top-status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #16a34a;
 }
 
 
-.brand-icon {
+/* =========================================================
+   10. HERO SECTION
+========================================================= */
 
-    width:
-        45px;
+.hero {
+    position: relative;
 
-    height:
-        45px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border-radius:
-        12px;
+    overflow: hidden;
 
     background:
         linear-gradient(
             135deg,
-            #7568f5,
-            #3b9dd3
+            #0b1f3a 0%,
+            #12345a 58%,
+            #174a78 100%
         );
 
-    color:
-        white;
-
-    font-size:
-        21px;
-
-    box-shadow:
-        0 9px 28px rgba(92, 87, 220, 0.25);
-}
-
-
-.brand-name {
-
-    color:
-        #ffffff;
-
-    font-size:
-        21px;
-
-    font-weight:
-        800;
-
-    letter-spacing:
-        -0.4px;
-}
-
-
-.brand-subtitle {
-
-    color:
-        #73829a;
-
-    font-size:
-        9px;
-
-    font-weight:
-        700;
-
-    letter-spacing:
-        2px;
-
-    margin-top:
-        3px;
-}
-
-
-/* ==========================================================
-   15 — SECURITY STATUS
-========================================================== */
-
-.top-status {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        8px;
+    border-radius: 18px;
 
     padding:
-        9px 15px;
+        42px 44px;
 
-    border:
-        1px solid rgba(56, 211, 159, 0.25);
-
-    border-radius:
-        999px;
-
-    background:
-        rgba(56, 211, 159, 0.07);
-
-    color:
-        #5de1b3;
-
-    font-size:
-        10px;
-
-    font-weight:
-        750;
-
-    letter-spacing:
-        0.7px;
-}
-
-
-/* ==========================================================
-   16 — HERO
-========================================================== */
-
-.hero {
-
-    position:
-        relative;
-
-    min-height:
-        350px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
-    padding:
-        48px 52px;
-
-    margin-bottom:
-        32px;
-
-    overflow:
-        hidden;
-
-    border:
-        1px solid rgba(129, 140, 248, 0.22);
-
-    border-radius:
-        20px;
-
-    background:
-
-        radial-gradient(
-            circle at 82% 48%,
-            rgba(124, 108, 255, 0.16),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 68% 100%,
-            rgba(54, 197, 223, 0.08),
-            transparent 32%
-        ),
-
-        #101827;
+    margin-bottom: 28px;
 
     box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.22);
+        0 16px 40px rgba(8, 31, 58, 0.16);
 }
 
 
-.hero::before {
+/* subtle decorative element */
 
-    content:
-        "";
+.hero::after {
+    content: "";
 
-    position:
-        absolute;
+    position: absolute;
 
-    top:
-        0;
+    width: 260px;
+    height: 260px;
 
-    left:
-        0;
+    right: -100px;
+    top: -120px;
 
-    width:
-        100%;
+    border-radius: 50%;
 
-    height:
-        1px;
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(124, 108, 255, 0.8),
-            rgba(54, 197, 223, 0.7),
-            transparent
-        );
+    box-shadow:
+        0 0 0 35px rgba(255, 255, 255, 0.02),
+        0 0 0 70px rgba(255, 255, 255, 0.015);
 }
-
 
 .hero-content {
+    position: relative;
 
-    position:
-        relative;
+    z-index: 2;
 
-    z-index:
-        2;
-
-    max-width:
-        760px;
+    max-width: 780px;
 }
-
 
 .hero-label {
+    display: inline-flex;
 
-    color:
-        #a59dff;
+    align-items: center;
 
-    font-size:
-        11px;
+    gap: 7px;
 
-    font-weight:
-        800;
+    color: #b9d5f5;
 
-    letter-spacing:
-        2px;
+    font-size: 10px;
 
-    margin-bottom:
-        16px;
+    font-weight: 800;
 
-    text-transform:
-        uppercase;
+    text-transform: uppercase;
+
+    letter-spacing: 1.2px;
+
+    margin-bottom: 14px;
 }
 
+.hero-label::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    background: #60a5fa;
+
+    border-radius: 50%;
+}
 
 .hero h1 {
+    color: #ffffff !important;
 
-    color:
-        #ffffff !important;
+    font-size: 34px !important;
 
-    font-size:
-        clamp(38px, 4.3vw, 56px) !important;
+    line-height: 1.15 !important;
 
-    line-height:
-        1.08 !important;
+    font-weight: 780 !important;
+
+    letter-spacing: -0.8px !important;
 
     margin:
-        0 0 19px;
+        0 0 12px 0 !important;
+}
 
-    letter-spacing:
-        -1.7px;
+.hero p {
+    color: #c5d5e8 !important;
+
+    font-size: 14px !important;
+
+    line-height: 1.7 !important;
+
+    max-width: 690px;
+
+    margin: 0 !important;
 }
 
 
-.hero h1 span {
-
-    background:
-        linear-gradient(
-            90deg,
-            #a89fff,
-            #6ed7ee
-        );
-
-    -webkit-background-clip:
-        text;
-
-    background-clip:
-        text;
-
-    -webkit-text-fill-color:
-        transparent;
-}
-
-
-.hero-copy {
-
-    max-width:
-        690px;
-
-    color:
-        #aebbd0;
-
-    font-size:
-        15px;
-
-    line-height:
-        1.85;
-
-    margin-bottom:
-        23px;
-}
-
+/* =========================================================
+   11. HERO TAGS
+========================================================= */
 
 .hero-tags {
+    display: flex;
 
-    display:
-        flex;
+    flex-wrap: wrap;
 
-    flex-wrap:
-        wrap;
+    gap: 8px;
 
-    gap:
-        8px;
+    margin-top: 22px;
 }
 
-
-.hero-tags span {
-
+.hero-tag {
     padding:
-        8px 12px;
+        7px 11px;
 
-    color:
-        #cbd6e8;
+    color: #dcecff;
 
     background:
-        rgba(255, 255, 255, 0.035);
+        rgba(255, 255, 255, 0.08);
 
     border:
-        1px solid rgba(148, 163, 184, 0.17);
+        1px solid rgba(255, 255, 255, 0.12);
 
-    border-radius:
-        7px;
+    border-radius: 6px;
 
-    font-size:
-        10px;
+    font-size: 10px;
 
-    font-weight:
-        650;
+    font-weight: 650;
 }
 
 
-.hero-visual {
-
-    width:
-        220px;
-
-    height:
-        220px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    margin-right:
-        20px;
-
-    position:
-        relative;
-
-    z-index:
-        2;
-
-    font-size:
-        96px;
-
-    filter:
-        drop-shadow(
-            0 0 35px rgba(124, 108, 255, 0.32)
-        );
-}
-
-
-/* ==========================================================
-   17 — SECTION LABEL
-========================================================== */
+/* =========================================================
+   12. SECTION HEADINGS
+========================================================= */
 
 .section-heading {
+    display: flex;
 
-    color:
-        #728198;
+    align-items: center;
 
-    font-size:
-        11px;
-
-    font-weight:
-        800;
-
-    letter-spacing:
-        1.8px;
-
-    text-transform:
-        uppercase;
+    gap: 10px;
 
     margin:
-        8px 0 14px;
+        30px 0 14px 0;
+}
+
+.section-heading::before {
+    content: "";
+
+    width: 4px;
+    height: 22px;
+
+    background: var(--blue);
+
+    border-radius: 3px;
+}
+
+.section-heading h2 {
+    color: var(--navy-900);
+
+    font-size: 19px !important;
+
+    font-weight: 750 !important;
+
+    margin: 0 !important;
+}
+
+.section-heading p {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin:
+        4px 0 0 0;
 }
 
 
-/* ==========================================================
-   18 — TABS
-========================================================== */
-
-.stTabs [data-baseweb="tab-list"] {
-
-    display:
-        flex;
-
-    gap:
-        5px;
-
-    padding:
-        6px;
-
-    background:
-        #0a101b;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        13px;
-}
-
-
-.stTabs [data-baseweb="tab"] {
-
-    min-height:
-        45px;
-
-    padding:
-        10px 19px;
-
-    border-radius:
-        9px;
-
-    color:
-        #8f9db2;
-
-    font-size:
-        13px;
-
-    font-weight:
-        650;
-
-    transition:
-        all 0.18s ease;
-}
-
-
-.stTabs [data-baseweb="tab"]:hover {
-
-    color:
-        #ffffff;
-
-    background:
-        rgba(255, 255, 255, 0.035);
-}
-
-
-.stTabs [aria-selected="true"] {
-
-    color:
-        #ffffff !important;
-
-    background:
-        linear-gradient(
-            100deg,
-            #675be0,
-            #397bc0
-        ) !important;
-
-    box-shadow:
-        0 8px 24px rgba(77, 78, 173, 0.20);
-}
-
-
-.stTabs [data-baseweb="tab-highlight"] {
-
-    display:
-        none !important;
-}
-
-
-/* ==========================================================
-   19 — WELCOME PANEL
-========================================================== */
+/* =========================================================
+   13. WELCOME PANEL
+========================================================= */
 
 .welcome {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
-    padding:
-        24px 26px;
-
-    margin:
-        27px 0 20px;
+    background: #ffffff;
 
     border:
         1px solid var(--border);
 
-    border-radius:
-        15px;
+    border-radius: 14px;
 
-    background:
-        #101824;
+    padding: 25px 27px;
+
+    margin-bottom: 22px;
+
+    box-shadow: var(--shadow-sm);
 }
-
-
-.welcome h2 {
-
-    color:
-        #ffffff;
-
-    font-size:
-        23px !important;
-
-    margin:
-        0 0 6px;
-}
-
-
-.welcome p {
-
-    color:
-        #91a0b6;
-
-    font-size:
-        14px;
-
-    margin:
-        0;
-}
-
 
 .welcome-badge {
+    display: inline-flex;
+
+    align-items: center;
 
     padding:
-        9px 13px;
+        5px 9px;
 
-    border:
-        1px solid rgba(124, 108, 255, 0.25);
+    background: var(--blue-soft);
 
-    border-radius:
-        8px;
+    color: #1d4ed8;
 
-    background:
-        rgba(124, 108, 255, 0.06);
+    border-radius: 5px;
 
-    color:
-        #a9a1ff;
+    font-size: 10px;
 
-    font-size:
-        10px;
+    font-weight: 800;
 
-    font-weight:
-        800;
+    text-transform: uppercase;
 
-    letter-spacing:
-        1px;
+    letter-spacing: 0.8px;
+
+    margin-bottom: 10px;
+}
+
+.welcome h2 {
+    color: var(--navy-900);
+
+    font-size: 23px !important;
+
+    font-weight: 750 !important;
+
+    margin:
+        0 0 8px 0 !important;
+}
+
+.welcome p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin: 0;
 }
 
 
-/* ==========================================================
-   20 — FEATURE CARDS
-========================================================== */
+/* =========================================================
+   14. FEATURE CARDS
+========================================================= */
 
 .feature-card {
-
-    min-height:
-        225px;
-
-    padding:
-        25px;
+    background: #ffffff;
 
     border:
         1px solid var(--border);
 
-    border-radius:
-        15px;
+    border-radius: 13px;
 
-    background:
-        #101824;
+    padding: 23px;
 
-    box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.12);
+    min-height: 190px;
+
+    box-shadow: var(--shadow-sm);
 
     transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        background 0.2s ease;
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
 }
-
 
 .feature-card:hover {
+    transform: translateY(-3px);
 
-    transform:
-        translateY(-4px);
+    box-shadow: var(--shadow-md);
 
-    border-color:
-        rgba(124, 108, 255, 0.32);
-
-    background:
-        #131d2b;
+    border-color: #c7d5e6;
 }
-
 
 .feature-icon {
+    width: 43px;
+    height: 43px;
 
-    width:
-        51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    height:
-        51px;
+    border-radius: 10px;
 
-    display:
-        flex;
+    background: var(--blue-soft);
 
-    align-items:
-        center;
+    color: var(--navy-800);
 
-    justify-content:
-        center;
+    font-size: 17px;
 
-    margin-bottom:
-        17px;
-
-    border-radius:
-        12px;
-
-    font-size:
-        22px;
+    margin-bottom: 16px;
 }
 
-
-.purple {
-
-    background:
-        rgba(124, 108, 255, 0.12);
-
-    border:
-        1px solid rgba(124, 108, 255, 0.16);
+.feature-icon.blue {
+    background: #eaf2ff;
+    color: #1d4ed8;
 }
 
-
-.blue {
-
-    background:
-        rgba(54, 160, 220, 0.11);
-
-    border:
-        1px solid rgba(54, 160, 220, 0.15);
+.feature-icon.green {
+    background: #ecfdf3;
+    color: #15803d;
 }
 
-
-.green {
-
-    background:
-        rgba(56, 211, 159, 0.10);
-
-    border:
-        1px solid rgba(56, 211, 159, 0.14);
+.feature-icon.navy {
+    background: #eaf0f7;
+    color: #0b1f3a;
 }
-
 
 .feature-card h3 {
+    color: var(--navy-900);
 
-    color:
-        #f5f7fb;
+    font-size: 15px;
 
-    font-size:
-        18px;
-
-    font-weight:
-        750;
+    font-weight: 750;
 
     margin:
-        0 0 8px;
+        0 0 8px 0;
 }
-
 
 .feature-card p {
+    color: var(--muted);
 
-    color:
-        #98a6ba;
+    font-size: 12px;
 
-    font-size:
-        13px;
+    line-height: 1.65;
 
-    line-height:
-        1.8;
-
-    margin:
-        0;
+    margin: 0;
 }
-
 
 .feature-footer {
+    margin-top: 16px;
 
-    color:
-        #9e96f5;
+    padding-top: 12px;
 
-    font-size:
-        9px;
+    border-top:
+        1px solid var(--border-light);
 
-    font-weight:
-        800;
+    color: #64748b;
 
-    letter-spacing:
-        1.2px;
+    font-size: 10px;
 
-    margin-top:
-        17px;
+    font-weight: 650;
 }
 
 
-/* ==========================================================
-   21 — INFORMATION PANEL
-========================================================== */
+/* =========================================================
+   15. INFO PANEL
+========================================================= */
 
 .info-panel {
+    display: flex;
 
-    display:
-        flex;
+    gap: 14px;
 
-    gap:
-        15px;
+    align-items: flex-start;
 
-    padding:
-        21px;
-
-    margin-top:
-        22px;
+    background: #f8fafd;
 
     border:
-        1px solid rgba(54, 160, 220, 0.18);
+        1px solid #dce7f3;
 
-    border-radius:
-        13px;
+    border-left:
+        4px solid var(--blue);
 
-    background:
-        rgba(16, 35, 54, 0.72);
+    border-radius: 9px;
+
+    padding: 17px 18px;
+
+    margin:
+        20px 0;
 }
-
 
 .info-icon {
+    width: 32px;
+    height: 32px;
 
-    font-size:
-        24px;
+    min-width: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: var(--blue-soft);
+
+    color: #1d4ed8;
+
+    font-weight: 800;
+
+    font-size: 13px;
 }
-
 
 .info-panel h4 {
+    color: var(--navy-900);
 
-    color:
-        #edf3fb;
+    font-size: 12px;
 
-    font-size:
-        15px;
+    font-weight: 750;
 
     margin:
-        0 0 6px;
+        0 0 4px 0;
 }
-
 
 .info-panel p {
+    color: var(--muted);
 
-    color:
-        #98a9bf;
+    font-size: 11px;
 
-    font-size:
-        13px;
+    line-height: 1.6;
 
-    line-height:
-        1.8;
-
-    margin:
-        0;
+    margin: 0;
 }
 
 
-/* ==========================================================
-   22 — PAGE INTRO
-========================================================== */
+/* =========================================================
+   16. PAGE INTRO
+========================================================= */
 
 .page-intro {
+    display: flex;
 
-    display:
-        flex;
+    align-items: center;
 
-    align-items:
-        center;
+    gap: 15px;
 
-    gap:
-        15px;
-
-    margin:
-        30px 0 23px;
-}
-
-
-.page-icon {
-
-    width:
-        56px;
-
-    height:
-        56px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
+    background: #ffffff;
 
     border:
-        1px solid rgba(124, 108, 255, 0.25);
+        1px solid var(--border);
 
-    border-radius:
-        13px;
+    border-radius: 13px;
 
-    background:
-        rgba(124, 108, 255, 0.09);
+    padding:
+        21px 23px;
 
-    font-size:
-        24px;
+    margin-bottom: 20px;
+
+    box-shadow: var(--shadow-sm);
 }
 
+.page-icon {
+    width: 48px;
+    height: 48px;
+
+    min-width: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--navy-900);
+
+    color: #ffffff;
+
+    border-radius: 10px;
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
 
 .page-intro h2 {
+    color: var(--navy-900);
 
-    color:
-        #ffffff;
+    font-size: 20px !important;
 
-    font-size:
-        27px !important;
+    font-weight: 750 !important;
 
     margin:
-        0 0 4px;
+        0 0 4px 0 !important;
 }
-
 
 .page-intro p {
+    color: var(--muted);
 
-    color:
-        #8797ad;
+    font-size: 12px;
 
-    font-size:
-        14px;
-
-    margin:
-        0;
+    margin: 0;
 }
 
 
-/* ==========================================================
-   23 — STREAMLIT CONTAINERS
-========================================================== */
+/* =========================================================
+   17. STREAMLIT TABS
+========================================================= */
 
-div[data-testid="stVerticalBlockBorderWrapper"] {
+.stTabs {
+    margin-top: 10px;
+}
 
+.stTabs [data-baseweb="tab-list"] {
+    gap: 5px;
+
+    background: #ffffff;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    padding: 5px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.stTabs [data-baseweb="tab"] {
+    height: 42px;
+
+    padding:
+        0 17px;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    font-weight: 650;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    color: var(--navy-900);
+}
+
+.stTabs [aria-selected="true"] {
+    color: var(--navy-900) !important;
+
+    background: #eef4fb !important;
+
+    border-radius: 7px;
+
+    font-weight: 750 !important;
+}
+
+.stTabs [data-baseweb="tab-highlight"] {
+    background: var(--blue) !important;
+
+    height: 3px;
+}
+
+
+/* =========================================================
+   18. INPUTS
+========================================================= */
+
+.stTextInput label,
+.stTextArea label,
+.stNumberInput label,
+.stSelectbox label,
+.stMultiSelect label,
+.stFileUploader label {
+    color: var(--navy-900) !important;
+
+    font-size: 12px !important;
+
+    font-weight: 700 !important;
+}
+
+.stTextInput input,
+.stTextArea textarea,
+.stNumberInput input,
+.stSelectbox div[data-baseweb="select"] {
+    background: #ffffff !important;
+
+    color: var(--text-dark) !important;
+
+    border:
+        1px solid #cfd9e6 !important;
+
+    border-radius: 8px !important;
+
+    font-size: 13px !important;
+}
+
+.stTextInput input,
+.stNumberInput input {
+    min-height: 43px;
+}
+
+.stTextInput input:focus,
+.stTextArea textarea:focus,
+.stNumberInput input:focus {
+    border-color: var(--blue) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10) !important;
+}
+
+
+/* =========================================================
+   19. FILE UPLOADER
+========================================================= */
+
+[data-testid="stFileUploader"] {
+    background: #f8fafd;
+
+    border:
+        1px dashed #b9c8da;
+
+    border-radius: 10px;
+
+    padding: 5px;
+}
+
+[data-testid="stFileUploader"] section {
+    background: transparent !important;
+
+    border: none !important;
+}
+
+[data-testid="stFileUploaderDropzoneInstructions"] {
+    color: var(--muted) !important;
+
+    font-size: 12px !important;
+}
+
+[data-testid="stFileUploaderDropzone"] button {
+    color: #ffffff !important;
+
+    background: var(--navy-900) !important;
+
+    border: none !important;
+
+    border-radius: 7px !important;
+
+    font-size: 11px !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   20. BUTTONS
+========================================================= */
+
+.stButton > button {
+    min-height: 43px;
+
+    padding:
+        0 19px;
+
+    border-radius: 8px;
+
+    border:
+        1px solid #cfd9e6;
+
+    background: #ffffff;
+
+    color: var(--navy-900);
+
+    font-size: 12px;
+
+    font-weight: 750;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        all 0.16s ease;
+}
+
+.stButton > button:hover {
+    border-color: var(--navy-700);
+
+    background: #f8fafd;
+
+    color: var(--navy-950);
+
+    transform: translateY(-1px);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+/* Primary buttons */
+
+.stButton > button[kind="primary"],
+button[data-testid="baseButton-primary"] {
     background:
-        #101824 !important;
+        linear-gradient(
+            135deg,
+            #0b1f3a 0%,
+            #174a78 100%
+        ) !important;
+
+    color: #ffffff !important;
+
+    border:
+        1px solid #0b1f3a !important;
+
+    box-shadow:
+        0 5px 15px rgba(11, 31, 58, 0.16);
+}
+
+.stButton > button[kind="primary"]:hover,
+button[data-testid="baseButton-primary"]:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #102b4d 0%,
+            #1b588d 100%
+        ) !important;
+
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   21. CHECKBOX / RADIO
+========================================================= */
+
+.stCheckbox label,
+.stRadio label {
+    color: var(--text) !important;
+
+    font-size: 12px !important;
+
+    font-weight: 550 !important;
+}
+
+.stCheckbox input:checked + div {
+    background-color: var(--blue) !important;
+
+    border-color: var(--blue) !important;
+}
+
+
+/* =========================================================
+   22. CODE / KEY DISPLAY
+========================================================= */
+
+.stCodeBlock {
+    border:
+        1px solid #d8e1ec !important;
+
+    border-radius: 9px !important;
+
+    background: #f6f8fb !important;
+}
+
+[data-testid="stCode"] {
+    font-size: 11px !important;
+}
+
+
+/* =========================================================
+   23. FINGERPRINT
+========================================================= */
+
+.fingerprint {
+    background: #f4f7fb;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 8px;
+
+    padding: 11px 14px;
+
+    color: var(--navy-800);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    word-break: break-all;
+}
+
+
+/* =========================================================
+   24. SUCCESS PANEL
+========================================================= */
+
+.success-panel {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    background: var(--success-bg);
+
+    border:
+        1px solid #bbf7d0;
+
+    border-left:
+        4px solid var(--success);
+
+    border-radius: 9px;
+
+    padding: 16px;
+
+    margin:
+        18px 0;
+}
+
+.success-icon {
+    width: 31px;
+    height: 31px;
+
+    min-width: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    font-weight: 800;
+}
+
+.success-panel h4 {
+    color: #166534;
+
+    font-size: 12px;
+
+    margin:
+        0 0 4px 0;
+}
+
+.success-panel p {
+    color: #47725a;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   25. STREAMLIT ALERTS
+========================================================= */
+
+div[data-testid="stAlert"] {
+    border-radius: 9px !important;
+
+    font-size: 12px !important;
+
+    line-height: 1.6 !important;
+}
+
+
+/* =========================================================
+   26. METRIC CARDS
+========================================================= */
+
+[data-testid="stMetric"] {
+    background: #ffffff;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 11px;
+
+    padding: 17px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+[data-testid="stMetricLabel"] {
+    color: var(--muted) !important;
+
+    font-size: 11px !important;
+
+    font-weight: 650 !important;
+}
+
+[data-testid="stMetricValue"] {
+    color: var(--navy-900) !important;
+
+    font-size: 25px !important;
+
+    font-weight: 780 !important;
+}
+
+
+/* =========================================================
+   27. EXPANDER
+========================================================= */
+
+[data-testid="stExpander"] {
+    background: #ffffff;
 
     border:
         1px solid var(--border) !important;
 
-    border-radius:
-        15px !important;
+    border-radius: 10px !important;
 
-    padding:
-        21px !important;
+    box-shadow: var(--shadow-sm);
+}
 
-    box-shadow:
-        0 18px 48px rgba(0, 0, 0, 0.11);
+[data-testid="stExpander"] summary {
+    color: var(--navy-900) !important;
+
+    font-size: 12px !important;
+
+    font-weight: 700 !important;
 }
 
 
-/* ==========================================================
-   24 — INPUTS
-========================================================== */
-
-.stTextInput label,
-.stFileUploader label {
-
-    color:
-        #dbe4ef !important;
-
-    font-size:
-        13px !important;
-
-    font-weight:
-        650 !important;
-}
-
-
-.stTextInput input {
-
-    min-height:
-        47px;
-
-    padding:
-        11px 14px !important;
-
-    color:
-        #ffffff !important;
-
-    background:
-        #0a111d !important;
-
-    border:
-        1px solid #2b3b53 !important;
-
-    border-radius:
-        9px !important;
-
-    font-size:
-        14px !important;
-}
-
-
-.stTextInput input::placeholder {
-
-    color:
-        #68778e !important;
-}
-
-
-.stTextInput input:focus {
-
-    border-color:
-        var(--violet) !important;
-
-    box-shadow:
-        0 0 0 2px rgba(124, 108, 255, 0.12) !important;
-}
-
-
-/* ==========================================================
-   25 — FILE UPLOADER
-========================================================== */
-
-[data-testid="stFileUploader"] {
-
-    background:
-        #0b1320;
-
-    border:
-        1px dashed #364963;
-
-    border-radius:
-        11px;
-
-    padding:
-        14px;
-
-    transition:
-        all 0.2s ease;
-}
-
-
-[data-testid="stFileUploader"]:hover {
-
-    border-color:
-        rgba(124, 108, 255, 0.75);
-
-    background:
-        #0d1725;
-}
-
-
-[data-testid="stFileUploader"] section {
-
-    background:
-        transparent !important;
-
-    border:
-        none !important;
-}
-
-
-[data-testid="stFileUploader"] button {
-
-    background:
-        #162337 !important;
-
-    color:
-        #dce5f1 !important;
-
-    border:
-        1px solid #344963 !important;
-
-    border-radius:
-        8px !important;
-
-    font-size:
-        12px !important;
-
-    font-weight:
-        650 !important;
-}
-
-
-/* ==========================================================
-   26 — BUTTONS
-========================================================== */
-
-.stButton > button,
-.stDownloadButton > button {
-
-    min-height:
-        46px;
-
-    padding:
-        10px 20px !important;
-
-    color:
-        #ffffff !important;
-
-    background:
-        linear-gradient(
-            105deg,
-            #6b5fe2,
-            #3e7fbe
-        ) !important;
-
-    border:
-        1px solid rgba(159, 150, 255, 0.30) !important;
-
-    border-radius:
-        9px !important;
-
-    font-size:
-        13px !important;
-
-    font-weight:
-        750 !important;
-
-    transition:
-        all 0.18s ease;
-}
-
-
-.stButton > button:hover,
-.stDownloadButton > button:hover {
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 12px 30px rgba(82, 83, 181, 0.22);
-
-    border-color:
-        rgba(174, 166, 255, 0.60) !important;
-}
-
-
-/* ==========================================================
-   27 — CHECKBOX / RADIO
-========================================================== */
-
-.stCheckbox label,
-.stRadio label {
-
-    color:
-        #ccd7e7 !important;
-
-    font-size:
-        13px !important;
-}
-
-
-/* ==========================================================
-   28 — CODE BLOCK
-========================================================== */
-
-.stCodeBlock {
-
-    border:
-        1px solid #263a57 !important;
-
-    border-radius:
-        10px !important;
-
-    background:
-        #070d17 !important;
-}
-
-
-.stCodeBlock pre {
-
-    font-size:
-        12px !important;
-
-    line-height:
-        1.7 !important;
-}
-
-
-/* ==========================================================
-   29 — FINGERPRINT
-========================================================== */
-
-.fingerprint {
-
-    padding:
-        17px 18px;
-
-    margin:
-        18px 0;
-
-    color:
-        #aaa2ff;
-
-    background:
-        #090f1b;
-
-    border:
-        1px solid rgba(124, 108, 255, 0.25);
-
-    border-radius:
-        11px;
-
-    font-size:
-        12px;
-
-    line-height:
-        1.8;
-
-    overflow-wrap:
-        anywhere;
-}
-
-
-.fingerprint strong {
-
-    color:
-        #f1f4fa;
-
-    font-size:
-        13px;
-
-    font-family:
-        Consolas,
-        "JetBrains Mono",
-        monospace;
-}
-
-
-/* ==========================================================
-   30 — ALERTS
-========================================================== */
-
-[data-testid="stAlert"] {
-
-    border-radius:
-        10px !important;
-
-    font-size:
-        13px !important;
-}
-
-
-[data-testid="stAlert"] p {
-
-    font-size:
-        13px !important;
-
-    line-height:
-        1.65 !important;
-}
-
-
-/* ==========================================================
-   31 — SUCCESS PANEL
-========================================================== */
-
-.success-panel {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        15px;
-
-    padding:
-        20px;
-
-    margin:
-        18px 0;
-
-    border:
-        1px solid rgba(56, 211, 159, 0.24);
-
-    border-radius:
-        12px;
-
-    background:
-        rgba(30, 104, 80, 0.13);
-}
-
-
-.success-icon {
-
-    width:
-        40px;
-
-    height:
-        40px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border-radius:
-        50%;
-
-    background:
-        rgba(56, 211, 159, 0.10);
-
-    color:
-        #62e3b7;
-
-    font-size:
-        18px;
-}
-
-
-.success-panel h3 {
-
-    color:
-        #6de7bc;
-
-    font-size:
-        16px;
-
-    margin:
-        0 0 4px;
-}
-
-
-.success-panel p {
-
-    color:
-        #9ac7b7;
-
-    font-size:
-        13px;
-
-    margin:
-        0;
-}
-
-
-/* ==========================================================
-   32 — DIVIDER
-========================================================== */
+/* =========================================================
+   28. DIVIDER
+========================================================= */
 
 hr {
+    border: none !important;
 
-    border:
-        none !important;
-
-    height:
-        1px !important;
+    border-top:
+        1px solid var(--border-light) !important;
 
     margin:
-        28px 0 !important;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(148, 163, 184, 0.20),
-            transparent
-        ) !important;
+        26px 0 !important;
 }
 
 
-/* ==========================================================
-   33 — FOOTER
-========================================================== */
+/* =========================================================
+   29. FOOTER
+========================================================= */
 
 .footer {
-
-    text-align:
-        center;
-
-    margin-top:
-        65px;
+    margin-top: 45px;
 
     padding:
-        42px 15px 15px;
-}
+        23px 0 10px 0;
 
+    border-top:
+        1px solid var(--border);
+
+    text-align: center;
+}
 
 .footer-brand {
+    color: var(--navy-900);
 
-    color:
-        #a49cff;
+    font-size: 13px;
 
-    font-size:
-        20px;
-
-    font-weight:
-        800;
+    font-weight: 800;
 }
-
-
-.footer p {
-
-    color:
-        #73829a;
-
-    font-size:
-        12px;
-
-    margin:
-        7px 0;
-}
-
-
-.footer small {
-
-    color:
-        #56667f;
-
-    font-size:
-        10px;
-}
-
 
 .footer-line {
+    color: var(--muted);
 
-    max-width:
-        620px;
+    font-size: 10px;
 
-    height:
-        1px;
-
-    margin:
-        20px auto 15px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(148, 163, 184, 0.20),
-            transparent
-        );
+    margin-top: 5px;
 }
 
 
-/* ==========================================================
-   34 — SCROLLBAR
-========================================================== */
+/* =========================================================
+   30. SCROLLBAR
+========================================================= */
 
 ::-webkit-scrollbar {
-
-    width:
-        8px;
-
-    height:
-        8px;
+    width: 8px;
+    height: 8px;
 }
-
 
 ::-webkit-scrollbar-track {
-
-    background:
-        #070b12;
+    background: #eef2f7;
 }
-
 
 ::-webkit-scrollbar-thumb {
+    background: #b8c5d5;
 
-    background:
-        #2b3b55;
-
-    border-radius:
-        20px;
+    border-radius: 10px;
 }
-
 
 ::-webkit-scrollbar-thumb:hover {
-
-    background:
-        #566987;
+    background: #8fa1b8;
 }
 
 
-/* ==========================================================
-   35 — RESPONSIVE
-========================================================== */
+/* =========================================================
+   31. RESPONSIVE
+========================================================= */
 
-@media (max-width: 1000px) {
-
-    .block-container {
-
-        padding-left:
-            1.5rem !important;
-
-        padding-right:
-            1.5rem !important;
+@media (max-width: 1100px) {
+    .main .block-container {
+        padding-left: 1.4rem;
+        padding-right: 1.4rem;
     }
-
 
     .hero {
-
-        padding:
-            40px;
+        padding: 32px;
     }
 
-
-    .hero-visual {
-
-        width:
-            170px;
-
-        height:
-            170px;
-
-        font-size:
-            75px;
+    .hero h1 {
+        font-size: 29px !important;
     }
 }
 
 
 @media (max-width: 768px) {
+    section[data-testid="stSidebar"] {
+        min-width: 250px;
+        max-width: 250px;
+    }
 
-    .block-container {
-
+    .main .block-container {
         padding:
-            1rem !important;
+            1rem 0.9rem 3rem 0.9rem;
     }
-
-
-    h1 {
-
-        font-size:
-            30px !important;
-    }
-
-
-    h2 {
-
-        font-size:
-            24px !important;
-    }
-
 
     .topbar {
-
-        padding:
-            11px 14px;
+        padding: 0 13px;
     }
 
-
-    .brand-name {
-
-        font-size:
-            18px;
+    .topbar-subtitle {
+        display: none;
     }
-
 
     .top-status {
-
-        padding:
-            7px 10px;
-
-        font-size:
-            8px;
+        display: none;
     }
-
 
     .hero {
+        padding: 27px 23px;
 
-        min-height:
-            auto;
-
-        padding:
-            32px 24px;
+        border-radius: 14px;
     }
-
 
     .hero h1 {
-
-        font-size:
-            32px !important;
+        font-size: 25px !important;
     }
 
-
-    .hero-copy {
-
-        font-size:
-            13px;
+    .hero p {
+        font-size: 13px !important;
     }
-
-
-    .hero-visual {
-
-        display:
-            none;
-    }
-
 
     .welcome {
-
-        flex-direction:
-            column;
-
-        align-items:
-            flex-start;
-
-        gap:
-            14px;
+        padding: 20px;
     }
 
+    .welcome h2 {
+        font-size: 20px !important;
+    }
 
     .feature-card {
-
-        min-height:
-            auto;
-    }
-
-
-    .page-intro h2 {
-
-        font-size:
-            23px !important;
-    }
-
-
-    .stTabs [data-baseweb="tab-list"] {
-
-        overflow-x:
-            auto;
-    }
-
-
-    .stTabs [data-baseweb="tab"] {
-
-        min-width:
-            max-content;
-
-        padding:
-            10px 14px;
-
-        font-size:
-            11px;
+        min-height: auto;
     }
 }
 
 
-/* ==========================================================
-   36 — ACCESSIBILITY / REDUCED MOTION
-========================================================== */
+/* =========================================================
+   32. CLEAN STREAMLIT ELEMENT SPACING
+========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-
-        animation:
-            none !important;
-
-        transition:
-            none !important;
-    }
+[data-testid="stVerticalBlock"] > div {
+    max-width: 100%;
 }
+
+.stMarkdown p {
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.stCaption {
+    color: var(--muted) !important;
+    font-size: 10px !important;
+}
+
+
+/* =========================================================
+   33. NAVIGATION POLISH
+========================================================= */
+
+/* Hide unnecessary Streamlit sidebar header spacing */
+
+section[data-testid="stSidebar"] [data-testid="stSidebarHeader"] {
+    background: transparent;
+}
+
+
+/* Sidebar collapse button */
+
+button[kind="header"] {
+    color: #ffffff !important;
+}
+
+
+/* Better page navigation spacing */
+
+section[data-testid="stSidebar"]
+[data-testid="stSidebarNav"] {
+    padding-top: 4px;
+}
+
+
+/* =========================================================
+   END — SECUREVAULT PROFESSIONAL WHITE + NAVY THEME
+========================================================= */
