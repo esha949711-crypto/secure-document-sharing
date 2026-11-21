@@ -1,986 +1,1883 @@
+/* =========================================================
+   SECUREVAULT — PROFESSIONAL CYBERSECURITY UI
+   Dark Navy / Electric Indigo Theme
+   Designed for Streamlit
+========================================================= */
 
-from pathlib import Path
-
-import streamlit as st
-from sdsp import core
-
-if not st.runtime.exists():
-    print(
-        "This is a Streamlit app. Start it with: "
-        "python -m streamlit run .\\streamlit_app.py"
-    )
-    raise SystemExit(0)
-
-# ==========================================
-# PAGE CONFIGURATION
-# ==========================================
-
-st.set_page_config(
-    page_title="SecureVault | Document Security",
-    page_icon="🔐",
-    layout="wide",
-    initial_sidebar_state="collapsed"
-)
-
-# ==========================================
-# PROFESSIONAL CSS DESIGN
-# ==========================================
-
-st.markdown("""
-<style>
+/* ---------------------------------------------------------
+   1. ROOT VARIABLES
+--------------------------------------------------------- */
 
 :root {
-    --bg: #080d1b;
-    --surface: #111a2e;
-    --border: #263550;
-    --primary: #7467f0;
-    --text: #f1f5ff;
-    --muted: #98a7c1;
-    --green: #39d6a0;
+    --bg: #070b17;
+    --bg-soft: #0b1222;
+
+    --surface: #0f182b;
+    --surface-2: #121d33;
+    --surface-3: #16243d;
+
+    --border: rgba(112, 139, 190, 0.20);
+    --border-strong: rgba(124, 145, 255, 0.38);
+
+    --primary: #7c6cff;
+    --primary-2: #4f8cff;
+    --primary-soft: rgba(124, 108, 255, 0.14);
+
+    --success: #35d6a2;
+    --success-soft: rgba(53, 214, 162, 0.12);
+
+    --warning: #f5b84b;
+    --danger: #ff667d;
+
+    --text: #f5f7ff;
+    --text-soft: #c5cde0;
+    --muted: #8e9ab5;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+
+    --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.28);
+
+    --glow:
+        0 0 35px rgba(124, 108, 255, 0.12);
 }
+
+
+/* =========================================================
+   2. GLOBAL APPLICATION
+========================================================= */
 
 .stApp {
     background:
-        radial-gradient(ellipse at 10% 0%, #17244a 0%, transparent 35%),
-        radial-gradient(ellipse at 95% 20%, #18204a 0%, transparent 30%),
-        var(--bg);
+        radial-gradient(
+            circle at 8% 0%,
+            rgba(83, 76, 180, 0.16) 0%,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 92% 8%,
+            rgba(52, 112, 205, 0.13) 0%,
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #070b17 0%,
+            #0a1020 48%,
+            #070c18 100%
+        );
+
     color: var(--text);
-    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
 }
 
-html, body, [class*="css"] {
-    font-family: 'Inter', sans-serif;
+
+/* ---------------------------------------------------------
+   GLOBAL FONT
+--------------------------------------------------------- */
+
+html,
+body,
+[class*="css"] {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
 }
+
+
+/* ---------------------------------------------------------
+   MAIN CONTAINER
+--------------------------------------------------------- */
 
 .block-container {
-    max-width: 1450px;
-    padding-top: 1.5rem;
-    padding-bottom: 3rem;
+    max-width: 1480px !important;
+
+    padding-top: 1.4rem !important;
+    padding-left: 2.2rem !important;
+    padding-right: 2.2rem !important;
+    padding-bottom: 4rem !important;
 }
 
-#MainMenu, footer, header {
+
+/* ---------------------------------------------------------
+   HIDE STREAMLIT DEFAULT UI
+--------------------------------------------------------- */
+
+#MainMenu {
     visibility: hidden;
 }
 
-/* TOP BAR */
+footer {
+    visibility: hidden;
+}
+
+header {
+    visibility: hidden;
+}
+
+
+/* =========================================================
+   3. TOP NAVIGATION / BRAND BAR
+========================================================= */
 
 .topbar {
+    position: relative;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 16px 23px;
-    margin-bottom: 28px;
-    background: rgba(19,29,50,.9);
+    justify-content: space-between;
+
+    min-height: 74px;
+
+    padding: 14px 20px;
+
+    margin-bottom: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(17, 28, 50, 0.96),
+            rgba(10, 19, 36, 0.96)
+        );
+
     border: 1px solid var(--border);
-    border-radius: 16px;
+
+    border-radius: var(--radius-lg);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.18);
+
+    backdrop-filter: blur(18px);
+
+    overflow: hidden;
 }
+
+
+/* Topbar subtle glow */
+
+.topbar::before {
+    content: "";
+
+    position: absolute;
+
+    top: -100px;
+    right: 20%;
+
+    width: 280px;
+    height: 180px;
+
+    background: rgba(108, 95, 255, 0.08);
+
+    filter: blur(60px);
+
+    pointer-events: none;
+}
+
+
+/* Brand */
 
 .brand {
     display: flex;
     align-items: center;
+
     gap: 13px;
+
+    position: relative;
+    z-index: 2;
 }
+
 
 .brand-icon {
-    background: linear-gradient(135deg,#7163f2,#318eea);
-    width: 48px;
-    height: 48px;
+    width: 45px;
+    height: 45px;
+
     display: flex;
-    justify-content: center;
     align-items: center;
-    border-radius: 13px;
-    font-size: 24px;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    font-size: 21px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7668ff 0%,
+            #4b8ff5 100%
+        );
+
+    box-shadow:
+        0 8px 25px rgba(91, 104, 255, 0.25);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
 }
+
 
 .brand-name {
-    font-size: 21px;
+    color: #ffffff;
+
+    font-size: 20px;
+
     font-weight: 800;
-    color: white;
+
+    letter-spacing: -0.4px;
+
+    line-height: 1.1;
 }
+
 
 .brand-subtitle {
-    font-size: 9px;
+    margin-top: 4px;
+
+    color: #7f8da9;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
     letter-spacing: 2px;
-    color: #98a7c1;
+
+    text-transform: uppercase;
 }
+
 
 .top-status {
-    color: #39d6a0;
-    background: #12352e;
-    border: 1px solid #28604e;
-    border-radius: 30px;
-    padding: 10px 15px;
-    font-size: 10px;
-    font-weight: 700;
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: #5fe6b5;
+
+    background:
+        rgba(35, 139, 106, 0.10);
+
+    border: 1px solid rgba(53, 214, 162, 0.25);
+
+    border-radius: 999px;
+
+    padding: 8px 13px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
 }
 
-/* HERO */
+
+/* =========================================================
+   4. HERO SECTION
+========================================================= */
 
 .hero {
+    position: relative;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 320px;
-    padding: 45px 55px;
-    border-radius: 23px;
-    border: 1px solid #394775;
+
+    min-height: 350px;
+
+    padding: 50px 55px;
+
+    margin-bottom: 32px;
+
+    border-radius: var(--radius-xl);
+
+    border: 1px solid rgba(126, 145, 255, 0.28);
+
     background:
-        radial-gradient(circle at 80% 50%,#37347c 0%,transparent 32%),
-        linear-gradient(115deg,#171d3d,#202958 55%,#17254a);
-    margin-bottom: 35px;
+        radial-gradient(
+            circle at 82% 48%,
+            rgba(104, 91, 244, 0.25),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 65% 100%,
+            rgba(52, 111, 210, 0.14),
+            transparent 32%
+        ),
+        linear-gradient(
+            120deg,
+            #111a32 0%,
+            #151f40 48%,
+            #101b35 100%
+        );
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.20);
 }
+
+
+/* Hero top line */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(130, 117, 255, 0.8),
+            transparent
+        );
+
+    opacity: 0.7;
+}
+
+
+/* Hero decorative glow */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    right: -100px;
+    bottom: -180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(83, 111, 255, 0.10);
+
+    filter: blur(40px);
+}
+
 
 .hero-content {
-    max-width: 720px;
+    max-width: 760px;
+
+    position: relative;
+    z-index: 2;
 }
+
 
 .hero-label {
-    color: #b9adff;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
+    color: #aaa1ff;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.4px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 17px;
 }
+
 
 .hero h1 {
-    color: white;
-    font-size: clamp(32px,4vw,49px);
-    font-weight: 800;
-    line-height: 1.2;
-    margin: 20px 0;
+    color: #ffffff;
+
+    font-size: clamp(34px, 4.5vw, 54px);
+
+    line-height: 1.08;
+
+    font-weight: 850;
+
+    letter-spacing: -1.7px;
+
+    margin: 0 0 19px 0;
 }
+
 
 .hero h1 span {
-    color: #a99cff;
+    color: #a79dff;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a69cff,
+            #75a4ff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
 }
 
+
 .hero-copy {
-    color: #bac5df;
-    font-size: 14px;
+    max-width: 650px;
+
+    color: #aeb9d0;
+
+    font-size: 13px;
+
     line-height: 1.9;
+
+    margin-bottom: 22px;
 }
+
+
+/* Security tags */
 
 .hero-tags {
     display: flex;
+
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 23px;
+
+    gap: 8px;
 }
+
 
 .hero-tags span {
-    padding: 9px 13px;
-    border-radius: 8px;
-    border: 1px solid #50598e;
-    background: rgba(255,255,255,.06);
-    color: #e0e4ff;
-    font-size: 10px;
-    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 31px;
+
+    padding: 0 12px;
+
+    border-radius: 7px;
+
+    border: 1px solid rgba(126, 145, 255, 0.25);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color: #cbd4ec;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
 }
+
+
+/* Hero visual */
 
 .hero-visual {
-    font-size: 100px;
-    padding: 35px;
-    filter: drop-shadow(0 0 30px #8176ff);
-}
+    position: relative;
 
-/* SECTION HEADING */
+    z-index: 2;
 
-.section-heading {
-    color: #a5b2d0;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin: 25px 0 17px;
-}
-
-/* TABS */
-
-.stTabs [data-baseweb="tab-list"] {
-    gap: 10px;
-    background: #111a2e;
-    padding: 8px;
-    border: 1px solid #263550;
-    border-radius: 13px;
-}
-
-.stTabs [data-baseweb="tab"] {
-    background: transparent;
-    border-radius: 9px;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 13px;
-    font-weight: 600;
-    padding: 13px 20px;
-    border: none;
-}
-
-.stTabs [aria-selected="true"] {
-    background: linear-gradient(110deg,#6658dc,#417edc) !important;
-    color: white !important;
-}
-
-/* DASHBOARD */
-
-.welcome {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 28px 0;
-    padding: 22px 25px;
-    border-radius: 14px;
-    background: #19253e;
-    border: 1px solid #263550;
-}
-
-.welcome h2 {
-    color: white;
-    font-size: 22px;
-    margin: 0 0 7px;
-}
-
-.welcome p {
-    color: #98a7c1;
-    font-size: 13px;
-}
-
-.welcome-badge {
-    color: #a99cff;
-    font-size: 10px;
-    letter-spacing: 1px;
-    border: 1px solid #4a428c;
-    padding: 9px 14px;
-    border-radius: 8px;
-}
-
-.feature-card {
-    min-height: 215px;
-    padding: 25px 22px;
-    border: 1px solid #263550;
-    border-radius: 16px;
-    background: linear-gradient(145deg,#17233c,#10192c);
-    transition: .25s;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-    border-color: #7165d9;
-}
-
-.feature-icon {
-    width: 48px;
-    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
-    border-radius: 12px;
-    margin-bottom: 18px;
+
+    width: 210px;
+    height: 210px;
+
+    margin-right: 35px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(122, 107, 255, 0.18) 0%,
+            rgba(122, 107, 255, 0.05) 42%,
+            transparent 70%
+        );
+
+    font-size: 96px;
+
+    filter:
+        drop-shadow(0 0 35px rgba(124, 108, 255, 0.42));
 }
 
-.purple {background: #30295e;}
-.blue {background: #163b5d;}
-.green {background: #17483e;}
+
+/* =========================================================
+   5. SECTION HEADING
+========================================================= */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+
+    color: #7f8ca8;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin: 8px 0 12px 3px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   6. TABS / NAVIGATION
+========================================================= */
+
+.stTabs {
+    margin-top: 0 !important;
+}
+
+
+/* Tab container */
+
+.stTabs [data-baseweb="tab-list"] {
+    display: flex;
+
+    gap: 5px;
+
+    padding: 6px;
+
+    background:
+        rgba(12, 21, 39, 0.94);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Individual tab */
+
+.stTabs [data-baseweb="tab"] {
+    min-height: 42px;
+
+    padding: 10px 19px;
+
+    border-radius: 9px;
+
+    color: #8f9bb5;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    border: none;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+/* Tab hover */
+
+.stTabs [data-baseweb="tab"]:hover {
+    color: #dce4f7;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+}
+
+
+/* Active tab */
+
+.stTabs [aria-selected="true"] {
+    color: #ffffff !important;
+
+    background:
+        linear-gradient(
+            110deg,
+            #685be0 0%,
+            #487edc 100%
+        ) !important;
+
+    box-shadow:
+        0 7px 24px rgba(88, 91, 221, 0.25);
+}
+
+
+/* Hide default tab underline */
+
+.stTabs [data-baseweb="tab-highlight"] {
+    display: none !important;
+}
+
+
+/* =========================================================
+   7. WELCOME PANEL
+========================================================= */
+
+.welcome {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 22px 25px;
+
+    margin: 26px 0 20px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(19, 32, 57, 0.95),
+            rgba(14, 25, 44, 0.95)
+        );
+
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+}
+
+
+.welcome::before {
+    content: "";
+
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    right: -80px;
+    top: -90px;
+
+    background:
+        rgba(102, 93, 255, 0.09);
+
+    border-radius: 50%;
+
+    filter: blur(25px);
+}
+
+
+.welcome h2 {
+    position: relative;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.4px;
+
+    margin: 0 0 5px;
+}
+
+
+.welcome p {
+    position: relative;
+
+    color: #8f9bb5;
+
+    font-size: 11px;
+
+    margin: 0;
+}
+
+
+.welcome-badge {
+    position: relative;
+
+    color: #aaa1ff;
+
+    border: 1px solid rgba(123, 108, 255, 0.28);
+
+    background:
+        rgba(124, 108, 255, 0.06);
+
+    padding: 8px 13px;
+
+    border-radius: 7px;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+}
+
+
+/* =========================================================
+   8. FEATURE CARDS
+========================================================= */
+
+.feature-card {
+    position: relative;
+
+    min-height: 210px;
+
+    padding: 24px 21px;
+
+    border-radius: 15px;
+
+    border: 1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(19, 31, 54, 0.96),
+            rgba(11, 20, 36, 0.96)
+        );
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.14);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+    overflow: hidden;
+}
+
+
+/* Card top accent */
+
+.feature-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(123, 108, 255, 0.55),
+            transparent
+        );
+
+    opacity: 0;
+
+    transition: opacity 0.25s ease;
+}
+
+
+.feature-card:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(123, 108, 255, 0.40);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.24),
+        0 0 30px rgba(104, 91, 255, 0.07);
+}
+
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+
+/* Feature icon */
+
+.feature-icon {
+    width: 47px;
+    height: 47px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    font-size: 20px;
+
+    margin-bottom: 17px;
+
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+
+.purple {
+    background:
+        rgba(116, 101, 240, 0.16);
+
+    color: #aaa1ff;
+}
+
+
+.blue {
+    background:
+        rgba(58, 135, 221, 0.14);
+
+    color: #86b8ff;
+}
+
+
+.green {
+    background:
+        rgba(46, 192, 144, 0.13);
+
+    color: #62e0b5;
+}
+
 
 .feature-card h3 {
-    color: white;
-    font-size: 17px;
+    color: #f5f7ff;
+
+    font-size: 16px;
+
+    font-weight: 750;
+
+    margin: 0 0 9px;
 }
+
 
 .feature-card p {
-    color: #9caec9;
-    font-size: 12px;
-    line-height: 1.8;
+    color: #8e9bb6;
+
+    font-size: 11px;
+
+    line-height: 1.75;
+
+    margin: 0;
 }
 
+
 .feature-footer {
-    color: #a99cff;
-    font-size: 9px;
-    font-weight: 700;
+    color: #9f95f9;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
     letter-spacing: 1.4px;
+
     margin-top: 18px;
 }
 
-/* INFO PANEL */
+
+/* =========================================================
+   9. INFORMATION PANEL
+========================================================= */
 
 .info-panel {
+    position: relative;
+
     display: flex;
-    gap: 17px;
-    margin-top: 25px;
-    padding: 23px;
-    background: #132743;
-    border: 1px solid #31527d;
+
+    gap: 16px;
+
+    margin-top: 22px;
+
+    padding: 20px 22px;
+
     border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(17, 40, 67, 0.82),
+            rgba(13, 29, 51, 0.82)
+        );
+
+    border: 1px solid rgba(72, 126, 190, 0.27);
 }
+
 
 .info-icon {
-    font-size: 25px;
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 9px;
+
+    background:
+        rgba(75, 137, 220, 0.13);
+
+    font-size: 17px;
 }
+
 
 .info-panel h4 {
-    color: white;
+    color: #eef3ff;
+
+    font-size: 13px;
+
+    margin: 1px 0 6px;
 }
+
 
 .info-panel p {
-    color: #a9bad4;
-    font-size: 12px;
+    color: #8fa3c1;
+
+    font-size: 10px;
+
     line-height: 1.9;
+
+    margin: 0;
 }
 
-/* PAGE HEADINGS */
+
+/* =========================================================
+   10. PAGE INTRO
+========================================================= */
 
 .page-intro {
     display: flex;
     align-items: center;
-    gap: 17px;
-    margin: 30px 0 23px;
+
+    gap: 15px;
+
+    margin: 28px 0 20px;
 }
 
+
 .page-icon {
-    width: 58px;
-    height: 58px;
+    width: 52px;
+    height: 52px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 15px;
-    font-size: 27px;
-    background: linear-gradient(135deg,#39346f,#214d80);
-    border: 1px solid #515a9c;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    font-size: 23px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(105, 92, 226, 0.25),
+            rgba(55, 103, 177, 0.18)
+        );
+
+    border: 1px solid rgba(126, 145, 255, 0.25);
+
+    box-shadow:
+        0 8px 25px rgba(80, 90, 200, 0.10);
 }
+
 
 .page-intro h2 {
-    color: white;
-    font-size: 23px;
-    margin: 0 0 6px;
+    color: #ffffff;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.4px;
+
+    margin: 0 0 4px;
 }
+
 
 .page-intro p {
-    color: #98a7c1;
-    font-size: 12px;
-}
+    color: #8794ae;
 
-/* CONTAINERS */
-
-div[data-testid="stVerticalBlockBorderWrapper"] {
-    background: rgba(17,27,47,.86);
-    border: 1px solid #263550 !important;
-    border-radius: 16px;
-    padding: 20px;
-}
-
-.stMarkdown h3,
-.stMarkdown h4 {
-    color: #f1f5ff;
-}
-
-/* INPUTS */
-
-.stTextInput label,
-.stFileUploader label {
-    color: #dbe4f7 !important;
-    font-weight: 600;
-    font-size: 13px;
-}
-
-.stTextInput input {
-    background: #0d1629 !important;
-    color: white !important;
-    border: 1px solid #334563 !important;
-    border-radius: 10px !important;
-    padding: 13px !important;
-}
-
-[data-testid="stFileUploader"] {
-    background: #101b30;
-    border: 1px dashed #58658b;
-    border-radius: 12px;
-    padding: 15px;
-}
-
-/* BUTTONS */
-
-.stButton > button,
-.stDownloadButton > button {
-    min-height: 44px;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 12px;
-    border: 1px solid #5553a2;
-    color: white;
-    background: linear-gradient(110deg,#6758d9,#387edb);
-    transition: .2s;
-}
-
-.stButton > button:hover,
-.stDownloadButton > button:hover {
-    border-color: #a99cff;
-    color: white;
-    transform: translateY(-2px);
-}
-
-/* FINGERPRINT */
-
-.fingerprint {
-    background: #101b30;
-    border: 1px solid #3e477d;
-    border-radius: 12px;
-    padding: 17px;
-    margin: 20px 0;
-    color: #a99cff;
     font-size: 10px;
-    line-height: 2.2;
-    overflow-wrap: anywhere;
-}
 
-.fingerprint strong {
-    color: white;
-    font-size: 12px;
-}
-
-/* SUCCESS */
-
-.success-panel {
-    display: flex;
-    align-items: center;
-    gap: 17px;
-    padding: 20px;
-    margin: 18px 0;
-    background: #12342e;
-    border: 1px solid #247b65;
-    border-radius: 13px;
-}
-
-.success-icon {
-    font-size: 27px;
-    color: #39d6a0;
-}
-
-.success-panel h3 {
-    color: #70edbf;
-    font-size: 16px;
     margin: 0;
 }
 
-.success-panel p {
-    color: #a5c9be;
-    font-size: 12px;
+
+/* =========================================================
+   11. STREAMLIT CONTAINERS
+========================================================= */
+
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 27, 47, 0.92),
+            rgba(10, 19, 35, 0.92)
+        ) !important;
+
+    border:
+        1px solid var(--border) !important;
+
+    border-radius:
+        16px !important;
+
+    padding:
+        20px !important;
+
+    box-shadow:
+        0 14px 45px rgba(0, 0, 0, 0.12);
 }
 
-/* FOOTER */
+
+/* =========================================================
+   12. HEADINGS / MARKDOWN
+========================================================= */
+
+.stMarkdown h1,
+.stMarkdown h2,
+.stMarkdown h3,
+.stMarkdown h4 {
+    color: #f5f7ff !important;
+}
+
+
+.stMarkdown h3 {
+    font-size: 17px !important;
+
+    font-weight: 750 !important;
+}
+
+
+.stMarkdown h4 {
+    font-size: 14px !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   13. TEXT / CAPTIONS
+========================================================= */
+
+.stCaption,
+[data-testid="stCaptionContainer"] {
+    color: #7f8da8 !important;
+
+    font-size: 10px !important;
+}
+
+
+.stMarkdown p {
+    color: #b0bad0;
+}
+
+
+/* =========================================================
+   14. TEXT INPUT
+========================================================= */
+
+.stTextInput {
+    margin-bottom: 8px;
+}
+
+
+.stTextInput label {
+    color: #d9e1f2 !important;
+
+    font-size: 10px !important;
+
+    font-weight: 700 !important;
+}
+
+
+.stTextInput input {
+    min-height: 44px;
+
+    background:
+        #091324 !important;
+
+    color:
+        #f7f9ff !important;
+
+    border:
+        1px solid #293b5b !important;
+
+    border-radius:
+        9px !important;
+
+    padding:
+        10px 13px !important;
+
+    font-size:
+        11px !important;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+.stTextInput input:hover {
+    border-color:
+        #42567d !important;
+}
+
+
+.stTextInput input:focus {
+    border-color:
+        #7468ef !important;
+
+    box-shadow:
+        0 0 0 1px rgba(116, 104, 239, 0.25),
+        0 0 25px rgba(116, 104, 239, 0.07) !important;
+}
+
+
+/* Password input */
+
+.stTextInput input[type="password"] {
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   15. FILE UPLOADER
+========================================================= */
+
+[data-testid="stFileUploader"] {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10, 20, 37, 0.90),
+            rgba(13, 25, 44, 0.90)
+        );
+
+    border:
+        1px dashed rgba(109, 132, 174, 0.40);
+
+    border-radius:
+        12px;
+
+    padding:
+        13px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+[data-testid="stFileUploader"]:hover {
+    border-color:
+        rgba(126, 108, 255, 0.65);
+
+    background:
+        rgba(19, 31, 55, 0.92);
+}
+
+
+[data-testid="stFileUploader"] label {
+    color:
+        #d9e1f2 !important;
+
+    font-size:
+        10px !important;
+
+    font-weight:
+        700 !important;
+}
+
+
+/* File uploader text */
+
+[data-testid="stFileUploader"] section {
+    background:
+        transparent !important;
+
+    border:
+        none !important;
+}
+
+
+/* Browse button */
+
+[data-testid="stFileUploader"] button {
+    color:
+        #dce4f7 !important;
+
+    background:
+        #16243d !important;
+
+    border:
+        1px solid #344866 !important;
+
+    border-radius:
+        8px !important;
+
+    font-size:
+        10px !important;
+
+    font-weight:
+        700 !important;
+}
+
+
+[data-testid="stFileUploader"] button:hover {
+    border-color:
+        #7166e8 !important;
+
+    color:
+        #ffffff !important;
+}
+
+
+/* =========================================================
+   16. BUTTONS
+========================================================= */
+
+.stButton > button,
+.stDownloadButton > button {
+    min-height: 43px;
+
+    border-radius:
+        9px !important;
+
+    font-size:
+        10px !important;
+
+    font-weight:
+        800 !important;
+
+    letter-spacing:
+        0.2px;
+
+    color:
+        #ffffff !important;
+
+    background:
+        linear-gradient(
+            110deg,
+            #6759d9 0%,
+            #437fdc 100%
+        ) !important;
+
+    border:
+        1px solid rgba(147, 139, 255, 0.35) !important;
+
+    box-shadow:
+        0 7px 24px rgba(79, 100, 218, 0.15);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
+}
+
+
+.stButton > button:hover,
+.stDownloadButton > button:hover {
+    color:
+        #ffffff !important;
+
+    border-color:
+        rgba(174, 164, 255, 0.75) !important;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(83, 91, 218, 0.24);
+}
+
+
+.stButton > button:active,
+.stDownloadButton > button:active {
+    transform:
+        translateY(0);
+}
+
+
+/* Secondary button appearance */
+
+button[kind="secondary"] {
+    background:
+        #121f36 !important;
+
+    border:
+        1px solid #344866 !important;
+
+    box-shadow:
+        none !important;
+}
+
+
+/* =========================================================
+   17. DIVIDER
+========================================================= */
+
+hr {
+    border: none !important;
+
+    height: 1px !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #273752,
+            transparent
+        ) !important;
+
+    margin:
+        24px 0 !important;
+}
+
+
+/* =========================================================
+   18. SUCCESS MESSAGE
+========================================================= */
+
+[data-testid="stAlert"] {
+    border-radius:
+        10px !important;
+
+    border:
+        1px solid rgba(53, 214, 162, 0.25) !important;
+
+    background:
+        rgba(27, 83, 67, 0.18) !important;
+
+    color:
+        #a9e8d2 !important;
+
+    font-size:
+        10px !important;
+}
+
+
+/* Custom success panel */
+
+.success-panel {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px 20px;
+
+    margin: 17px 0;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(25, 94, 73, 0.22),
+            rgba(13, 50, 43, 0.22)
+        );
+
+    border:
+        1px solid rgba(53, 214, 162, 0.27);
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.10);
+}
+
+
+.success-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    color: #5de5b5;
+
+    background:
+        rgba(53, 214, 162, 0.12);
+
+    border:
+        1px solid rgba(53, 214, 162, 0.20);
+
+    font-size: 17px;
+}
+
+
+.success-panel h3 {
+    color: #71e9c0;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    margin: 0 0 4px;
+}
+
+
+.success-panel p {
+    color: #91b9ad;
+
+    font-size: 10px;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   19. WARNING / ERROR / INFO
+========================================================= */
+
+.stWarning,
+.stError,
+.stInfo {
+    border-radius:
+        10px !important;
+
+    font-size:
+        10px !important;
+}
+
+
+[data-testid="stAlert"] p {
+    font-size:
+        10px !important;
+}
+
+
+/* =========================================================
+   20. FINGERPRINT PANEL
+========================================================= */
+
+.fingerprint {
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b1528,
+            #0e1a30
+        );
+
+    border:
+        1px solid rgba(114, 104, 226, 0.28);
+
+    border-radius:
+        11px;
+
+    padding:
+        16px 18px;
+
+    margin:
+        18px 0;
+
+    color:
+        #9f96ee;
+
+    font-size:
+        9px;
+
+    line-height:
+        1.9;
+
+    overflow-wrap:
+        anywhere;
+
+    box-shadow:
+        inset 0 0 30px rgba(100, 90, 240, 0.025);
+}
+
+
+.fingerprint strong {
+    display: block;
+
+    color:
+        #e8eaff;
+
+    font-size:
+        11px;
+
+    font-family:
+        "JetBrains Mono",
+        "Consolas",
+        monospace;
+
+    letter-spacing:
+        0.3px;
+
+    margin-top:
+        3px;
+}
+
+
+/* =========================================================
+   21. CODE BLOCKS
+========================================================= */
+
+.stCodeBlock {
+    border-radius:
+        10px !important;
+
+    border:
+        1px solid #273957 !important;
+
+    background:
+        #080f1e !important;
+
+    box-shadow:
+        inset 0 0 30px rgba(0, 0, 0, 0.16);
+}
+
+
+.stCodeBlock pre {
+    font-size:
+        9px !important;
+
+    line-height:
+        1.65 !important;
+}
+
+
+/* =========================================================
+   22. DOWNLOAD BUTTON
+========================================================= */
+
+.stDownloadButton {
+    margin-top:
+        8px;
+}
+
+
+.stDownloadButton > button {
+    background:
+        linear-gradient(
+            110deg,
+            #6558d7,
+            #3e78d0
+        ) !important;
+}
+
+
+/* =========================================================
+   23. SPINNER
+========================================================= */
+
+.stSpinner > div {
+    border-top-color:
+        #8376ff !important;
+}
+
+
+/* =========================================================
+   24. COLUMNS
+========================================================= */
+
+[data-testid="column"] {
+    padding-left:
+        0.35rem;
+
+    padding-right:
+        0.35rem;
+}
+
+
+/* =========================================================
+   25. FOOTER
+========================================================= */
 
 .footer {
+    position: relative;
+
     text-align: center;
-    padding: 38px 15px 15px;
-    margin-top: 55px;
+
+    padding:
+        40px 15px 10px;
+
+    margin-top:
+        55px;
 }
+
 
 .footer-brand {
-    color: #b4a9ff;
-    font-size: 20px;
-    font-weight: 800;
+    color:
+        #a69cff;
+
+    font-size:
+        18px;
+
+    font-weight:
+        850;
+
+    letter-spacing:
+        -0.3px;
 }
 
-.footer p,
-.footer small {
-    color: #8596b3;
-    font-size: 11px;
+
+.footer p {
+    color:
+        #71809d;
+
+    font-size:
+        9px;
+
+    margin:
+        5px 0;
 }
+
+
+.footer small {
+    color:
+        #596984;
+
+    font-size:
+        8px;
+}
+
 
 .footer-line {
-    height: 1px;
-    background: #27344d;
-    margin: 20px auto;
-    max-width: 600px;
+    width:
+        100%;
+
+    max-width:
+        560px;
+
+    height:
+        1px;
+
+    margin:
+        20px auto 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #273650,
+            transparent
+        );
 }
 
-/* RESPONSIVE */
 
-@media(max-width:768px) {
-    .block-container {padding: 1rem;}
-    .hero {padding: 30px 22px;}
-    .hero-visual {display: none;}
-    .hero h1 {font-size: 33px;}
-    .welcome {flex-direction: column;align-items: flex-start;}
-    .topbar {padding: 12px;}
-    .stTabs [data-baseweb="tab"] {
-        padding: 10px 7px;
-        font-size: 10px;
+/* =========================================================
+   26. SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width:
+        7px;
+
+    height:
+        7px;
+}
+
+
+::-webkit-scrollbar-track {
+    background:
+        #070b17;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background:
+        #263653;
+
+    border-radius:
+        20px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background:
+        #3c4e73;
+}
+
+
+/* =========================================================
+   27. MOBILE RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .block-container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .hero {
+        padding:
+            35px 28px;
+
+        min-height:
+            300px;
+    }
+
+    .hero-visual {
+        width:
+            150px;
+
+        height:
+            150px;
+
+        font-size:
+            70px;
+
+        margin-right:
+            0;
     }
 }
 
-</style>
-""", unsafe_allow_html=True)
 
-theme_css = Path(__file__).with_name("style.css").read_text(encoding="utf-8")
-st.markdown(f"<style>{theme_css}</style>", unsafe_allow_html=True)
+@media (max-width: 768px) {
 
+    .block-container {
+        padding:
+            0.8rem !important;
+    }
 
-# ==========================================
-# SESSION STATE
-# ==========================================
+    .topbar {
+        min-height:
+            65px;
 
-defaults = {
-    "generated_keypair": None,
-    "show_public_key": False,
-    "show_private_key": False
+        padding:
+            11px 13px;
+
+        border-radius:
+            13px;
+    }
+
+    .brand-icon {
+        width:
+            39px;
+
+        height:
+            39px;
+
+        font-size:
+            18px;
+    }
+
+    .brand-name {
+        font-size:
+            17px;
+    }
+
+    .brand-subtitle {
+        font-size:
+            7px;
+    }
+
+    .top-status {
+        padding:
+            7px 9px;
+
+        font-size:
+            7px;
+    }
+
+    .hero {
+        padding:
+            30px 22px;
+
+        min-height:
+            0;
+
+        border-radius:
+            18px;
+    }
+
+    .hero h1 {
+        font-size:
+            32px;
+
+        letter-spacing:
+            -1px;
+    }
+
+    .hero-copy {
+        font-size:
+            11px;
+
+        line-height:
+            1.8;
+    }
+
+    .hero-visual {
+        display:
+            none;
+    }
+
+    .hero-tags span {
+        font-size:
+            7px;
+
+        padding:
+            7px 9px;
+    }
+
+    .welcome {
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            15px;
+    }
+
+    .welcome-badge {
+        align-self:
+            flex-start;
+    }
+
+    .stTabs [data-baseweb="tab-list"] {
+        gap:
+            3px;
+
+        overflow-x:
+            auto;
+    }
+
+    .stTabs [data-baseweb="tab"] {
+        min-width:
+            max-content;
+
+        padding:
+            10px 11px;
+
+        font-size:
+            8px;
+    }
+
+    .page-intro h2 {
+        font-size:
+            18px;
+    }
+
+    .page-icon {
+        width:
+            46px;
+
+        height:
+            46px;
+
+        font-size:
+            20px;
+    }
+
+    .feature-card {
+        min-height:
+            190px;
+    }
 }
 
-for key, value in defaults.items():
-    st.session_state.setdefault(key, value)
 
+/* =========================================================
+   28. ACCESSIBILITY / REDUCED MOTION
+========================================================= */
 
-# ==========================================
-# HEADER
-# ==========================================
+@media (prefers-reduced-motion: reduce) {
 
-st.markdown("""
-<div class="topbar">
-    <div class="brand">
-        <div class="brand-icon">🔐</div>
-        <div>
-            <div class="brand-name">SecureVault</div>
-            <div class="brand-subtitle">DOCUMENT SECURITY PLATFORM</div>
-        </div>
-    </div>
-    <div class="top-status">● SYSTEM READY</div>
-</div>
-""", unsafe_allow_html=True)
+    * {
+        transition:
+            none !important;
 
-
-# ==========================================
-# HERO
-# ==========================================
-
-st.markdown("""
-<div class="hero">
-    <div class="hero-content">
-        <div class="hero-label">✦ ADVANCED DOCUMENT PROTECTION</div>
-        <h1>Secure your files.<br>
-        <span>Share with confidence.</span></h1>
-        <p class="hero-copy">
-            Protect sensitive documents using advanced encryption.
-            Generate secure keys, encrypt files and decrypt
-            protected documents with confidence.
-        </p>
-        <div class="hero-tags">
-            <span>🛡 AES-256-GCM</span>
-            <span>🔑 RSA-OAEP</span>
-            <span>✓ AUTHENTICATED ENCRYPTION</span>
-        </div>
-    </div>
-    <div class="hero-visual">🛡️</div>
-</div>
-""", unsafe_allow_html=True)
-
-
-# ==========================================
-# NAVIGATION
-# ==========================================
-
-st.markdown(
-    '<div class="section-heading">SECURITY WORKSPACE</div>',
-    unsafe_allow_html=True
-)
-
-tab_dashboard, tab_keys, tab_encrypt, tab_decrypt = st.tabs([
-    "⌂ Dashboard",
-    "🔑 Generate Keys",
-    "🔒 Encrypt File",
-    "🔓 Decrypt File"
-])
-
-
-# ==========================================
-# DASHBOARD
-# ==========================================
-
-with tab_dashboard:
-
-    st.markdown("""
-    <div class="welcome">
-        <div>
-            <h2>Welcome to SecureVault</h2>
-            <p>Choose a security operation to get started.</p>
-        </div>
-        <div class="welcome-badge">SECURE WORKSPACE</div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    col1, col2, col3 = st.columns(3, gap="large")
-
-    with col1:
-        st.markdown("""
-        <div class="feature-card">
-            <div class="feature-icon purple">🔑</div>
-            <h3>Key Generation</h3>
-            <p>Generate an RSA-3072 public and private key pair.</p>
-            <div class="feature-footer">RSA-3072 ENCRYPTION</div>
-        </div>
-        """, unsafe_allow_html=True)
-
-    with col2:
-        st.markdown("""
-        <div class="feature-card">
-            <div class="feature-icon blue">🔒</div>
-            <h3>File Encryption</h3>
-            <p>Protect documents using authenticated encryption.</p>
-            <div class="feature-footer">AES-256-GCM</div>
-        </div>
-        """, unsafe_allow_html=True)
-
-    with col3:
-        st.markdown("""
-        <div class="feature-card">
-            <div class="feature-icon green">🔓</div>
-            <h3>File Decryption</h3>
-            <p>Recover protected documents using your private key.</p>
-            <div class="feature-footer">AUTHENTICATED DECRYPTION</div>
-        </div>
-        """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="info-panel">
-        <div class="info-icon">💡</div>
-        <div>
-            <h4>How SecureVault Works</h4>
-            <p>
-                First, generate your RSA key pair. Share your public key
-                with the sender. The sender encrypts a document using
-                your public key. Finally, use your private key to decrypt
-                and recover the original document.
-            </p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-
-# ==========================================
-# GENERATE KEYS
-# ==========================================
-
-with tab_keys:
-
-    st.markdown("""
-    <div class="page-intro">
-        <div class="page-icon">🔑</div>
-        <div>
-            <h2>Generate Security Keys</h2>
-            <p>Create your RSA-3072 public and private key pair.</p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    with st.container(border=True):
-
-        st.markdown("#### Private Key Protection")
-
-        st.caption(
-            "Set a strong passphrase to protect your private key."
-        )
-
-        password = st.text_input(
-            "Private key passphrase",
-            type="password",
-            placeholder="Enter a strong passphrase",
-            key="key_password"
-        )
-
-        if st.button(
-            "✦ Generate RSA-3072 Key Pair",
-            type="primary",
-            use_container_width=True
-        ):
-            try:
-                with st.spinner("Generating secure key pair..."):
-                    keypair = core.generate_keypair(
-                        password.encode() or None
-                    )
-
-                st.session_state.generated_keypair = keypair
-                st.session_state.show_public_key = False
-                st.session_state.show_private_key = False
-
-                st.success("RSA key pair generated successfully!")
-
-            except core.SDSPError as e:
-                st.error(f"[{e.status}] {e}")
-
-            except Exception:
-                st.error("Key generation failed. Please try again.")
-
-    if st.session_state.generated_keypair is not None:
-
-        priv, pub = st.session_state.generated_keypair
-
-        st.markdown("### Your Generated Keys")
-
-        st.markdown(
-            f'<div class="fingerprint">PUBLIC KEY FINGERPRINT<br>'
-            f'<strong>{core.fingerprint(pub)}</strong></div>',
-            unsafe_allow_html=True
-        )
-
-        public_col, private_col = st.columns(2, gap="large")
-
-        with public_col:
-            with st.container(border=True):
-
-                st.markdown("#### 🌐 Public Key")
-                st.caption("Share this key with people sending you files.")
-
-                if st.button(
-                    "Show / Hide Public Key",
-                    key="public_toggle",
-                    use_container_width=True
-                ):
-                    st.session_state.show_public_key = (
-                        not st.session_state.show_public_key
-                    )
-
-                if st.session_state.show_public_key:
-                    st.code(pub.decode("ascii"))
-                else:
-                    st.info("Public key is hidden.")
-
-                st.download_button(
-                    "⬇ Download Public Key",
-                    data=pub,
-                    file_name="recipient.public.pem",
-                    mime="application/x-pem-file",
-                    use_container_width=True
-                )
-
-        with private_col:
-            with st.container(border=True):
-
-                st.markdown("#### 🔐 Private Key")
-                st.caption("SECRET — Never share this key.")
-
-                if st.button(
-                    "Show / Hide Private Key",
-                    key="private_toggle",
-                    use_container_width=True
-                ):
-                    st.session_state.show_private_key = (
-                        not st.session_state.show_private_key
-                    )
-
-                if st.session_state.show_private_key:
-                    st.warning("You are displaying your secret key.")
-                    st.code(priv.decode("ascii"))
-                else:
-                    st.success("Private key is hidden.")
-
-                st.download_button(
-                    "⬇ Download Private Key (SECRET)",
-                    data=priv,
-                    file_name="recipient.private.pem",
-                    mime="application/x-pem-file",
-                    use_container_width=True
-                )
-
-
-# ==========================================
-# ENCRYPT FILE
-# ==========================================
-
-with tab_encrypt:
-
-    st.markdown("""
-    <div class="page-intro">
-        <div class="page-icon">🔒</div>
-        <div>
-            <h2>Encrypt Your Document</h2>
-            <p>Protect your documents using the recipient's public key.</p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    with st.container(border=True):
-
-        st.markdown("#### Step 1 — Upload Document")
-
-        uploaded_file = st.file_uploader(
-            "Choose the document you want to protect",
-            key="plain"
-        )
-
-        if uploaded_file:
-            st.success(f"Selected: {uploaded_file.name}")
-            st.caption(
-                f"File size: {uploaded_file.size / 1024:.2f} KB"
-            )
-
-        st.divider()
-
-        st.markdown("#### Step 2 — Upload Recipient Public Key")
-
-        public_key_file = st.file_uploader(
-            "Upload recipient public key (.pem)",
-            type=["pem"],
-            key="pub"
-        )
-
-        if public_key_file:
-            st.success("Recipient public key uploaded.")
-
-        st.divider()
-
-        if st.button(
-            "🔒 Encrypt Document",
-            type="primary",
-            use_container_width=True
-        ):
-
-            if not uploaded_file or not public_key_file:
-                st.warning("Please upload both required files.")
-
-            else:
-                try:
-                    with st.spinner("Encrypting document..."):
-
-                        package = core.encrypt_bytes(
-                            uploaded_file.getvalue(),
-                            public_key_file.getvalue(),
-                            uploaded_file.name
-                        )
-
-                    st.success("Document encrypted successfully!")
-
-                    st.markdown("""
-                    <div class="success-panel">
-                        <div class="success-icon">✓</div>
-                        <div>
-                            <h3>Encryption Complete</h3>
-                            <p>Your protected document is ready.</p>
-                        </div>
-                    </div>
-                    """, unsafe_allow_html=True)
-
-                    st.download_button(
-                        "⬇ Download Encrypted Package",
-                        data=package,
-                        file_name=uploaded_file.name + ".sdsp",
-                        mime="application/octet-stream",
-                        type="primary",
-                        use_container_width=True
-                    )
-
-                except core.SDSPError as e:
-                    st.error(f"[{e.status}] {e}")
-
-                except Exception:
-                    st.error("Encryption failed. Verify your files.")
-
-
-# ==========================================
-# DECRYPT FILE
-# ==========================================
-
-with tab_decrypt:
-
-    st.markdown("""
-    <div class="page-intro">
-        <div class="page-icon">🔓</div>
-        <div>
-            <h2>Decrypt Your Document</h2>
-            <p>Recover your original document using your private key.</p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    with st.container(border=True):
-
-        st.markdown("#### Step 1 — Upload Encrypted Package")
-
-        encrypted_file = st.file_uploader(
-            "Select encrypted package (.sdsp)",
-            key="pkg"
-        )
-
-        if encrypted_file:
-            st.success(f"Package selected: {encrypted_file.name}")
-
-        st.divider()
-
-        st.markdown("#### Step 2 — Upload Your Private Key")
-
-        private_key_file = st.file_uploader(
-            "Select your private key (.pem)",
-            type=["pem"],
-            key="priv"
-        )
-
-        if private_key_file:
-            st.success("Private key uploaded.")
-
-        password2 = st.text_input(
-            "Private key passphrase",
-            type="password",
-            key="pw2",
-            placeholder="Enter your private key passphrase"
-        )
-
-        st.divider()
-
-        if st.button(
-            "🔓 Decrypt Document",
-            type="primary",
-            use_container_width=True
-        ):
-
-            if not encrypted_file or not private_key_file:
-                st.warning("Please upload both required files.")
-
-            else:
-                try:
-                    with st.spinner("Verifying and decrypting..."):
-
-                        data, original_name = core.decrypt_bytes(
-                            encrypted_file.getvalue(),
-                            private_key_file.getvalue(),
-                            password2.encode() or None
-                        )
-
-                    st.success(
-                        "Authenticity verified. Decryption successful!"
-                    )
-
-                    st.markdown("""
-                    <div class="success-panel">
-                        <div class="success-icon">✓</div>
-                        <div>
-                            <h3>Decryption Complete</h3>
-                            <p>Your original document is ready to download.</p>
-                        </div>
-                    </div>
-                    """, unsafe_allow_html=True)
-
-                    st.download_button(
-                        "⬇ Download Original Document",
-                        data=data,
-                        file_name=original_name or "decrypted_file",
-                        mime="application/octet-stream",
-                        type="primary",
-                        use_container_width=True
-                    )
-
-                except core.SDSPError as e:
-                    st.error(f"[{e.status}] {e}")
-
-                except Exception:
-                    st.error(
-                        "Decryption failed. Check your key and passphrase."
-                    )
-
-
-# ==========================================
-# FOOTER
-# ==========================================
-
-st.markdown("""
-<div class="footer">
-    <div class="footer-brand">🔐 SecureVault</div>
-    <p>Secure Document Sharing System</p>
-    <p>Built with Python · Streamlit · Cryptography</p>
-    <div class="footer-line"></div>
-    <small>Educational Prototype | Protect your digital documents.</small>
-</div>
-""", unsafe_allow_html=True)
+        animation:
+            none !important;
+    }
+}
