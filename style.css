@@ -1,111 +1,197 @@
 /* =========================================================
    SECUREVAULT
-   PREMIUM PROFESSIONAL CYBERSECURITY INTERFACE
+   PROFESSIONAL CYBERSECURITY UI
    Streamlit — Complete style.css
 ========================================================= */
 
 
 /* =========================================================
-   01. GLOBAL VARIABLES
+   01. DESIGN SYSTEM
 ========================================================= */
 
 :root {
-    --bg: #070b17;
-    --bg-2: #0b1221;
 
-    --surface: #10192c;
-    --surface-2: #131f36;
-    --surface-3: #172540;
+    /* Main */
+    --bg: #070b16;
+    --bg-soft: #0b1220;
+    --bg-deep: #050914;
 
-    --border: #263754;
-    --border-light: rgba(125, 145, 190, 0.22);
+    /* Surfaces */
+    --surface: #101a2d;
+    --surface-2: #131f35;
+    --surface-3: #182741;
 
-    --primary: #7668f5;
-    --primary-light: #9b91ff;
+    /* Borders */
+    --border: #263957;
+    --border-soft: rgba(125, 150, 190, 0.20);
+    --border-strong: rgba(125, 145, 255, 0.38);
+
+    /* Primary */
+    --primary: #7568f5;
+    --primary-light: #9b93ff;
     --primary-dark: #5146c8;
 
-    --blue: #4d8ff5;
-    --blue-light: #80b2ff;
+    /* Secondary */
+    --cyan: #42c9e8;
+    --cyan-light: #7eeaff;
 
+    /* Status */
     --success: #35d6a2;
-    --warning: #f3bd57;
+    --warning: #f3bf61;
     --danger: #ff667d;
 
-    --text: #f5f7ff;
-    --text-2: #c7d0e3;
-    --muted: #8997b2;
+    /* Text */
+    --text: #f7f9ff;
+    --text-soft: #d5deee;
+    --text-muted: #9aa9c2;
+    --text-dim: #71819c;
 
-    --sidebar-width: 280px;
-
+    /* Radius */
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
     --radius-xl: 22px;
+
+    /* Sidebar */
+    --sidebar-width: 280px;
 }
 
 
 /* =========================================================
-   02. STREAMLIT GLOBAL
+   02. GLOBAL APP
 ========================================================= */
 
 .stApp {
+
+    color: var(--text);
+
     background:
         radial-gradient(
-            circle at 10% 0%,
-            rgba(89, 76, 190, 0.16),
-            transparent 30%
+            circle at 8% 0%,
+            rgba(94, 76, 218, 0.16),
+            transparent 32%
         ),
         radial-gradient(
-            circle at 90% 10%,
-            rgba(46, 108, 205, 0.12),
+            circle at 92% 8%,
+            rgba(39, 154, 204, 0.10),
             transparent 28%
         ),
         linear-gradient(
             135deg,
-            #070b17 0%,
-            #09101e 50%,
-            #070c18 100%
+            #070b16 0%,
+            #09111f 48%,
+            #060a14 100%
         );
 
-    color: var(--text);
+    min-height: 100vh;
 }
 
 
-/* Global font */
+/* =========================================================
+   03. GLOBAL TYPOGRAPHY
+========================================================= */
 
 html,
 body,
 [class*="css"] {
+
     font-family:
         Inter,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
+        Roboto,
+        Arial,
         sans-serif;
 }
 
 
-/* Main page */
+/* Main normal text */
 
-.block-container {
-    max-width: 1480px !important;
+p {
+    color: var(--text-soft);
 
-    padding-top: 1.4rem !important;
-    padding-left: 2.1rem !important;
-    padding-right: 2.1rem !important;
-    padding-bottom: 4rem !important;
+    font-size: 14px;
+
+    line-height: 1.7;
 }
 
 
-/* Hide Streamlit default UI */
+/* Headings */
+
+h1 {
+    color: var(--text) !important;
+
+    font-size: 38px !important;
+
+    line-height: 1.15 !important;
+
+    font-weight: 800 !important;
+}
+
+
+h2 {
+    color: var(--text) !important;
+
+    font-size: 28px !important;
+
+    line-height: 1.25 !important;
+
+    font-weight: 800 !important;
+}
+
+
+h3 {
+    color: var(--text) !important;
+
+    font-size: 20px !important;
+
+    line-height: 1.35 !important;
+
+    font-weight: 750 !important;
+}
+
+
+h4 {
+    color: var(--text-soft) !important;
+
+    font-size: 16px !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   04. MAIN CONTAINER
+========================================================= */
+
+.block-container {
+
+    max-width: 1480px !important;
+
+    padding-top: 1.8rem !important;
+
+    padding-left: 2.2rem !important;
+
+    padding-right: 2.2rem !important;
+
+    padding-bottom: 5rem !important;
+}
+
+
+/* =========================================================
+   05. HIDE STREAMLIT DEFAULT UI
+========================================================= */
 
 #MainMenu {
     visibility: hidden;
 }
 
+
 header {
     visibility: hidden;
 }
+
 
 footer {
     visibility: hidden;
@@ -113,130 +199,157 @@ footer {
 
 
 /* =========================================================
-   03. PREMIUM SIDEBAR
+   06. PREMIUM SIDEBAR
 ========================================================= */
 
 [data-testid="stSidebar"] {
+
     background:
         linear-gradient(
             180deg,
-            #0d1629 0%,
-            #0b1324 50%,
-            #090f1d 100%
+            #0b1324 0%,
+            #09111f 52%,
+            #060c17 100%
         ) !important;
 
     border-right:
-        1px solid rgba(105, 126, 170, 0.20) !important;
+        1px solid rgba(104, 127, 174, 0.25) !important;
 
     box-shadow:
-        8px 0 40px rgba(0, 0, 0, 0.18);
+        12px 0 45px rgba(0, 0, 0, 0.25);
 
-    min-width: var(--sidebar-width);
+    min-width:
+        var(--sidebar-width);
+
+    max-width:
+        var(--sidebar-width);
 }
 
 
-/* Sidebar inner container */
+/* Sidebar internal */
 
 [data-testid="stSidebar"] > div {
+
     background: transparent !important;
 }
 
 
-/* Sidebar content */
+/* Sidebar container */
 
 [data-testid="stSidebar"] .block-container {
+
     padding:
-        1.4rem 1rem !important;
+        1.5rem 1rem !important;
 }
 
 
-/* ---------------------------------------------------------
-   SIDEBAR BRAND
---------------------------------------------------------- */
+/* =========================================================
+   07. SIDEBAR BRAND
+========================================================= */
 
 [data-testid="stSidebar"] .sidebar-brand {
+
     display: flex;
 
     align-items: center;
 
-    gap: 12px;
+    gap: 13px;
 
     padding:
-        10px 8px 20px;
+        8px 8px 22px;
 
     margin-bottom:
-        14px;
+        18px;
 
     border-bottom:
-        1px solid rgba(117, 137, 176, 0.16);
+        1px solid rgba(119, 143, 181, 0.16);
 }
 
 
 [data-testid="stSidebar"] .sidebar-brand-icon {
-    width: 42px;
-    height: 42px;
+
+    width: 46px;
+
+    height: 46px;
+
+    min-width: 46px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
-    border-radius: 11px;
+    border-radius: 13px;
 
     background:
         linear-gradient(
             135deg,
-            #7567f2,
-            #4389ec
+            #7568f5 0%,
+            #438de9 100%
         );
 
     box-shadow:
-        0 8px 25px rgba(92, 103, 230, 0.25);
+        0 10px 30px rgba(91, 103, 230, 0.30);
 
-    font-size: 20px;
+    font-size: 22px;
+
+    color: white;
 }
 
 
 [data-testid="stSidebar"] .sidebar-brand-name {
+
     color: #ffffff;
 
-    font-size: 16px;
+    font-size: 18px;
 
     font-weight: 850;
 
-    letter-spacing: -0.3px;
+    letter-spacing: -0.4px;
+
+    line-height: 1.1;
 }
 
 
 [data-testid="stSidebar"] .sidebar-brand-subtitle {
-    color: #7f8da9;
 
-    font-size: 7px;
+    color: #7f90ad;
+
+    font-size: 9px;
 
     font-weight: 800;
 
-    letter-spacing: 1.8px;
+    letter-spacing: 2px;
 
-    margin-top: 3px;
+    margin-top: 5px;
 }
 
 
-/* ---------------------------------------------------------
-   SIDEBAR HEADINGS
---------------------------------------------------------- */
+/* =========================================================
+   08. SIDEBAR SECTION LABELS
+========================================================= */
 
-[data-testid="stSidebar"] h1,
-[data-testid="stSidebar"] h2,
-[data-testid="stSidebar"] h3 {
-    color: #ffffff !important;
+[data-testid="stSidebar"] .nav-section-title {
 
-    font-weight: 800 !important;
+    color: #687995;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+
+    text-transform: uppercase;
+
+    margin:
+        20px 10px 9px;
 }
 
 
-/* ---------------------------------------------------------
-   SIDEBAR NAVIGATION
---------------------------------------------------------- */
+/* =========================================================
+   09. SIDEBAR NAVIGATION
+========================================================= */
 
 [data-testid="stSidebar"] [data-testid="stPageLink-NavLink"] {
 
@@ -244,16 +357,15 @@ footer {
 
     align-items: center !important;
 
-    min-height: 45px;
+    min-height: 48px;
 
     padding:
-        10px 13px !important;
+        11px 14px !important;
 
     margin:
         5px 0 !important;
 
-    border-radius:
-        10px !important;
+    border-radius: 11px !important;
 
     border:
         1px solid transparent !important;
@@ -262,197 +374,269 @@ footer {
         transparent !important;
 
     color:
-        #aeb9ce !important;
+        #9facbf !important;
 
     transition:
-        all 0.20s ease !important;
+        all 0.22s ease !important;
+
+    position: relative;
 }
 
 
-/* Nav text */
+/* Navigation text */
 
-[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"] p,
-[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"] span {
+[data-testid="stSidebar"]
+[data-testid="stPageLink-NavLink"] p,
+
+[data-testid="stSidebar"]
+[data-testid="stPageLink-NavLink"] span {
+
     color:
-        #aeb9ce !important;
+        #aeb9cc !important;
 
     font-size:
-        11px !important;
+        14px !important;
 
     font-weight:
-        650 !important;
+        600 !important;
+
+    line-height:
+        1.2 !important;
 }
 
 
 /* Navigation icon */
 
-[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"] svg {
+[data-testid="stSidebar"]
+[data-testid="stPageLink-NavLink"] svg {
+
     color:
-        #7f8dac !important;
+        #73839f !important;
 
     width:
-        17px;
+        19px;
 
     height:
-        17px;
+        19px;
+
+    margin-right:
+        7px;
 
     transition:
-        color 0.2s ease;
+        all 0.2s ease;
 }
 
 
-/* ---------------------------------------------------------
-   SIDEBAR HOVER
---------------------------------------------------------- */
+/* =========================================================
+   10. SIDEBAR HOVER
+========================================================= */
 
-[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"]:hover {
+[data-testid="stSidebar"]
+[data-testid="stPageLink-NavLink"]:hover {
 
     background:
         linear-gradient(
             90deg,
-            rgba(111, 99, 238, 0.13),
-            rgba(72, 130, 223, 0.06)
+            rgba(117, 104, 245, 0.15),
+            rgba(56, 191, 225, 0.05)
         ) !important;
 
     border:
-        1px solid rgba(116, 104, 240, 0.28) !important;
+        1px solid rgba(117, 104, 245, 0.25) !important;
 
     transform:
         translateX(3px);
 }
 
 
-[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"]:hover p,
-[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"]:hover span {
+[data-testid="stSidebar"]
+[data-testid="stPageLink-NavLink"]:hover p,
+
+[data-testid="stSidebar"]
+[data-testid="stPageLink-NavLink"]:hover span {
+
     color:
-        #f1f4ff !important;
+        #ffffff !important;
 }
 
 
-[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"]:hover svg {
+[data-testid="stSidebar"]
+[data-testid="stPageLink-NavLink"]:hover svg {
+
     color:
-        #9b91ff !important;
+        #9d96ff !important;
 }
 
 
-/* ---------------------------------------------------------
-   ACTIVE SIDEBAR PAGE
---------------------------------------------------------- */
+/* =========================================================
+   11. ACTIVE NAVIGATION
+========================================================= */
 
-[data-testid="stSidebar"] [aria-current="page"] {
+[data-testid="stSidebar"]
+[data-testid="stPageLink-NavLink"][aria-current="page"] {
 
     background:
         linear-gradient(
-            105deg,
-            #5f55d6 0%,
-            #4b77d8 100%
+            100deg,
+            rgba(117, 104, 245, 0.95),
+            rgba(65, 126, 220, 0.95)
         ) !important;
 
     border:
-        1px solid rgba(156, 151, 255, 0.55) !important;
+        1px solid rgba(166, 160, 255, 0.55) !important;
 
     border-radius:
-        10px !important;
+        11px !important;
 
     box-shadow:
-        0 8px 26px rgba(76, 87, 213, 0.22);
+        0 10px 30px rgba(76, 87, 215, 0.24);
+
+    position: relative;
+}
+
+
+/* Active left indicator */
+
+[data-testid="stSidebar"]
+[data-testid="stPageLink-NavLink"][aria-current="page"]::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -1px;
+
+    top: 10px;
+
+    bottom: 10px;
+
+    width: 3px;
+
+    border-radius: 5px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.7);
 }
 
 
 /* Active text */
 
-[data-testid="stSidebar"] [aria-current="page"] p,
-[data-testid="stSidebar"] [aria-current="page"] span {
+[data-testid="stSidebar"]
+[data-testid="stPageLink-NavLink"][aria-current="page"] p,
+
+[data-testid="stSidebar"]
+[data-testid="stPageLink-NavLink"][aria-current="page"] span {
+
     color:
         #ffffff !important;
 
     font-weight:
-        800 !important;
+        750 !important;
 }
 
 
 /* Active icon */
 
-[data-testid="stSidebar"] [aria-current="page"] svg {
+[data-testid="stSidebar"]
+[data-testid="stPageLink-NavLink"][aria-current="page"] svg {
+
     color:
         #ffffff !important;
 }
 
 
-/* ---------------------------------------------------------
-   SIDEBAR DIVIDER
---------------------------------------------------------- */
+/* =========================================================
+   12. SIDEBAR DIVIDER
+========================================================= */
 
 [data-testid="stSidebar"] hr {
+
     border:
         none !important;
 
     height:
         1px !important;
 
+    margin:
+        22px 0 !important;
+
     background:
         linear-gradient(
             90deg,
             transparent,
-            #293a59,
+            rgba(103, 126, 166, 0.35),
             transparent
         ) !important;
-
-    margin:
-        18px 0 !important;
 }
 
 
-/* ---------------------------------------------------------
-   SIDEBAR TEXT
---------------------------------------------------------- */
+/* =========================================================
+   13. SIDEBAR NORMAL TEXT
+========================================================= */
 
-[data-testid="stSidebar"] p,
-[data-testid="stSidebar"] label {
+[data-testid="stSidebar"] p {
+
     color:
-        #b4bfd3 !important;
+        #9eacc3 !important;
 
     font-size:
-        10px;
+        13px;
 }
 
 
-/* ---------------------------------------------------------
-   SIDEBAR SCROLLBAR
---------------------------------------------------------- */
+[data-testid="stSidebar"] label {
+
+    color:
+        #aebbd0 !important;
+
+    font-size:
+        13px !important;
+}
+
+
+/* =========================================================
+   14. SIDEBAR SCROLLBAR
+========================================================= */
 
 [data-testid="stSidebar"] ::-webkit-scrollbar {
+
     width:
         5px;
 }
 
 
 [data-testid="stSidebar"] ::-webkit-scrollbar-track {
+
     background:
-        #080e1c;
+        #060c16;
 }
 
 
 [data-testid="stSidebar"] ::-webkit-scrollbar-thumb {
+
     background:
-        #303f61;
+        #2c3d5c;
 
     border-radius:
-        10px;
+        20px;
 }
 
 
 [data-testid="stSidebar"] ::-webkit-scrollbar-thumb:hover {
+
     background:
-        #7166e5;
+        #7167e5;
 }
 
 
 /* =========================================================
-   04. TOP HEADER
+   15. TOP HEADER
 ========================================================= */
 
 .topbar {
+
     position: relative;
 
     display: flex;
@@ -461,13 +645,13 @@ footer {
 
     justify-content: space-between;
 
-    min-height: 72px;
+    min-height: 76px;
 
     padding:
-        13px 19px;
+        14px 20px;
 
     margin-bottom:
-        25px;
+        26px;
 
     border-radius:
         var(--radius-lg);
@@ -475,83 +659,108 @@ footer {
     background:
         linear-gradient(
             135deg,
-            rgba(16, 27, 47, 0.96),
-            rgba(10, 19, 35, 0.96)
+            rgba(16, 27, 48, 0.96),
+            rgba(9, 17, 32, 0.96)
         );
 
     border:
-        1px solid var(--border-light);
+        1px solid var(--border-soft);
 
     box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.16);
+        0 18px 50px rgba(0, 0, 0, 0.18);
 }
 
 
-/* Brand */
+/* Top brand */
 
 .brand {
+
     display: flex;
 
     align-items: center;
 
-    gap: 12px;
+    gap: 13px;
 }
 
 
 .brand-icon {
-    width: 44px;
-    height: 44px;
+
+    width: 46px;
+
+    height: 46px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
-    border-radius: 11px;
+    border-radius: 12px;
 
     background:
         linear-gradient(
             135deg,
-            #7668f5,
-            #4388ed
+            #7568f5,
+            #438de9
         );
 
     box-shadow:
-        0 8px 26px rgba(96, 104, 236, 0.25);
+        0 10px 30px rgba(95, 104, 236, 0.28);
 
-    font-size: 21px;
+    font-size: 22px;
 }
 
 
 .brand-name {
-    color: #ffffff;
 
-    font-size: 20px;
+    color:
+        #ffffff;
 
-    font-weight: 850;
+    font-size:
+        21px;
 
-    letter-spacing: -0.4px;
+    font-weight:
+        850;
+
+    letter-spacing:
+        -0.5px;
 }
 
 
 .brand-subtitle {
-    color: #7e8ca7;
 
-    font-size: 7px;
+    color:
+        #8190ab;
 
-    font-weight: 800;
+    font-size:
+        9px;
 
-    letter-spacing: 2px;
+    font-weight:
+        800;
 
-    margin-top: 3px;
+    letter-spacing:
+        2px;
+
+    margin-top:
+        4px;
 }
 
 
+/* Security status */
+
 .top-status {
-    color: #55dfae;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color:
+        #61e2b7;
 
     background:
-        rgba(45, 181, 137, 0.10);
+        rgba(53, 214, 162, 0.09);
 
     border:
         1px solid rgba(53, 214, 162, 0.25);
@@ -560,24 +769,25 @@ footer {
         999px;
 
     padding:
-        8px 13px;
+        9px 15px;
 
     font-size:
-        8px;
+        10px;
 
     font-weight:
         800;
 
     letter-spacing:
-        0.8px;
+        0.7px;
 }
 
 
 /* =========================================================
-   05. HERO
+   16. HERO
 ========================================================= */
 
 .hero {
+
     position: relative;
 
     display: flex;
@@ -586,73 +796,112 @@ footer {
 
     justify-content: space-between;
 
-    min-height: 340px;
+    min-height: 370px;
 
     padding:
-        45px 52px;
+        50px 55px;
 
     margin-bottom:
-        30px;
+        32px;
 
     border-radius:
-        22px;
+        var(--radius-xl);
 
     border:
         1px solid rgba(121, 139, 211, 0.28);
 
     background:
+
         radial-gradient(
             circle at 82% 50%,
-            rgba(104, 91, 244, 0.22),
+            rgba(112, 95, 255, 0.23),
             transparent 32%
         ),
+
         radial-gradient(
-            circle at 62% 100%,
-            rgba(55, 116, 213, 0.13),
-            transparent 32%
+            circle at 65% 100%,
+            rgba(48, 165, 218, 0.13),
+            transparent 35%
         ),
+
         linear-gradient(
             115deg,
-            #111a32,
-            #151f3e 52%,
-            #101b34
+            #111b34,
+            #151f3f 50%,
+            #0e1931
         );
 
     overflow:
         hidden;
 
     box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.18);
+        0 30px 90px rgba(0, 0, 0, 0.20);
 }
 
 
+/* Top glow */
+
 .hero::before {
+
     content: "";
 
     position: absolute;
 
     top: 0;
+
     left: 0;
 
     width: 100%;
-    height: 1px;
+
+    height: 2px;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            #877cff,
+            #8178ff,
+            #4ac9e9,
             transparent
         );
 
     opacity:
-        0.7;
+        0.85;
 }
 
 
+/* Decorative grid */
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+
+    height: 450px;
+
+    right: -220px;
+
+    top: -180px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(131, 142, 255, 0.08);
+
+    box-shadow:
+        0 0 0 40px rgba(117, 104, 245, 0.025),
+        0 0 0 80px rgba(117, 104, 245, 0.018);
+}
+
+
+/* Hero content */
+
 .hero-content {
+
     max-width:
-        750px;
+        780px;
 
     position:
         relative;
@@ -663,53 +912,56 @@ footer {
 
 
 .hero-label {
+
     color:
-        #aaa2ff;
+        #a9a2ff;
 
     font-size:
-        9px;
+        11px;
 
     font-weight:
         850;
 
     letter-spacing:
-        2.3px;
+        2.4px;
 
     margin-bottom:
         17px;
+
+    text-transform:
+        uppercase;
 }
 
 
 .hero h1 {
+
     color:
         #ffffff;
 
     font-size:
-        clamp(34px, 4.2vw, 52px);
+        clamp(38px, 4.5vw, 58px) !important;
 
     line-height:
-        1.08;
+        1.08 !important;
 
     font-weight:
-        850;
+        850 !important;
 
     letter-spacing:
-        -1.5px;
+        -1.8px;
 
     margin:
-        0 0 18px;
+        0 0 19px;
 }
 
 
 .hero h1 span {
-    color:
-        #a69dff;
 
     background:
         linear-gradient(
             90deg,
-            #a69dff,
-            #79a8ff
+            #aaa3ff,
+            #77c8ff
         );
 
     -webkit-background-clip:
@@ -724,24 +976,26 @@ footer {
 
 
 .hero-copy {
+
     max-width:
-        650px;
+        700px;
 
     color:
-        #adb8ce;
+        #b5c0d5;
 
     font-size:
-        12px;
+        15px;
 
     line-height:
-        1.9;
+        1.85;
 
     margin-bottom:
-        21px;
+        24px;
 }
 
 
 .hero-tags {
+
     display:
         flex;
 
@@ -749,38 +1003,42 @@ footer {
         wrap;
 
     gap:
-        8px;
+        9px;
 }
 
 
 .hero-tags span {
+
     color:
-        #cbd4e9;
+        #d5ddef;
 
     background:
-        rgba(255, 255, 255, 0.035);
+        rgba(255, 255, 255, 0.045);
 
     border:
         1px solid rgba(125, 145, 200, 0.23);
 
     border-radius:
-        7px;
-
-    padding:
-        8px 11px;
-
-    font-size:
         8px;
 
+    padding:
+        9px 13px;
+
+    font-size:
+        10px;
+
     font-weight:
-        800;
+        750;
 
     letter-spacing:
-        0.6px;
+        0.4px;
 }
 
 
+/* Hero security icon */
+
 .hero-visual {
+
     display:
         flex;
 
@@ -791,20 +1049,20 @@ footer {
         center;
 
     width:
-        200px;
+        220px;
 
     height:
-        200px;
+        220px;
 
     margin-right:
         25px;
 
     font-size:
-        92px;
+        100px;
 
     filter:
         drop-shadow(
-            0 0 35px rgba(125, 109, 255, 0.42)
+            0 0 40px rgba(127, 112, 255, 0.46)
         );
 
     position:
@@ -816,15 +1074,16 @@ footer {
 
 
 /* =========================================================
-   06. SECTION HEADING
+   17. SECTION HEADINGS
 ========================================================= */
 
 .section-heading {
+
     color:
-        #7f8ca6;
+        #8190aa;
 
     font-size:
-        8px;
+        11px;
 
     font-weight:
         850;
@@ -833,50 +1092,55 @@ footer {
         2px;
 
     margin:
-        5px 0 12px 2px;
+        8px 0 14px 3px;
+
+    text-transform:
+        uppercase;
 }
 
 
 /* =========================================================
-   07. TABS
+   18. STREAMLIT TABS
 ========================================================= */
 
 .stTabs [data-baseweb="tab-list"] {
+
     gap:
-        4px;
+        5px;
 
     padding:
-        6px;
+        7px;
 
     background:
-        rgba(10, 18, 34, 0.94);
+        rgba(8, 15, 29, 0.95);
 
     border:
         1px solid var(--border);
 
     border-radius:
-        13px;
+        14px;
 }
 
 
 .stTabs [data-baseweb="tab"] {
+
     min-height:
-        42px;
+        46px;
 
     padding:
-        10px 18px;
+        11px 20px;
 
     border-radius:
-        9px;
-
-    color:
-        #8f9bb5;
-
-    font-size:
         10px;
 
+    color:
+        #9aa8bf;
+
+    font-size:
+        13px;
+
     font-weight:
-        750;
+        700;
 
     border:
         none;
@@ -887,15 +1151,17 @@ footer {
 
 
 .stTabs [data-baseweb="tab"]:hover {
+
     color:
-        #e5e9f6;
+        #ffffff;
 
     background:
-        rgba(255, 255, 255, 0.03);
+        rgba(255, 255, 255, 0.035);
 }
 
 
 .stTabs [aria-selected="true"] {
+
     color:
         #ffffff !important;
 
@@ -907,21 +1173,23 @@ footer {
         ) !important;
 
     box-shadow:
-        0 7px 23px rgba(78, 89, 211, 0.22);
+        0 8px 25px rgba(78, 89, 211, 0.25);
 }
 
 
 .stTabs [data-baseweb="tab-highlight"] {
+
     display:
         none !important;
 }
 
 
 /* =========================================================
-   08. WELCOME PANEL
+   19. WELCOME PANEL
 ========================================================= */
 
 .welcome {
+
     display:
         flex;
 
@@ -932,47 +1200,52 @@ footer {
         space-between;
 
     padding:
-        21px 23px;
+        25px 27px;
 
     margin:
-        25px 0 19px;
+        27px 0 21px;
 
     border-radius:
-        14px;
+        15px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(18, 31, 54, 0.95),
-            rgba(12, 22, 40, 0.95)
+            rgba(18, 31, 54, 0.96),
+            rgba(10, 20, 37, 0.96)
         );
 
     border:
-        1px solid var(--border-light);
+        1px solid var(--border-soft);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.10);
 }
 
 
 .welcome h2 {
+
     color:
         #ffffff;
 
     font-size:
-        19px;
+        24px !important;
 
     font-weight:
         800;
 
     margin:
-        0 0 5px;
+        0 0 7px;
 }
 
 
 .welcome p {
+
     color:
-        #8997b1;
+        #9aa8bf;
 
     font-size:
-        10px;
+        14px;
 
     margin:
         0;
@@ -980,84 +1253,88 @@ footer {
 
 
 .welcome-badge {
+
     color:
-        #a69dff;
+        #b1aaff;
 
     background:
-        rgba(116, 104, 245, 0.06);
+        rgba(116, 104, 245, 0.08);
 
     border:
-        1px solid rgba(116, 104, 245, 0.25);
+        1px solid rgba(116, 104, 245, 0.27);
 
     border-radius:
-        7px;
+        8px;
 
     padding:
-        8px 12px;
+        9px 13px;
 
     font-size:
-        8px;
+        10px;
 
     font-weight:
         850;
 
     letter-spacing:
-        1.2px;
+        1px;
 }
 
 
 /* =========================================================
-   09. FEATURE CARDS
+   20. FEATURE CARDS
 ========================================================= */
 
 .feature-card {
+
     min-height:
-        205px;
+        230px;
 
     padding:
-        23px 21px;
+        26px 24px;
 
     border-radius:
-        15px;
+        16px;
 
     border:
-        1px solid var(--border-light);
+        1px solid var(--border-soft);
 
     background:
         linear-gradient(
             145deg,
-            rgba(18, 30, 53, 0.96),
-            rgba(10, 19, 35, 0.96)
+            rgba(18, 30, 53, 0.97),
+            rgba(9, 18, 34, 0.97)
         );
 
     box-shadow:
-        0 14px 40px rgba(0, 0, 0, 0.13);
+        0 15px 45px rgba(0, 0, 0, 0.14);
 
     transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
 }
 
 
 .feature-card:hover {
+
     transform:
-        translateY(-4px);
+        translateY(-5px);
 
     border-color:
-        rgba(116, 104, 245, 0.42);
+        rgba(117, 104, 245, 0.45);
 
     box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.22);
+        0 25px 60px rgba(0, 0, 0, 0.24);
 }
 
 
 .feature-icon {
+
     width:
-        46px;
+        52px;
 
     height:
-        46px;
+        52px;
 
     display:
         flex;
@@ -1069,55 +1346,69 @@ footer {
         center;
 
     border-radius:
-        11px;
+        13px;
 
     font-size:
-        20px;
+        23px;
 
     margin-bottom:
-        16px;
+        18px;
 }
 
 
 .purple {
+
     background:
-        rgba(117, 104, 245, 0.14);
+        rgba(117, 104, 245, 0.15);
+
+    border:
+        1px solid rgba(117, 104, 245, 0.16);
 }
 
 
 .blue {
+
     background:
-        rgba(69, 135, 224, 0.13);
+        rgba(66, 145, 232, 0.14);
+
+    border:
+        1px solid rgba(66, 145, 232, 0.15);
 }
 
 
 .green {
+
     background:
-        rgba(47, 191, 145, 0.12);
+        rgba(47, 191, 145, 0.13);
+
+    border:
+        1px solid rgba(47, 191, 145, 0.15);
 }
 
 
 .feature-card h3 {
+
     color:
-        #f3f6ff;
+        #f5f7ff;
 
     font-size:
-        15px;
+        18px;
 
     font-weight:
         800;
 
     margin:
-        0 0 8px;
+        0 0 9px;
 }
 
 
 .feature-card p {
+
     color:
-        #8f9db7;
+        #9aa8bf;
 
     font-size:
-        10px;
+        13px;
 
     line-height:
         1.8;
@@ -1128,11 +1419,12 @@ footer {
 
 
 .feature-footer {
+
     color:
-        #9d94f7;
+        #a49cf8;
 
     font-size:
-        7px;
+        9px;
 
     font-weight:
         850;
@@ -1141,69 +1433,73 @@ footer {
         1.3px;
 
     margin-top:
-        17px;
+        19px;
 }
 
 
 /* =========================================================
-   10. INFO PANEL
+   21. INFO PANEL
 ========================================================= */
 
 .info-panel {
+
     display:
         flex;
 
     gap:
-        15px;
+        16px;
 
     margin-top:
-        21px;
+        23px;
 
     padding:
-        20px;
+        22px;
 
     border-radius:
-        13px;
+        14px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(17, 40, 67, 0.75),
-            rgba(11, 27, 49, 0.75)
+            rgba(17, 40, 67, 0.80),
+            rgba(10, 25, 46, 0.80)
         );
 
     border:
-        1px solid rgba(67, 116, 177, 0.25);
+        1px solid rgba(67, 116, 177, 0.28);
 }
 
 
 .info-icon {
+
     font-size:
-        22px;
+        26px;
 }
 
 
 .info-panel h4 {
+
     color:
         #eef3ff;
 
     font-size:
-        12px;
+        15px;
 
     margin:
-        0 0 5px;
+        0 0 7px;
 }
 
 
 .info-panel p {
+
     color:
-        #91a1bb;
+        #a0afc5;
 
     font-size:
-        10px;
+        13px;
 
     line-height:
-        1.85;
+        1.8;
 
     margin:
         0;
@@ -1211,10 +1507,11 @@ footer {
 
 
 /* =========================================================
-   11. PAGE INTRO
+   22. PAGE INTRO
 ========================================================= */
 
 .page-intro {
+
     display:
         flex;
 
@@ -1222,19 +1519,20 @@ footer {
         center;
 
     gap:
-        14px;
+        16px;
 
     margin:
-        27px 0 20px;
+        30px 0 23px;
 }
 
 
 .page-icon {
+
     width:
-        51px;
+        57px;
 
     height:
-        51px;
+        57px;
 
     display:
         flex;
@@ -1246,44 +1544,46 @@ footer {
         center;
 
     border-radius:
-        13px;
+        14px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(105, 92, 226, 0.23),
+            rgba(105, 92, 226, 0.24),
             rgba(57, 104, 177, 0.16)
         );
 
     border:
-        1px solid rgba(126, 145, 255, 0.23);
+        1px solid rgba(126, 145, 255, 0.25);
 
     font-size:
-        22px;
+        25px;
 }
 
 
 .page-intro h2 {
+
     color:
         #ffffff;
 
     font-size:
-        20px;
+        27px !important;
 
     font-weight:
         800;
 
     margin:
-        0 0 4px;
+        0 0 5px;
 }
 
 
 .page-intro p {
+
     color:
-        #8794ad;
+        #8f9db6;
 
     font-size:
-        10px;
+        14px;
 
     margin:
         0;
@@ -1291,110 +1591,127 @@ footer {
 
 
 /* =========================================================
-   12. CONTAINERS
+   23. CONTAINERS
 ========================================================= */
 
 div[data-testid="stVerticalBlockBorderWrapper"] {
+
     background:
         linear-gradient(
             145deg,
-            rgba(16, 28, 49, 0.94),
-            rgba(10, 19, 35, 0.94)
+            rgba(16, 28, 49, 0.96),
+            rgba(9, 18, 34, 0.96)
         ) !important;
 
     border:
-        1px solid var(--border-light) !important;
+        1px solid var(--border-soft) !important;
 
     border-radius:
-        15px !important;
+        16px !important;
 
     padding:
-        19px !important;
+        21px !important;
 
     box-shadow:
-        0 15px 42px rgba(0, 0, 0, 0.10);
+        0 18px 48px rgba(0, 0, 0, 0.11);
 }
 
 
 /* =========================================================
-   13. INPUTS
+   24. TEXT INPUT
 ========================================================= */
 
 .stTextInput label,
 .stFileUploader label {
+
     color:
-        #d9e2f4 !important;
+        #dce5f5 !important;
 
     font-size:
-        10px !important;
+        13px !important;
 
     font-weight:
-        750 !important;
+        700 !important;
 }
 
 
 .stTextInput input {
+
     min-height:
-        43px;
+        47px;
 
     background:
-        #091324 !important;
+        #091425 !important;
 
     color:
         #ffffff !important;
 
     border:
-        1px solid #2b3d5c !important;
+        1px solid #304362 !important;
 
     border-radius:
-        9px !important;
+        10px !important;
 
     padding:
-        10px 13px !important;
+        11px 14px !important;
 
     font-size:
-        10px !important;
+        14px !important;
+}
+
+
+.stTextInput input::placeholder {
+
+    color:
+        #687993 !important;
 }
 
 
 .stTextInput input:focus {
+
     border-color:
         #7468ef !important;
 
     box-shadow:
-        0 0 0 1px rgba(116, 104, 239, 0.22) !important;
+        0 0 0 2px rgba(116, 104, 239, 0.15) !important;
 }
 
 
 /* =========================================================
-   14. FILE UPLOADER
+   25. FILE UPLOADER
 ========================================================= */
 
 [data-testid="stFileUploader"] {
+
     background:
-        #0c1729;
+        #0b1729;
 
     border:
-        1px dashed #3b4d6c;
+        1px dashed #3e5271;
 
     border-radius:
-        11px;
+        12px;
 
     padding:
-        13px;
+        15px;
 
     transition:
-        all 0.2s ease;
+        all 0.22s ease;
 }
 
 
 [data-testid="stFileUploader"]:hover {
+
     border-color:
-        #7468ef;
+        #7668f5;
+
+    background:
+        #0d1a2f;
 }
 
 
 [data-testid="stFileUploader"] section {
+
     background:
         transparent !important;
 
@@ -1404,27 +1721,29 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 
 
 [data-testid="stFileUploader"] button {
+
     background:
-        #17243d !important;
+        #17263f !important;
 
     color:
-        #dbe4f7 !important;
+        #dce6f8 !important;
 
     border:
-        1px solid #354966 !important;
+        1px solid #3b4f6d !important;
 
     border-radius:
-        8px !important;
-
-    font-size:
         9px !important;
 
+    font-size:
+        12px !important;
+
     font-weight:
-        750 !important;
+        700 !important;
 }
 
 
 [data-testid="stFileUploader"] button:hover {
+
     border-color:
         #7668f5 !important;
 
@@ -1434,16 +1753,20 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 
 
 /* =========================================================
-   15. BUTTONS
+   26. BUTTONS
 ========================================================= */
 
 .stButton > button,
 .stDownloadButton > button {
+
     min-height:
-        43px;
+        47px;
+
+    padding:
+        10px 20px !important;
 
     border-radius:
-        9px !important;
+        10px !important;
 
     color:
         #ffffff !important;
@@ -1456,57 +1779,105 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
         ) !important;
 
     border:
-        1px solid rgba(145, 137, 255, 0.35) !important;
+        1px solid rgba(145, 137, 255, 0.38) !important;
 
     font-size:
-        10px !important;
+        13px !important;
 
     font-weight:
-        800 !important;
+        750 !important;
 
     transition:
-        all 0.18s ease;
+        all 0.20s ease;
 }
 
 
 .stButton > button:hover,
 .stDownloadButton > button:hover {
+
     transform:
         translateY(-2px);
 
     border-color:
-        rgba(171, 163, 255, 0.75) !important;
+        rgba(171, 163, 255, 0.80) !important;
 
     box-shadow:
-        0 12px 30px rgba(76, 90, 215, 0.22);
+        0 14px 32px rgba(76, 90, 215, 0.25);
+}
+
+
+.stButton > button:active,
+.stDownloadButton > button:active {
+
+    transform:
+        translateY(0);
 }
 
 
 /* =========================================================
-   16. FINGERPRINT
+   27. CHECKBOX / RADIO
+========================================================= */
+
+.stCheckbox label,
+.stRadio label {
+
+    color:
+        #cdd8eb !important;
+
+    font-size:
+        13px !important;
+}
+
+
+/* =========================================================
+   28. SELECTBOX
+========================================================= */
+
+div[data-baseweb="select"] > div {
+
+    background:
+        #0b1628 !important;
+
+    border:
+        1px solid #304362 !important;
+
+    border-radius:
+        10px !important;
+
+    color:
+        #ffffff !important;
+
+    min-height:
+        46px;
+}
+
+
+/* =========================================================
+   29. FINGERPRINT
 ========================================================= */
 
 .fingerprint {
+
     background:
-        #0b1528;
+        #0a1528;
 
     border:
-        1px solid rgba(116, 104, 245, 0.27);
+        1px solid rgba(116, 104, 245, 0.30);
 
     border-radius:
-        11px;
+        12px;
 
     padding:
-        15px 17px;
+        17px 19px;
 
     margin:
-        18px 0;
+        19px 0;
 
     color:
-        #9d94f5;
+        #aaa2ff;
 
     font-size:
-        8px;
+        12px;
 
     line-height:
         1.9;
@@ -1517,11 +1888,12 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 
 
 .fingerprint strong {
+
     color:
-        #eef0ff;
+        #f0f2ff;
 
     font-size:
-        10px;
+        13px;
 
     font-family:
         "Consolas",
@@ -1531,15 +1903,16 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 
 
 /* =========================================================
-   17. CODE
+   30. CODE
 ========================================================= */
 
 .stCodeBlock {
+
     border-radius:
-        10px !important;
+        11px !important;
 
     border:
-        1px solid #293b5b !important;
+        1px solid #293c5d !important;
 
     background:
         #080f1e !important;
@@ -1547,38 +1920,45 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 
 
 .stCodeBlock pre {
+
     font-size:
-        9px !important;
+        12px !important;
 
     line-height:
-        1.65 !important;
+        1.7 !important;
 }
 
 
 /* =========================================================
-   18. ALERTS
+   31. ALERTS
 ========================================================= */
 
 [data-testid="stAlert"] {
+
     border-radius:
-        10px !important;
+        11px !important;
 
     font-size:
-        10px !important;
+        13px !important;
 }
 
 
 [data-testid="stAlert"] p {
+
     font-size:
-        10px !important;
+        13px !important;
+
+    line-height:
+        1.6 !important;
 }
 
 
 /* =========================================================
-   19. SUCCESS PANEL
+   32. SUCCESS PANEL
 ========================================================= */
 
 .success-panel {
+
     display:
         flex;
 
@@ -1586,31 +1966,32 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
         center;
 
     gap:
-        15px;
+        16px;
 
     padding:
-        18px;
+        20px;
 
     margin:
-        17px 0;
+        18px 0;
 
     border-radius:
-        12px;
+        13px;
 
     background:
-        rgba(25, 94, 73, 0.16);
+        rgba(25, 94, 73, 0.17);
 
     border:
-        1px solid rgba(53, 214, 162, 0.25);
+        1px solid rgba(53, 214, 162, 0.27);
 }
 
 
 .success-icon {
+
     width:
-        35px;
+        39px;
 
     height:
-        35px;
+        39px;
 
     display:
         flex;
@@ -1628,31 +2009,33 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
         #5ce4b4;
 
     background:
-        rgba(53, 214, 162, 0.10);
+        rgba(53, 214, 162, 0.11);
 
     font-size:
-        16px;
+        18px;
 }
 
 
 .success-panel h3 {
+
     color:
         #6ee9bf;
 
     font-size:
-        13px;
+        16px;
 
     margin:
-        0 0 4px;
+        0 0 5px;
 }
 
 
 .success-panel p {
+
     color:
-        #8ebaae;
+        #9ac7b7;
 
     font-size:
-        10px;
+        13px;
 
     margin:
         0;
@@ -1660,10 +2043,11 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 
 
 /* =========================================================
-   20. DIVIDERS
+   33. DIVIDERS
 ========================================================= */
 
 hr {
+
     border:
         none !important;
 
@@ -1679,32 +2063,45 @@ hr {
         ) !important;
 
     margin:
-        23px 0 !important;
+        28px 0 !important;
 }
 
 
 /* =========================================================
-   21. FOOTER
+   34. DOWNLOAD AREA
+========================================================= */
+
+.stDownloadButton {
+
+    margin-top:
+        8px;
+}
+
+
+/* =========================================================
+   35. FOOTER
 ========================================================= */
 
 .footer {
+
     text-align:
         center;
 
     padding:
-        40px 15px 12px;
+        50px 15px 15px;
 
     margin-top:
-        50px;
+        60px;
 }
 
 
 .footer-brand {
+
     color:
         #a49cff;
 
     font-size:
-        18px;
+        20px;
 
     font-weight:
         850;
@@ -1712,35 +2109,38 @@ hr {
 
 
 .footer p {
+
     color:
-        #71809a;
+        #7d8ca6;
 
     font-size:
-        9px;
+        12px;
 
     margin:
-        5px 0;
+        7px 0;
 }
 
 
 .footer small {
+
     color:
-        #596984;
+        #5e6d86;
 
     font-size:
-        8px;
+        10px;
 }
 
 
 .footer-line {
+
     height:
         1px;
 
     max-width:
-        580px;
+        620px;
 
     margin:
-        19px auto 15px;
+        21px auto 16px;
 
     background:
         linear-gradient(
@@ -1753,27 +2153,30 @@ hr {
 
 
 /* =========================================================
-   22. SCROLLBAR
+   36. SCROLLBAR
 ========================================================= */
 
 ::-webkit-scrollbar {
+
     width:
-        7px;
+        8px;
 
     height:
-        7px;
+        8px;
 }
 
 
 ::-webkit-scrollbar-track {
+
     background:
-        #070b17;
+        #070b16;
 }
 
 
 ::-webkit-scrollbar-thumb {
+
     background:
-        #293a59;
+        #2d3d5c;
 
     border-radius:
         20px;
@@ -1781,114 +2184,169 @@ hr {
 
 
 ::-webkit-scrollbar-thumb:hover {
+
     background:
-        #4b5d82;
+        #596b92;
 }
 
 
 /* =========================================================
-   23. MOBILE RESPONSIVE
+   37. RESPONSIVE — TABLET
 ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
 
     .block-container {
+
         padding-left:
-            1rem !important;
+            1.5rem !important;
 
         padding-right:
-            1rem !important;
+            1.5rem !important;
     }
+
 
     .hero {
+
         padding:
-            35px 28px;
+            40px 38px;
     }
 
+
     .hero-visual {
+
         width:
-            150px;
+            180px;
 
         height:
-            150px;
+            180px;
 
         font-size:
-            70px;
-
-        margin-right:
-            0;
+            82px;
     }
 }
 
 
+/* =========================================================
+   38. RESPONSIVE — MOBILE
+========================================================= */
+
 @media (max-width: 768px) {
 
     .block-container {
+
         padding:
-            0.8rem !important;
+            1rem !important;
     }
+
+
+    h1 {
+
+        font-size:
+            30px !important;
+    }
+
+
+    h2 {
+
+        font-size:
+            24px !important;
+    }
+
+
+    h3 {
+
+        font-size:
+            18px !important;
+    }
+
 
     .topbar {
+
+        min-height:
+            65px;
+
         padding:
-            11px 13px;
+            11px 14px;
     }
 
+
     .brand-icon {
+
         width:
-            39px;
+            40px;
 
         height:
-            39px;
+            40px;
 
         font-size:
             18px;
     }
 
+
     .brand-name {
+
         font-size:
-            17px;
+            18px;
     }
+
 
     .brand-subtitle {
-        font-size:
-            6px;
-    }
-
-    .top-status {
-        padding:
-            7px 9px;
 
         font-size:
             7px;
     }
 
+
+    .top-status {
+
+        padding:
+            7px 10px;
+
+        font-size:
+            8px;
+    }
+
+
     .hero {
+
         min-height:
             0;
 
         padding:
-            30px 22px;
+            32px 24px;
 
         border-radius:
             17px;
     }
 
+
     .hero h1 {
+
         font-size:
-            31px;
+            32px !important;
     }
+
 
     .hero-copy {
+
         font-size:
-            10px;
+            13px;
+
+        line-height:
+            1.75;
     }
 
+
     .hero-visual {
+
         display:
             none;
     }
 
+
     .welcome {
+
         flex-direction:
             column;
 
@@ -1896,45 +2354,72 @@ hr {
             flex-start;
 
         gap:
-            14px;
+            15px;
     }
 
+
+    .welcome h2 {
+
+        font-size:
+            21px !important;
+    }
+
+
+    .feature-card {
+
+        min-height:
+            auto;
+    }
+
+
+    .page-intro h2 {
+
+        font-size:
+            23px !important;
+    }
+
+
+    .page-intro p {
+
+        font-size:
+            13px;
+    }
+
+
     .stTabs [data-baseweb="tab-list"] {
+
         overflow-x:
             auto;
     }
 
+
     .stTabs [data-baseweb="tab"] {
+
         min-width:
             max-content;
 
         padding:
-            9px 10px;
+            10px 14px;
 
         font-size:
-            8px;
+            11px;
     }
 
-    .page-intro h2 {
-        font-size:
-            18px;
-    }
 
-    .page-icon {
-        width:
-            45px;
+    .stButton > button,
+    .stDownloadButton > button {
 
-        height:
+        min-height:
             45px;
 
         font-size:
-            19px;
+            12px !important;
     }
 }
 
 
 /* =========================================================
-   24. REDUCED MOTION
+   39. REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1942,6 +2427,7 @@ hr {
     *,
     *::before,
     *::after {
+
         transition:
             none !important;
 
