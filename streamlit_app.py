@@ -983,4 +983,3 @@ st.markdown("""
     <small>Educational Prototype | Protect your digital documents.</small>
 </div>
 """, unsafe_allow_html=True)
-i want to create the proper and accrate professional interface and stylish sir will be impressed ok
